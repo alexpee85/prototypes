@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Стоматология «Ника» — Нижний Новгород | Концепт главной страницы</title>
+<meta name="description" content="Концепт современной главной страницы для стоматологии «Ника», ул. Июльских Дней 21/96, Нижний Новгород.">
+<style>
+:root{
+  --bg:#ffffff;
+  --surface:#f6f8f9;
+  --ink:#12212b;
+  --ink-muted:#5a6b76;
+  --line:#e2e8ec;
+  --accent:#1f7a6b;
+  --accent-soft:#e8f3f0;
+  --accent-deep:#155a4f;
+  --danger:#b4453a;
+  --radius:14px;
+  --radius-sm:9px;
+  --shadow-sm:0 1px 2px rgba(18,33,43,.06),0 2px 8px rgba(18,33,43,.05);
+  --shadow-md:0 4px 14px rgba(18,33,43,.09);
+  --maxw:1120px;
+  --font:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--accent-deep)}
+h1,h2,h3{line-height:1.15;margin:0 0 .5em;letter-spacing:-.02em;text-wrap:pretty}
+h1{font-size:clamp(1.85rem,5.2vw,3rem);font-weight:700}
+h2{font-size:clamp(1.4rem,3.4vw,2.05rem);font-weight:700}
+h3{font-size:1.12rem;font-weight:650}
+p{margin:0 0 1rem;text-wrap:pretty}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.muted{color:var(--ink-muted)}
+.center{text-align:center}
+section{padding:clamp(48px,8vw,88px) 0}
+
+/* Концепт-бар */
+.concept-bar{
+  background:#12212b;color:#cfe0da;font-size:.83rem;letter-spacing:.01em;
+  padding:9px 0;text-align:center
+}
+.concept-bar strong{color:#fff;font-weight:650}
+
+/* Шапка */
+.site-header{
+  position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);
+  backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)
+}
+.header-inner{
+  display:flex;align-items:center;gap:18px;min-height:68px;flex-wrap:wrap
+}
+.brand{display:flex;align-items:center;gap:11px;margin-right:auto;text-decoration:none;color:var(--ink)}
+.brand-mark{
+  width:40px;height:40px;border-radius:11px;background:var(--accent);color:#fff;
+  display:grid;place-items:center;font-weight:700;font-size:1.06rem;flex:none;letter-spacing:-.03em
+}
+.brand-text{display:flex;flex-direction:column;line-height:1.2}
+.brand-name{font-weight:700;font-size:1.03rem;letter-spacing:-.01em}
+.brand-sub{font-size:.76rem;color:var(--ink-muted)}
+.header-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.header-phone{
+  font-weight:700;text-decoration:none;color:var(--ink);font-size:1.02rem;white-space:nowrap
+}
+.header-phone:hover{color:var(--accent-deep)}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:48px;padding:0 22px;border-radius:var(--radius-sm);border:1px solid transparent;
+  font:inherit;font-weight:650;font-size:.98rem;text-decoration:none;cursor:pointer;
+  transition:background-color .15s ease,color .15s ease,border-color .15s ease,transform .12s ease
+}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-deep)}
+.btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent-deep)}
+.btn-block{width:100%}
+
+/* Первый экран */
+.hero{background:linear-gradient(180deg,var(--accent-soft) 0%,#fff 100%);padding:clamp(40px,7vw,76px) 0 clamp(48px,8vw,88px)}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(28px,5vw,56px);align-items:center}
+.eyebrow{
+  display:inline-block;font-size:.79rem;font-weight:700;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--accent-deep);margin-bottom:14px
+}
+.hero p.lead{font-size:clamp(1.02rem,2.1vw,1.16rem);color:var(--ink-muted);max-width:52ch}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 20px}
+.hero-facts{
+  display:flex;gap:26px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--line);
+  font-size:.9rem;color:var(--ink-muted)
+}
+.hero-facts b{display:block;color:var(--ink);font-size:1.06rem;font-weight:700}
+.hero-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px;box-shadow:var(--shadow-md)
+}
+.hero-card h3{margin-bottom:6px}
+.hero-card dl{margin:16px 0 0;display:grid;grid-template-columns:auto 1fr;gap:9px 16px;font-size:.95rem}
+.hero-card dt{color:var(--ink-muted)}
+.hero-card dd{margin:0;font-weight:600}
+
+/* Услуги */
+.services{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.service{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;transition:border-color .15s ease,background-color .15s ease
+}
+.service:hover{border-color:var(--accent);background:#fff}
+.service h3{margin-bottom:6px}
+.service p{margin:0;font-size:.94rem;color:var(--ink-muted)}
+
+/* Преимущества */
+.why{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.why-item h3{font-size:1.05rem;margin-bottom:5px}
+.why-item p{margin:0;font-size:.94rem;color:var(--ink-muted)}
+
+/* Отзывы */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.review{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;
+  box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:12px
+}
+.review blockquote{margin:0;font-size:.97rem;line-height:1.6}
+.review cite{font-style:normal;font-size:.86rem;color:var(--ink-muted);margin-top:auto}
+
+/* Запись */
+.booking{background:var(--surface);border-top:1px solid var(--line)}
+.booking-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(28px,5vw,52px);align-items:start}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.87rem;font-weight:650;margin-bottom:6px}
+.field input,.field select,.field textarea{
+  width:100%;min-height:48px;padding:11px 13px;border:1px solid var(--line);border-radius:var(--radius-sm);
+  font:inherit;font-size:1rem;background:#fff;color:var(--ink)
+}
+.field textarea{min-height:96px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)
+}
+.field-error{display:none;font-size:.82rem;color:var(--danger);margin-top:5px}
+.field.invalid input,.field.invalid select{border-color:var(--danger)}
+.field.invalid .field-error{display:block}
+
+.consent{
+  display:flex;gap:11px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius-sm);padding:14px;margin:18px 0 16px;font-size:.87rem;color:var(--ink-muted)
+}
+.consent input{
+  width:22px;height:22px;min-width:22px;margin:1px 0 0;accent-color:var(--accent);flex:none;cursor:pointer
+}
+.consent a{color:var(--accent-deep);font-weight:600}
+.consent.invalid{border-color:var(--danger)}
+
+.form-note{font-size:.82rem;color:var(--ink-muted);margin-top:12px}
+.form-success{
+  display:none;background:#fff;border:1px solid var(--accent);border-radius:var(--radius);
+  padding:26px;text-align:center;box-shadow:var(--shadow-sm)
+}
+.form-success.show{display:block}
+.form-success h3{color:var(--accent-deep)}
+
+/* Подвал */
+.site-footer{background:#12212b;color:#a9bcc5;padding:40px 0;font-size:.9rem}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.site-footer h4{color:#fff;font-size:.95rem;margin:0 0 10px;font-weight:650}
+.site-footer ul{list-style:none;padding:0;margin:0;display:grid;gap:7px}
+.site-footer a{color:#a9bcc5;text-decoration:none}
+.site-footer a:hover{color:#fff}
+.footer-bottom{
+  margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);
+  font-size:.82rem;color:#7d929c
+}
+
+/* Мобильное меню */
+.nav-toggle{
+  display:none;width:46px;height:46px;border:1px solid var(--line);background:#fff;
+  border-radius:var(--radius-sm);cursor:pointer;align-items:center;justify-content:center
+}
+.nav-toggle span{display:block;width:19px;height:2px;background:var(--ink);position:relative;transition:background-color .15s}
+.nav-toggle span::before,.nav-toggle span::after{
+  content:'';position:absolute;left:0;width:19px;height:2px;background:var(--ink);transition:transform .18s ease
+}
+.nav-toggle span::before{top:-6px}
+.nav-toggle span::after{top:6px}
+.nav-toggle[aria-expanded="true"] span{background:transparent}
+.nav-toggle[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+.site-nav{display:flex;gap:22px;align-items:center}
+.site-nav a{color:var(--ink);text-decoration:none;font-size:.95rem;font-weight:550}
+.site-nav a:hover{color:var(--accent-deep)}
+
+@media (max-width:980px){
+  .hero-grid,.booking-grid{grid-template-columns:1fr}
+  .why-grid,.reviews{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .nav-toggle{display:flex}
+  .site-nav{
+    display:none;order:3;width:100%;flex-direction:column;align-items:stretch;gap:0;
+    padding:8px 0 14px;border-top:1px solid var(--line);margin-top:8px
+  }
+  .site-nav.open{display:flex}
+  .site-nav a{padding:12px 0;border-bottom:1px solid var(--line);font-size:1rem}
+  .header-actions{width:100%;order:4;padding-bottom:12px}
+  .header-actions .btn{flex:1}
+  .services{grid-template-columns:1fr}
+  .why-grid,.reviews,.footer-grid{grid-template-columns:1fr}
+  .hero-card{order:2}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<div class="concept-bar">
+  <strong>Демонстрационный концепт.</strong> Не является действующим сайтом клиники. Данные формы никуда не отправляются.
+</div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">Н</span>
+      <span class="brand-text">
+        <span class="brand-name">Ника</span>
+        <span class="brand-sub">Стоматология · Нижний Новгород</span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Открыть меню">
+      <span></span>
+    </button>
+
+    <nav class="site-nav" id="siteNav" aria-label="Основная навигация">
+      <a href="#services">Услуги</a>
+      <a href="#why">О клинике</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#booking">Записаться</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+79308178789">+7 (930) 817-87-89</a>
+      <a class="btn btn-primary" href="#booking">Записаться на приём</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Семейная стоматология в Нижнем Новгороде</span>
+        <h1>Лечение зубов без страха и долгих ожиданий</h1>
+        <p class="lead">
+          Клиника «Ника» на улице Июльских Дней — терапевтическая, хирургическая и эстетическая
+          стоматология, имплантация и исправление прикуса. Запись онлайн или по телефону.
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#booking">Записаться на приём</a>
+          <a class="btn btn-ghost" href="tel:+79308178789">Позвонить +7 (930) 817-87-89</a>
+        </div>
+
+        <div class="hero-facts">
+          <div><b>7+ лет</b> клиника работает в Ленинском районе</div>
+          <div><b>6 направлений</b> терапия, хирургия, эстетика</div>
+          <div><b>Имплантация</b> восстановление утраченного зуба</div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Клиника «Ника»</h3>
+        <p class="muted" style="margin:0">Уютная небольшая клиника с внимательным отношением к пациенту.</p>
+        <dl>
+          <dt>Адрес</dt><dd>ул. Июльских Дней, 21/96</dd>
+          <dt>Город</dt><dd>Нижний Новгород</dd>
+          <dt>Телефон</dt><dd><a href="tel:+79308178789">+7 (930) 817-87-89</a></dd>
+          <dt>Метро</dt><dd>Ленинская</dd>
+        </dl>
+        <a class="btn btn-primary btn-block" href="#booking" style="margin-top:20px">Записаться онлайн</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <h2>Услуги клиники</h2>
+      <p class="muted" style="max-width:60ch">Полный спектр стоматологической помощи для взрослых и детей.</p>
+
+      <div class="services">
+        <article class="service">
+          <h3>Терапевтическая стоматология</h3>
+          <p>Лечение кариеса и пульпита, восстановление зубов современными материалами.</p>
+        </article>
+        <article class="service">
+          <h3>Хирургическая стоматология</h3>
+          <p>Удаление зубов любой сложности, операции на мягких тканях полости рта.</p>
+        </article>
+        <article class="service">
+          <h3>Имплантация</h3>
+          <p>Восстановление утраченного зуба — подбор импланта под клиническую ситуацию.</p>
+        </article>
+        <article class="service">
+          <h3>Исправление прикуса</h3>
+          <p>Ортодонтия: диагностика, брекеты, исправление прикуса.</p>
+        </article>
+        <article class="service">
+          <h3>Эстетическая стоматология</h3>
+          <p>Отбеливание и эстетическая реставрация — ровная, естественная улыбка.</p>
+        </article>
+        <article class="service">
+          <h3>Профессиональная гигиена</h3>
+          <p>Ультразвуковая чистка, полировка и рекомендации по уходу за полостью рта.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="why" id="why">
+    <div class="wrap">
+      <h2>Почему пациенты выбирают «Нику»</h2>
+      <div class="why-grid">
+        <div class="why-item">
+          <h3>Внимательный подход</h3>
+          <p>Небольшая клиника: врач знает историю пациента и продолжает лечение последовательно.</p>
+        </div>
+        <div class="why-item">
+          <h3>Современные материалы</h3>
+          <p>Используются материалы последнего поколения и оборудование клиники.</p>
+        </div>
+        <div class="why-item">
+          <h3>Удобное расположение</h3>
+          <p>Улица Июльских Дней, 21/96 — рядом метро «Ленинская», легко добраться из любого района.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap">
+      <h2>Отзывы пациентов</h2>
+      <p class="muted">Фрагменты отзывов с публичных площадок. Полные отзывы — на странице отзывов клиники.</p>
+      <div class="reviews">
+        <article class="review">
+          <blockquote>«В целом стоматология Ника производит положительное впечатление, уютное, комфортное и небольшое заведение.»</blockquote>
+          <cite>Арина, пациент клиники</cite>
+        </article>
+        <article class="review">
+          <blockquote>«Периодически посещаю эту клинику. В целом мне очень нравится, врачи на уровне.»</blockquote>
+          <cite>Константин, пациент клиники</cite>
+        </article>
+        <article class="review">
+          <blockquote>«Цены приемлемые, в основном средние по городу. Ходим сюда всей семьёй.»</blockquote>
+          <cite>Ольга, пациент клиники</cite>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="booking" id="booking">
+    <div class="wrap booking-grid">
+      <div>
+        <h2>Запись на приём</h2>
+        <p class="muted">
+          Оставьте номер — перезвоним в течение рабочего дня и подберём удобное время.
+          Или позвоните сами: <a href="tel:+79308178789"><strong>+7 (930) 817-87-89</strong></a>.
+        </p>
+        <p class="muted" style="font-size:.9rem">
+          <strong>Адрес:</strong> Нижний Новгород, ул. Июльских Дней, 21/96 — метро «Ленинская».
+        </p>
+      </div>
+
+      <div>
+        <form id="demoForm" novalidate>
+          <div class="field" id="f-name">
+            <label for="name">Как к вам обращаться</label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+            <div class="field-error">Укажите имя</div>
+          </div>
+
+          <div class="field" id="f-phone">
+            <label for="phone">Телефон</label>
+            <input type="tel" id="phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+            <div class="field-error">Укажите корректный номер телефона</div>
+          </div>
+
+          <div class="field" id="f-service">
+            <label for="service">Что беспокоит</label>
+            <select id="service" name="service" required>
+              <option value="">Выберите услугу</option>
+              <option>Терапевтическая стоматология</option>
+              <option>Хирургическая стоматология</option>
+              <option>Имплантация</option>
+              <option>Исправление прикуса</option>
+              <option>Эстетическая стоматология</option>
+              <option>Профессиональная гигиена</option>
+            </select>
+            <div class="field-error">Выберите услугу</div>
+          </div>
+
+          <div class="field" id="f-comment">
+            <label for="comment">Комментарий <span class="muted" style="font-weight:400">(необязательно)</span></label>
+            <textarea id="comment" name="comment" rows="3" placeholder="Например: болит зуб справа, удобно после 18:00"></textarea>
+          </div>
+
+          <div class="consent" id="f-consent">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent">
+              Я согласен на обработку персональных данных в соответствии с
+              <a href="#policy">политикой конфиденциальности</a>.
+            </label>
+          </div>
+
+          <button class="btn btn-primary btn-block" type="submit">Записаться на приём</button>
+          <p class="form-note">
+            Это демонстрационная форма концепта. Нажатие не отправляет данные на сервер и не создаёт запись.
+          </p>
+        </form>
+
+        <div class="form-success" id="formSuccess" role="status" aria-live="polite">
+          <h3>Спасибо, заявка принята</h3>
+          <p class="muted" style="margin:0">
+            В реальном сайте здесь заявка ушла бы в CRM или администратору, и вам перезвонили в течение 10 минут.
+            В этом концепте данные не сохраняются.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" id="policy">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>Стоматология «Ника»</h4>
+        <p style="margin:0">
+          Терапевтическая, хирургическая и эстетическая стоматология,
+          имплантация и исправление прикуса в Нижнем Новгороде.
+        </p>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <ul>
+          <li>Нижний Новгород, ул. Июльских Дней, 21/96</li>
+          <li>Метро «Ленинская»</li>
+          <li><a href="tel:+79308178789">+7 (930) 817-87-89</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Разделы</h4>
+        <ul>
+          <li><a href="#services">Услуги</a></li>
+          <li><a href="#why">О клинике</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#booking">Запись на приём</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026. Демонстрационный концепт главной страницы, подготовлен для обсуждения.
+      Сайт не является действующим сайтом клиники и публичной офертой.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  // Мобильное меню
+  var toggle = document.getElementById('navToggle');
+  var nav = document.getElementById('siteNav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function () {
+      var open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      toggle.setAttribute('aria-label', open ? 'Открыть меню' : 'Закрыть меню');
+      nav.classList.toggle('open', !open);
+    });
+    nav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // Маска телефона
+  var phone = document.getElementById('phone');
+  if (phone) {
+    phone.addEventListener('input', function () {
+      var digits = phone.value.replace(/\D/g, '');
+      if (digits.indexOf('8') === 0) digits = '7' + digits.slice(1);
+      if (digits.indexOf('7') !== 0) digits = '7' + digits;
+      digits = digits.slice(0, 11);
+      var out = '+7';
+      if (digits.length > 1) out += ' (' + digits.slice(1, 4);
+      if (digits.length >= 5) out += ') ' + digits.slice(4, 7);
+      if (digits.length >= 8) out += '-' + digits.slice(7, 9);
+      if (digits.length >= 10) out += '-' + digits.slice(9, 11);
+      phone.value = out;
+    });
+  }
+
+  // Валидация формы
+  var form = document.getElementById('demoForm');
+  var success = document.getElementById('formSuccess');
+
+  function setState(wrapperId, valid) {
+    var el = document.getElementById(wrapperId);
+    if (el) el.classList.toggle('invalid', !valid);
+    return valid;
+  }
+
+  function validate() {
+    var ok = true;
+    var name = document.getElementById('name');
+    var tel = document.getElementById('phone');
+    var service = document.getElementById('service');
+    var consent = document.getElementById('consent');
+
+    ok = setState('f-name', name.value.trim().length >= 2) && ok;
+    ok = setState('f-phone', tel.value.replace(/\D/g, '').length === 11) && ok;
+    ok = setState('f-service', service.value !== '') && ok;
+    ok = setState('f-consent', consent.checked) && ok;
+
+    return ok;
+  }
+
+  ['name', 'phone', 'service'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('blur', validate);
+  });
+
+  var consentBox = document.getElementById('consent');
+  if (consentBox) consentBox.addEventListener('change', validate);
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!validate()) {
+        var firstInvalid = form.querySelector('.invalid input, .invalid select');
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
+      form.style.display = 'none';
+      success.classList.add('show');
+      if (typeof success.scrollIntoView === 'function') {
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
