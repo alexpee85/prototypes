@@ -931,14 +931,17 @@ if (slot) {
     morph.update(PHRASES[i]);
     slot.setAttribute('aria-label', PHRASES[i]);
   };
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    let timer = setInterval(swap, 3200);
-    document.addEventListener('visibilitychange', () => {
-      clearInterval(timer);
-      if (!document.hidden) timer = setInterval(swap, 3200);
-    });
-  }
-  slot.addEventListener('click', () => { clearInterval(timer); swap(); });
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // timer объявлен на уровне блока: раньше он жил внутри if, и обращение
+  // к нему ниже бросало ReferenceError, обрывая весь модуль.
+  let timer = null;
+  const start = () => { if (!reduced && !timer) timer = setInterval(swap, 3200); };
+  const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+  start();
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stop(); else start();
+  });
+  slot.addEventListener('click', () => { stop(); swap(); });
 }
 
 /* ---------- 4. Появление блоков при скролле ---------- */
