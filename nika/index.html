@@ -345,15 +345,18 @@ html[data-contrast="high"] .a11y-switch input::after{background:#fff}
   min-height:2.08em
 }
 /* Torph выставляет контейнеру white-space:nowrap — из-за этого фраза
-   не переносилась и наезжала на карточку. Возвращаем перенос:
-   ломать будем по границам слов, чтобы получить ровно две строки. */
+   не переносилась и наезжала на карточку.
+   Важно: #morphSlot совпадает и с .hero-rotate, и с .hero-rotate-inner,
+   поэтому правило для вложенного элемента должно быть сильнее —
+   иначе внешнее перебивает его обратно в nowrap. */
+.hero-rotate #morphSlot,
 .hero-rotate-inner,
 .hero-rotate ._tm-word{
   display:inline-block;
   white-space:normal;
   overflow-wrap:normal;
   word-break:normal;
-  max-width:100%;
+  max-width:100%
 }
 /* Слово не влезает в строку — переносим целиком, а не по буквам */
 .hero-rotate ._tm-word{overflow-wrap:break-word}
