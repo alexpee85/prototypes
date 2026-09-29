@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ky">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ROYAL ORDO — ремонт под ключ в Бишкеке</title>
-<meta name="description" content="Ремонт квартир, домов и офисов под ключ. Бесплатный выезд и смета, Бишкек.">
+<title>ROYAL ORDO — Бишкекте толук ремонт</title>
+<meta name="description" content="Бишкекте квартира, үй жана офис ремонту. Акыркы чегинче, бүт иш. Баштапкы смета, акысыз ченөө.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -27,18 +27,30 @@ h1,h2,h3{font-weight:500;line-height:1.04;letter-spacing:-.035em}
 .num{font-variant-numeric:tabular-nums}
 
 header{position:sticky;top:0;z-index:30;background:rgba(12,13,14,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.hd{display:flex;align-items:center;justify-content:space-between;height:70px}
-.mark{font-weight:700;letter-spacing:.02em;font-size:1.15rem}
+.hd{display:flex;align-items:center;justify-content:space-between;height:70px;gap:20px}
+.mark{font-weight:700;letter-spacing:.02em;font-size:1.15rem;white-space:nowrap}
 .mark i{font-style:normal;color:var(--ac)}
 nav{display:flex;gap:32px;font-size:.82rem;font-weight:400;color:var(--ink-2)}
+nav a{transition:color .2s}
 nav a:hover{color:var(--ac)}
-.hd-cta{background:var(--ac);color:var(--void);padding:10px 20px;font-size:.82rem;font-weight:700}
-.hd-cta:hover{background:var(--ink)}
+.hd-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
 
-/* HERO: полноэкранное фото + текст на подложке снизу, не центр */
+/* переключатель языка — в стиле шапки: без заливки, золотая активная */
+.lang{display:flex;align-items:center;border:1px solid var(--line);height:38px}
+.lang button{
+  font:inherit;font-size:.76rem;font-weight:500;letter-spacing:.06em;
+  padding:0 13px;height:100%;background:transparent;border:0;color:var(--muted);
+  cursor:pointer;transition:color .2s,background .22s;
+}
+.lang button + button{border-left:1px solid var(--line)}
+.lang button:hover{color:var(--ink)}
+.lang button.active{background:var(--ac);color:var(--void);font-weight:700}
+.hd-cta{background:var(--ac);color:var(--void);padding:11px 20px;font-size:.82rem;font-weight:700;white-space:nowrap;transition:background .2s,transform .2s cubic-bezier(.2,.7,.3,1)}
+.hd-cta:hover{background:var(--ink);color:var(--ac);transform:translateY(-2px)}
+
+/* HERO */
 .hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden}
-/* запас хода: translateY до ±(0.18*h) = ±71px при h=792.
-   Нужен запас > 71px с каждой стороны, берём 2x — 150px сверху и снизу. */
+/* запас хода: translateY до ±(0.18*h). Нужен запас > хода с каждой стороны. */
 .hero-img{position:absolute;left:0;right:0;top:-19%;bottom:-19%;z-index:0;will-change:transform}
 .hero-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.42) saturate(.85)}
 .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,13,14,.5) 0%,rgba(12,13,14,.2) 40%,rgba(12,13,14,.94) 100%);z-index:1}
@@ -50,8 +62,9 @@ nav a:hover{color:var(--ac)}
 .hero-tel{font-size:1.6rem;font-weight:500;letter-spacing:-.02em;position:relative;transition:color .2s}
 .hero-tel:hover{color:var(--ac)}
 .hero-tel small{display:block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:5px}
-.btn{background:var(--ac);color:var(--void);padding:15px 30px;font-weight:700;font-size:.9rem;transition:.2s}
-.btn:hover{background:var(--ink)}
+.btn{background:var(--ac);color:var(--void);padding:15px 30px;font-weight:700;font-size:.9rem;transition:background .22s ease,color .22s ease,transform .22s cubic-bezier(.2,.7,.3,1)}
+.btn:hover{background:var(--ink);color:var(--ac);transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
 
 /* метрики */
 .metrics{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--s1)}
@@ -59,9 +72,8 @@ nav a:hover{color:var(--ac)}
 .m{padding:32px 28px;border-right:1px solid var(--line);transition:background .22s ease}
 .m:last-child{border-right:0}
 .m:hover{background:var(--s2)}
-.m b{transition:color .2s}
+.m b{display:block;font-size:1.9rem;font-weight:500;letter-spacing:-.03em;color:var(--ac);margin-bottom:5px;line-height:1;transition:color .2s}
 .m:hover b{color:var(--ink)}
-.m b{display:block;font-size:1.9rem;font-weight:500;letter-spacing:-.03em;color:var(--ac);margin-bottom:5px;line-height:1}
 .m span{font-size:.8rem;color:var(--ink-2);font-weight:300}
 
 section{padding:112px 0}
@@ -69,9 +81,8 @@ section{padding:112px 0}
 .sec-head h2{font-size:clamp(1.9rem,3.6vw,3rem);margin-bottom:20px}
 .sec-head p{color:var(--ink-2);font-weight:300;font-size:1rem}
 
-/* услуги — плотная табличная сетка, не карточки */
+/* услуги — таблица */
 .svc{border-top:1px solid var(--line)}
-/* hover-подсветка строки без сдвига layout: трансформация, не padding */
 .svc-row{
   display:grid;grid-template-columns:78px minmax(0,1.15fr) minmax(0,1.5fr);gap:32px;
   padding:26px 0;border-bottom:1px solid var(--line);align-items:baseline;
@@ -83,13 +94,13 @@ section{padding:112px 0}
 }
 .svc-row:hover{background:var(--s1);transform:translateX(20px)}
 .svc-row:hover::before{transform:scaleY(1)}
-.svc-row:hover .svc-i{color:var(--ac)}
-.svc-row:hover h3{color:var(--ac)}
 .svc-i{font-size:.78rem;color:var(--muted);font-weight:500;letter-spacing:.06em;transition:.2s}
-.svc-row h3{font-size:1.18rem;font-weight:500}
+.svc-row:hover .svc-i{color:var(--ac)}
+.svc-row h3{font-size:1.18rem;font-weight:500;transition:color .2s}
+.svc-row:hover h3{color:var(--ac)}
 .svc-row p{font-size:.9rem;color:var(--ink-2);font-weight:300}
 
-/* этапы — вертикальный таймлайн */
+/* этапы — таймлайн */
 .tl{display:flex;flex-direction:column;border-left:1px solid var(--line);margin-left:38px}
 .tl-item{position:relative;padding:0 0 52px 46px;transition:transform .25s cubic-bezier(.2,.7,.3,1)}
 .tl-item:last-child{padding-bottom:0}
@@ -99,12 +110,12 @@ section{padding:112px 0}
 }
 .tl-item:hover{transform:translateX(8px)}
 .tl-item:hover::before{transform:scale(1.45);box-shadow:0 0 0 5px var(--ac-dim)}
-.tl-item:hover h3{color:var(--ac)}
 .tl-item h3{font-size:1.3rem;margin-bottom:10px;transition:color .2s}
+.tl-item:hover h3{color:var(--ac)}
 .tl-item p{color:var(--ink-2);font-weight:300;font-size:.95rem;max-width:60ch}
 .tl-n{display:block;font-size:.68rem;letter-spacing:.2em;color:var(--muted);margin-bottom:8px}
 
-/* работы — masonry-подобная сетка */
+/* работы */
 .works-sec{background:var(--s1);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .gal{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
 .w1{grid-column:span 8}
@@ -114,14 +125,10 @@ section{padding:112px 0}
 .w5{grid-column:span 4}
 .gal figure{overflow:hidden;background:var(--s2);border-radius:4px;position:relative;transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s ease}
 .gal figure:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.42)}
-.gal figure::after{
-  content:'';position:absolute;inset:0;background:var(--ac);opacity:0;
-  transition:opacity .3s ease;pointer-events:none;mix-blend-mode:overlay;
-}
+.gal figure::after{content:'';position:absolute;inset:0;background:var(--ac);opacity:0;transition:opacity .3s ease;pointer-events:none;mix-blend-mode:overlay}
 .gal figure:hover::after{opacity:.09}
 .gal img{width:100%;height:100%;object-fit:cover;transition:.5s;filter:saturate(.9)}
 .gal figure:hover img{transform:scale(1.035);filter:saturate(1.1)}
-/* номер объекта появляется при наведении */
 .gal figcaption{
   position:absolute;left:0;bottom:0;padding:10px 16px;font-size:.7rem;letter-spacing:.18em;
   color:var(--ac);background:rgba(12,13,14,.82);border-top:1px solid var(--ac);border-right:1px solid var(--ac);
@@ -132,37 +139,33 @@ section{padding:112px 0}
 .w2 img,.w3 img{aspect-ratio:4/5}
 .w4 img,.w5 img{aspect-ratio:4/3}
 
-/* гарантии — 2x2 */
+/* гарантии */
 .gr{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line)}
-.gc{padding:38px 34px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.gc{padding:38px 34px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .22s ease}
 .gc:nth-child(2n){border-right:0}
 .gc:nth-last-child(-n+2){border-bottom:0}
-.gc h3{font-size:1.1rem;margin-bottom:10px}
-.gc p{font-size:.9rem;color:var(--ink-2);font-weight:300}
-.gc{transition:background .22s ease}
 .gc:hover{background:var(--s1)}
-.gc h3{transition:color .2s}
+.gc h3{font-size:1.1rem;margin-bottom:10px;transition:color .2s}
 .gc:hover h3{color:var(--ac)}
+.gc p{font-size:.9rem;color:var(--ink-2);font-weight:300}
 .gc i{font-style:normal;color:var(--ac);display:block;margin-bottom:16px;font-size:.9rem;letter-spacing:.14em;transition:color .2s}
 .gc:hover i{color:var(--ink)}
 
 /* CTA */
-.btn{background:var(--ac);color:var(--void);padding:15px 30px;font-weight:700;font-size:.9rem;transition:background .22s ease,color .22s ease,transform .22s cubic-bezier(.2,.7,.3,1)}
-.btn:hover{background:var(--ink);color:var(--ac);transform:translateY(-2px)}
-.btn:active{transform:translateY(0)}
 .cta{background:var(--ac);color:var(--void)}
 .cta-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:70px;align-items:start}
 .cta h2{font-size:clamp(2rem,3.7vw,3.1rem);margin-bottom:20px;font-weight:500}
 .cta p{font-size:1rem;margin-bottom:30px;max-width:44ch;font-weight:400;opacity:.82}
-.cta .tel{font-size:2rem;font-weight:500;display:block;margin-bottom:6px;letter-spacing:-.02em}
-.cta .ig{font-size:.92rem;opacity:.78}
+.cta .tel{font-size:2rem;font-weight:500;display:block;margin-bottom:6px;letter-spacing:-.02em;transition:opacity .2s}
+.cta .tel:hover{opacity:.72}
+.cta .ig{font-size:.92rem;opacity:.78;transition:opacity .2s}
 .cta .ig:hover{opacity:1}
 form{display:flex;flex-direction:column;gap:11px}
-form input,form textarea{font:inherit;font-size:.92rem;padding:15px 17px;border:1px solid rgba(12,13,14,.3);background:rgba(12,13,14,.07);color:var(--void)}
+form input,form textarea{font:inherit;font-size:.92rem;padding:15px 17px;border:1px solid rgba(12,13,14,.3);background:rgba(12,13,14,.07);color:var(--void);transition:border-color .2s,background .2s}
 form input::placeholder,form textarea::placeholder{color:rgba(12,13,14,.55)}
 form input:focus,form textarea:focus{outline:none;border-color:var(--void);background:rgba(12,13,14,.12)}
 form textarea{resize:vertical;min-height:92px}
-form button{font:inherit;font-weight:700;font-size:.95rem;padding:16px;background:var(--void);color:var(--ac);border:0;cursor:pointer;transition:.2s}
+form button{font:inherit;font-weight:700;font-size:.95rem;padding:16px;background:var(--void);color:var(--ac);border:0;cursor:pointer;transition:background .22s,color .22s}
 form button:hover{background:var(--ink);color:var(--void)}
 .wa{display:block;text-align:center;padding:14px;border:1px solid rgba(12,13,14,.4);font-size:.9rem;font-weight:500;transition:.2s}
 .wa:hover{background:rgba(12,13,14,.1)}
@@ -170,17 +173,17 @@ form button:hover{background:var(--ink);color:var(--void)}
 footer{padding:56px 0;font-size:.85rem;color:var(--muted)}
 .fg{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
 footer b{color:var(--ink);display:block;margin-bottom:13px}
+footer a{transition:color .2s}
 footer a:hover{color:var(--ac)}
 .fb{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);font-size:.78rem}
 
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
-  .svc-row:hover,.tl-item:hover,.btn:hover,.gal figure:hover{transform:none!important}
+  .svc-row:hover,.tl-item:hover,.btn:hover,.hd-cta:hover,.gal figure:hover{transform:none!important}
   .gal img,.gal figure:hover img{transform:none!important}
   .gal figcaption{display:none}
 }
 
-/* доступность: видимый фокус */
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   outline:2px solid var(--ac);outline-offset:3px;
 }
@@ -189,6 +192,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .wrap{padding:0 20px}
   nav{display:none}
   .hero{min-height:78vh}
+  .hd{height:auto;padding:14px 0}
+  .hd-right{gap:8px}
+  .hd-cta{padding:10px 14px;font-size:.78rem}
+  .lang button{padding:0 10px;font-size:.72rem}
   .metrics-grid{grid-template-columns:repeat(2,1fr)}
   .m{border-bottom:1px solid var(--line)}
   section{padding:76px 0}
@@ -211,75 +218,81 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   <div class="hd wrap">
     <div class="mark">ROYAL <i>ORDO</i></div>
     <nav>
-      <a href="#services">Услуги</a>
-      <a href="#steps">Процесс</a>
-      <a href="#works">Работы</a>
-      <a href="#cta">Контакты</a>
+      <a href="#services" data-i18n="nav_services">Кызматтар</a>
+      <a href="#steps" data-i18n="nav_steps">Процесс</a>
+      <a href="#works" data-i18n="nav_works">Иштер</a>
+      <a href="#cta" data-i18n="nav_contacts">Байланыш</a>
     </nav>
-    <a href="#cta" class="hd-cta">Получить смету</a>
+    <div class="hd-right">
+      <div class="lang" role="group" aria-label="Тил / Язык">
+        <button type="button" data-lang="ky" class="active">КЫРГ</button>
+        <button type="button" data-lang="ru">РУС</button>
+      </div>
+      <a href="#cta" class="hd-cta" data-i18n="cta_header">Смета алуу</a>
+    </div>
   </div>
 </header>
 
 <div class="hero">
-  <div class="hero-img"><img src="img/hero.jpg" alt="Готовый интерьер после ремонта"></div>
+  <div class="hero-img"><img src="img/hero.jpg" alt="Ремонттелген интерьер"></div>
   <div class="wrap hero-in">
-    <div class="eyebrow">Ремонт под ключ · Бишкек</div>
-    <h1>Ремонт, который <span>сдают в срок</span></h1>
-    <p>Полный цикл работ: проект, черновые, отделка, электрика, сантехника, уборка. Один договор и одна смета на весь объект.</p>
+    <div class="eyebrow" data-i18n="hero_eyebrow">Толук ремонт · Бишкек</div>
+    <h1><span data-i18n="hero_h1a">Ремонт, который</span> <span data-i18n="hero_h1b">сдают в срок</span></h1>
+    <p data-i18n="hero_p">Толук иш циклі: долбоор, кара материалдар, бүгүнүлтүү, электрика, сантехника, тазалоо. Бир келишим жана бир смета — бүт объектке.</p>
     <div class="hero-row">
-      <a href="#cta" class="btn">Рассчитать стоимость</a>
-      <a href="tel:+996779874777" class="hero-tel"><small>Звоните или WhatsApp</small>+996 779 874 777</a>
+      <a href="#cta" class="btn" data-i18n="hero_btn">Нархын эсептөө</a>
+      <a href="tel:+996****4777" class="hero-tel"><small data-i18n="hero_tel_label">Тел кылыңыз же WhatsApp</small>+996 779 874 777</a>
     </div>
   </div>
 </div>
 
 <div class="metrics">
   <div class="metrics-grid wrap" style="padding:0">
-    <div class="m"><b class="num">0 ₽</b><span>выезд и замер</span></div>
-    <div class="m"><b>12</b><span>этапов работ</span></div>
-    <div class="m"><b class="num">1</b><span>подрядчик на весь объект</span></div>
-    <div class="m"><b class="num">100%</b><span>смета зафиксирована до старта</span></div>
+    <div class="m"><b class="num" data-i18n="m1_v">0 сом</b><span data-i18n="m1_l">чөңүү жана ченөө</span></div>
+    <div class="m"><b class="num" data-i18n="m2_v">12</b><span data-i18n="m2_l">иш баскычы</span></div>
+    <div class="m"><b class="num" data-i18n="m3_v">1</b><span data-i18n="m3_l">иштепчи — бүт объектке</span></div>
+    <div class="m"><b class="num" data-i18n="m4_v">100%</b><span data-i18n="m4_l">смета баштоого чейин бекитилген</span></div>
   </div>
 </div>
 
-<!-- услуги: таблица -->
+<!-- услуги -->
 <section id="services">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Состав работ</div>
-      <h2>Что входит в ремонт под ключ</h2>
-      <p>Двенадцать этапов от демонтажа до сдачи. Каждый — с фиксированной ценой в смете.</p>
+      <div class="eyebrow" data-i18n="svc_eyebrow">Иш курамы</div>
+      <h2 data-i18n="svc_h2">Толук ремонтко эмне кирет</h2>
+      <p data-i18n="svc_p">12 баскыч — бузууудан тапшырууга чейин. Ар бири сметада бекитилген нархта.</p>
     </div>
     <div class="svc">
-      <div class="svc-row"><div class="svc-i">01</div><h3>Проект и материалы</h3><p>Концепция под бюджет и стиль, подбор отделки и технических решений.</p></div>
-      <div class="svc-row"><div class="svc-i">02</div><h3>Демонтаж</h3><p>Снос старых покрытий и конструкций, вынос, подготовка площадки.</p></div>
-      <div class="svc-row"><div class="svc-i">03</div><h3>Черновые работы</h3><p>Выравнивание стен и потолков, стяжка, шумо- и гидроизоляция.</p></div>
-      <div class="svc-row"><div class="svc-i">04</div><h3>Электромонтаж</h3><p>Разводка, розетки и выключатели, подготовка под светильники.</p></div>
-      <div class="svc-row"><div class="svc-i">05</div><h3>Сантехника</h3><p>Разводка труб, установка сантехнического оборудования.</p></div>
-      <div class="svc-row"><div class="svc-i">06</div><h3>Потолочные системы</h3><p>Монтаж потолков со встроенной подсветкой и трековыми линиями.</p></div>
-      <div class="svc-row"><div class="svc-i">07</div><h3>Чистовая отделка</h3><p>Окраска, обои, декоративные панели, молдинги, лепнина.</p></div>
-      <div class="svc-row"><div class="svc-i">08</div><h3>Напольные покрытия</h3><p>Ламинат, паркет, плитка — укладка с точностью геометрии.</p></div>
-      <div class="svc-row"><div class="svc-i">09</div><h3>Двери и откосы</h3><p>Монтаж дверей, плинтусов, откосов.</p></div>
-      <div class="svc-row"><div class="svc-i">10</div><h3>Техника и климат</h3><p>Монтаж и подключение бытовой техники и кондиционеров.</p></div>
-      <div class="svc-row"><div class="svc-i">11</div><h3>Ниши и карнизы</h3><p>Скрытые карнизы, потолочные ниши с подсветкой.</p></div>
-      <div class="svc-row"><div class="svc-i">12</div><h3>Уборка и сдача</h3><p>Финальная уборка, передача готового объекта.</p></div>
+      <div class="svc-row"><div class="svc-i">01</div><h3 data-i18n="s1">Долбоор жана материалдар</h3><p data-i18n="s1d">Бюджетке ыңгайлуу концепция, аяктама жана техника чечимдерун тандоо.</p></div>
+      <div class="svc-row"><div class="svc-i">02</div><h3 data-i18n="s2">Бузуу иштери</h3><p data-i18n="s2d">Эски каттамаларды алыш, тазалоо, аянтма даярдоо.</p></div>
+      <div class="svc-row"><div class="svc-i">03</div><h3 data-i18n="s3">Кара иштер</h3><p data-i18n="s3d">Дубал жана потолок тегиздөө, пол стяжкасы, үн жана гидро изоляция.</p></div>
+      <div class="svc-row"><div class="svc-i">04</div><h3 data-i18n="s4">Электрика</h3><p data-i18n="s4d">Сүйлөмө, розеткалар, өткүчтөр, жарыктандырууга даярдоо.</p></div>
+      <div class="svc-row"><div class="svc-i">05</div><h3 data-i18n="s5">Сантехника</h3><p data-i18n="s5d">Түтүк тартуу, сантехника жабдууларын орнотуу.</p></div>
+      <div class="svc-row"><div class="svc-i">06</div><h3 data-i18n="s6">Потолок системасы</h3><p data-i18n="s6d">Ичиндеги жарыктандыруу жана трек линиялары менен потолок орнотуу.</p></div>
+      <div class="svc-row"><div class="svc-i">07</div><h3 data-i18n="s7">Бүгүнүлтүү</h3><p data-i18n="s7d">Боялоо, обой, декоративдик панелдер, молдинг, лепнина.</p></div>
+      <div class="svc-row"><div class="svc-i">08</div><h3 data-i18n="s8">Пол каптамалары</h3><p data-i18n="s8d">Ламинат, паркет, плитка — геометрияны так улап орнотуу.</p></div>
+      <div class="svc-row"><div class="svc-i">09</div><h3 data-i18n="s9">Эшик, плинтус, откос</h3><p data-i18n="s9d">Эшик, плинтус жана откос монтажу.</p></div>
+      <div class="svc-row"><div class="svc-i">10</div><h3 data-i18n="s10">Техника жана кондиционер</h3><p data-i18n="s10d">Үй техникасын жана кондиционерди орнотуп, күйгүзүү.</p></div>
+      <div class="svc-row"><div class="svc-i">11</div><h3 data-i18n="s11">Ниша жана карниз</h3><p data-i18n="s11d">Жашыруун карниздер, жарыктандыруучу нишалар.</p></div>
+      <div class="svc-row"><div class="svc-i">12</div><h3 data-i18n="s12">Тазалоо жана тапшыруу</h3><p data-i18n="s12d">Финалдык тазалоо, даяр объектти тапшыруу.</p></div>
     </div>
   </div>
 </section>
 
-<!-- этапы: вертикальный таймлайн -->
+<!-- процесс -->
 <section id="steps" style="background:var(--s1);border-top:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Процесс</div>
-      <h2>От звонка до ключей — четыре шага</h2>
-      <p>Без «разберёмся по ходу». Каждый этап зафиксирован в договоре.</p>
+      <div class="eyebrow" data-i18n="stp_eyebrow">Процесс</div>
+      <h2 data-i18n="stp_h2">Коңгүдөн тапшырууга — 4 баскыч</h2>
+      <p data-i18n="stp_p">«Иштеп көрөлү» деген жок. Ар бир баскыч келишимде бекитилген.</p>
     </div>
     <div class="tl">
-      <div class="tl-item"><span class="tl-n">ЭТАП 01</span><h3>Заявка</h3><p>Обсуждаем задачу, ориентируемся по бюджету, площади и срокам. Вы понимаете, можно ли с нами и что это будет стоить.</p></div>
-      <div class="tl-item"><span class="tl-n">ЭТАП 02</span><h3>Выезд и замер</h3><p>Бесплатно выезжаем на объект, снимаем размеры, обсуждаем детали и пожелания по интерьеру.</p></div>
-      <div class="tl-item"><span class="tl-n">ЭТАП 03</span><h3>Смета и договор</h3><p>Считаем подробную смету с фиксированными ценами и графиком. Дальше работаем строго по плану.</p></div>
-      <div class="tl-item"><span class="tl-n">ЭТАП 04</span><h3>Ремонт и сдача</h3><p>Выполняем работы, проводим финальную уборку и передаём готовый объект.</p></div>
+      <div class="tl-item"><span class="tl-n" data-i18n="et1">БАСКЫЧ 01</span><h3 data-i18n="e1">Байламка</h3><p data-i18n="e1d">Тапшырманы телефон же WhatsApp аркылуу сүйлөшөбүз, аянтма, бюджет жана мөөртүмө багытыбыз.</p></div>
+      <div class="tl-item"><span class="tl-n" data-i18n="et2">БАСКЫЧ 02</span><h3 data-i18n="e2">Чыгып чөңөө</h3><p data-i18n="e2d">Объектке акысыз чыгабыз, ченеме алып, деталдарды тактап беребиз.</p></div>
+      <div class="tl-item"><span class="tl-n" data-i18n="et3">БАСКЫЧ 03</span><h3 data-i18n="e3">Смета жана келишим</h3><p data-i18n="e3d">Так сметаны эсептейбиз, нарх менен мөөртүмдү бекитебиз. Андан кийин — план боюнча.</p></div>
+      <div class="tl-item"><span class="tl-n" data-i18n="et4">БАСКЫЧ 04</span><h3 data-i18n="e4">Ремонт жана тапшыруу</h3><p data-i18n="e4d">Иштерди жасап, финалдык тазалоо жана даяр объектти тапшырабыз.</p></div>
     </div>
   </div>
 </section>
@@ -288,32 +301,32 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <section id="works" class="works-sec">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Портфолио</div>
-      <h2>Сданные объекты</h2>
-      <p>Фотографии работ Royal Ordo.</p>
+      <div class="eyebrow" data-i18n="wrk_eyebrow">Портфолио</div>
+      <h2 data-i18n="wrk_h2">Тапшырылган объекттер</h2>
+      <p data-i18n="wrk_p">Royal Ordo иштеринин сүрөттөрү.</p>
     </div>
     <div class="gal">
-      <figure class="w1"><img src="img/work-1.jpg" alt="Готовый интерьер после ремонта"><figcaption>ОБЪЕКТ 01</figcaption></figure>
-      <figure class="w2"><img src="img/work-2.jpg" alt="Потолок с подсветкой"><figcaption>ОБЪЕКТ 02</figcaption></figure>
-      <figure class="w3"><img src="img/work-3.jpg" alt="Декоративные панели"><figcaption>ОБЪЕКТ 03</figcaption></figure>
-      <figure class="w4"><img src="img/work-4.jpg" alt="Сантехнический узел"><figcaption>ОБЪЕКТ 04</figcaption></figure>
-      <figure class="w5"><img src="img/work-6.jpg" alt="Монтаж дверей"><figcaption>ОБЪЕКТ 05</figcaption></figure>
+      <figure class="w1"><img src="img/work-1.jpg" alt="Ремонттелген интерьер"><figcaption data-i18n="obj">ОБЪЕКТ 01</figcaption></figure>
+      <figure class="w2"><img src="img/work-2.jpg" alt="Жарыктандыруулуу потолок"><figcaption data-i18n="obj">ОБЪЕКТ 02</figcaption></figure>
+      <figure class="w3"><img src="img/work-3.jpg" alt="Декоративдик панелдер"><figcaption data-i18n="obj">ОБЪЕКТ 03</figcaption></figure>
+      <figure class="w4"><img src="img/work-4.jpg" alt="Сантехника түйүнү"><figcaption data-i18n="obj">ОБЪЕКТ 04</figcaption></figure>
+      <figure class="w5"><img src="img/work-6.jpg" alt="Эшик монтажу"><figcaption data-i18n="obj">ОБЪЕКТ 05</figcaption></figure>
     </div>
   </div>
 </section>
 
-<!-- гарантии 2x2 -->
+<!-- гарантии -->
 <section>
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Обязательства</div>
-      <h2>Что мы гарантируем</h2>
+      <div class="eyebrow" data-i18n="grt_eyebrow">Мидеттемелер</div>
+      <h2 data-i18n="grt_h2">Биз эмнеге кептүү беребиз</h2>
     </div>
     <div class="gr">
-      <div class="gc"><i>01</i><h3>Бесплатный выезд</h3><p>Консультация и обмеры до подписания договора — без оплаты.</p></div>
-      <div class="gc"><i>02</i><h3>Смета до старта</h3><p>Фиксированные цены. Никаких скрытых платежей в процессе.</p></div>
-      <div class="gc"><i>03</i><h3>Геометрия и детали</h3><p>Карнизы, стеновые панели, молдинги — ровно, без перекосов.</p></div>
-      <div class="gc"><i>04</i><h3>Сдача в срок</h3><p>Работы планируются и сдаются по согласованному графику.</p></div>
+      <div class="gc"><i>01</i><h3 data-i18n="g1">Акысыз чыгып чөнөө</h3><p data-i18n="g1d">Келишимге кол коюлгонго чейин консультация жана ченеме — акысыз.</p></div>
+      <div class="gc"><i>02</i><h3 data-i18n="g2">Баштапкы смета</h3><p data-i18n="g2d">Нарх бекитилген. Иш арашында жашыруун төлөмдөр жок.</p></div>
+      <div class="gc"><i>03</i><h3 data-i18n="g3">Геометрия жана деталдар</h3><p data-i18n="g3d">Карниз, панел, молдинг — так, бузулбай, долбоорго ылайык.</p></div>
+      <div class="gc"><i>04</i><h3 data-i18n="g4">Мөөртүмө берилген</h3><p data-i18n="g4d">Иштер график боюнча жүргүзүлөд жана тапшырылат.</p></div>
     </div>
   </div>
 </section>
@@ -322,18 +335,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <section id="cta" class="cta">
   <div class="cta-grid wrap">
     <div>
-      <h2>Узнайте точную стоимость своего ремонта</h2>
-      <p>Выезд бесплатный, смета подробная. Вы увидите цифру до начала работ.</p>
+      <h2 data-i18n="cta_h2">Ремонтуңуздун так нархын эсептейли</h2>
+      <p data-i18n="cta_p">Чыгып чөңөө акысыз, смета толук. Иш баштоого чейин так санду көрөлү.</p>
       <a href="tel:+996779874777" class="tel">+996 779 874 777</a>
-      <a href="https://instagram.com/royal_ordo_" class="ig" target="_blank">@royal_ordo_ — Instagram</a>
+      <a href="https://instagram.com/royal_ordo_" class="ig" target="_blank" data-i18n="cta_ig">@royal_ordo_ — Instagram</a>
     </div>
-    <form onsubmit="event.preventDefault();window.open('https://wa.me/996779874777?text='+encodeURIComponent('Здравствуйте! Интересует ремонт под ключ. Имя: '+fname.value+', телефон: '+fphone.value+'. '+fmsg.value),'_blank')">
-      <input id="fname" type="text" placeholder="Имя" required>
-      <input id="fphone" type="tel" placeholder="Телефон" required>
-      <input type="text" placeholder="Площадь, тип ремонта, сроки">
-      <textarea id="fmsg" placeholder="Комментарий"></textarea>
-      <button type="submit">Получить смету</button>
-      <a href="https://wa.me/996779874777" class="wa" target="_blank">Написать в WhatsApp</a>
+    <form onsubmit="event.preventDefault();window.open('https://wa.me/996779874777?text='+encodeURIComponent(wMsg()),'_blank')">
+      <input id="fname" type="text" data-i18n-ph="f_name" placeholder="Аты" required>
+      <input id="fphone" type="tel" data-i18n-ph="f_phone" placeholder="Байланыш телефону" required>
+      <input type="text" data-i18n-ph="f_about" placeholder="Аянтма, түрү, мөөртүмү">
+      <textarea id="fmsg" data-i18n-ph="f_msg" placeholder="Пикир"></textarea>
+      <button type="submit" data-i18n="cta_submit">Смета алуу</button>
+      <a href="https://wa.me/996779874777" class="wa" target="_blank" data-i18n="cta_wa">WhatsApp жазуу</a>
     </form>
   </div>
 </section>
@@ -341,47 +354,163 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <footer>
   <div class="wrap">
     <div class="fg">
-      <div><b>ROYAL ORDO</b><p>Ремонт квартир, домов, офисов и коммерческих помещений под ключ. Бишкек.</p></div>
-      <div><b>Контакты</b><p><a href="tel:+996779874777">+996 779 874 777</a></p><p><a href="https://instagram.com/royal_ordo_" target="_blank">@royal_ordo_</a></p></div>
-      <div><b>Разделы</b><p><a href="#services">Услуги</a></p><p><a href="#steps">Процесс</a></p><p><a href="#works">Работы</a></p></div>
+      <div><b>ROYAL ORDO</b><p data-i18n="f_about">Квартира, үй, офис жана коммерциялык помещениелердин толук ремонту. Бишкек.</p></div>
+      <div><b data-i18n="f_contacts">Байланыш</b><p><a href="tel:+996779874777">+996 779 874 777</a></p><p><a href="https://instagram.com/royal_ordo_" target="_blank">@royal_ordo_</a></p></div>
+      <div><b data-i18n="f_sections">Бөлүмдөр</b><p><a href="#services" data-i18n="nav_services">Кызматтар</a></p><p><a href="#steps" data-i18n="nav_steps">Процесс</a></p><p><a href="#works" data-i18n="nav_works">Иштер</a></p></div>
     </div>
-    <div class="fb">© Royal Ordo. Демонстрационный концепт, не действующий сайт.</div>
+    <div class="fb" data-i18n="f_note">© Royal Ordo. Демонстрациялык концепт — иш жүгүртүүчү эмес сайт.</div>
   </div>
 </footer>
 
 <script>
-/* Параллакс фона hero: лёгкий ход изображения относительно текста.
-   Работает только когда фото реально выше вьюпорта (scrollY > 0 в пределах hero).
-   На touch/mobile и при prefers-reduced-motion отключён. */
+/* ---------- Переключатель языка: KY (основной) / RU ---------- */
+var I18N = {
+  ky:{
+    'nav_services':'Кызматтар','nav_steps':'Процесс','nav_works':'Иштер','nav_contacts':'Байланыш',
+    'cta_header':'Смета алуу','hero_eyebrow':'Толук ремонт · Бишкек',
+    'hero_h1a':'Ремонт, который','hero_h1b':'сдают в срок',
+    'hero_p':'Толук иш циклі: долбоор, кара материалдар, бүгүнүлтүү, электрика, сантехника, тазалоо. Бир келишим жана бир смета — бүт объектке.',
+    'hero_btn':'Нархын эсептөө','hero_tel_label':'Тел кылыңыз же WhatsApp',
+    'm1_v':'0 сом','m1_l':'чөңүү жана ченөө','m2_v':'12','m2_l':'иш баскычы',
+    'm3_v':'1','m3_l':'иштепчи — бүт объектке','m4_v':'100%','m4_l':'смета баштоого чейин бекитилген',
+    'svc_eyebrow':'Иш курамы','svc_h2':'Толук ремонтко эмне кирет',
+    'svc_p':'12 баскыч — бузууудан тапшырууга чейин. Ар бири сметада бекитилген нархта.',
+    's1':'Долбоор жана материалдар','s1d':'Бюджетке ыңгайлуу концепция, аяктама жана техника чечимдерун тандоо.',
+    's2':'Бузуу иштери','s2d':'Эски каттамаларды алыш, тазалоо, аянтма даярдоо.',
+    's3':'Кара иштер','s3d':'Дубал жана потолок тегиздөө, пол стяжкасы, үн жана гидро изоляция.',
+    's4':'Электрика','s4d':'Сүйлөмө, розеткалар, өткүчтөр, жарыктандырууга даярдоо.',
+    's5':'Сантехника','s5d':'Түтүк тартуу, сантехника жабдууларын орнотуу.',
+    's6':'Потолок системасы','s6d':'Ичиндеги жарыктандыруу жана трек линиялары менен потолок орнотуу.',
+    's7':'Бүгүнүлтүү','s7d':'Боялоо, обой, декоративдик панелдер, молдинг, лепнина.',
+    's8':'Пол каптамалары','s8d':'Ламинат, паркет, плитка — геометрияны так улап орнотуу.',
+    's9':'Эшик, плинтус, откос','s9d':'Эшик, плинтус жана откос монтажу.',
+    's10':'Техника жана кондиционер','s10d':'Үй техникасын жана кондиционерди орнотуп, күйгүзүү.',
+    's11':'Ниша жана карниз','s11d':'Жашыруун карниздер, жарыктандыруучу нишалар.',
+    's12':'Тазалоо жана тапшыруу','s12d':'Финалдык тазалоо, даяр объектти тапшыруу.',
+    'stp_eyebrow':'Процесс','stp_h2':'Коңгүдөн тапшырууга — 4 баскыч',
+    'stp_p':'«Иштеп көрөлү» деген жок. Ар бир баскыч келишимде бекитилген.',
+    'et1':'БАСКЫЧ 01','e1':'Байламка','e1d':'Тапшырманы телефон же WhatsApp аркылуу сүйлөшөбүз, аянтма, бюджет жана мөөртүмө багытыбыз.',
+    'et2':'БАСКЫЧ 02','e2':'Чыгып чөңөө','e2d':'Объектке акысыз чыгабыз, ченеме алып, деталдарды тактап беребиз.',
+    'et3':'БАСКЫЧ 03','e3':'Смета жана келишим','e3d':'Так сметаны эсептейбиз, нарх менен мөөртүмдү бекитебиз. Андан кийин — план боюнча.',
+    'et4':'БАСКЫЧ 04','e4':'Ремонт жана тапшыруу','e4d':'Иштерди жасап, финалдык тазалоо жана даяр объектти тапшырабыз.',
+    'wrk_eyebrow':'Портфолио','wrk_h2':'Тапшырылган объекттер','wrk_p':'Royal Ordo иштеринин сүрөттөрү.','obj':'ОБЪЕКТ',
+    'grt_eyebrow':'Мидеттемелер','grt_h2':'Биз эмнеге кептүү беребиз',
+    'g1':'Акысыз чыгып чөңөө','g1d':'Келишимге кол коюлгонго чейин консультация жана ченеме — акысыз.',
+    'g2':'Баштапкы смета','g2d':'Нарх бекитилген. Иш арашында жашыруун төлөмдөр жок.',
+    'g3':'Геометрия жана деталдар','g3d':'Карниз, панел, молдинг — так, бузулбай, долбоорго ылайык.',
+    'g4':'Мөөртүмө берилген','g4d':'Иштер график боюнча жүргүзүлөд жана тапшырылат.',
+    'cta_h2':'Ремонтуңуздун так нархын эсептейли',
+    'cta_p':'Чыгып чөңөө акысыз, смета толук. Иш баштоого чейин так санду көрөлү.',
+    'cta_ig':'@royal_ordo_ — Instagram','cta_submit':'Смета алуу','cta_wa':'WhatsApp жазуу',
+    'f_name':'Аты','f_phone':'Байланыш телефону','f_about':'Аянтма, түрү, мөөртүмү','f_msg':'Пикир',
+    'f_contacts':'Байланыш','f_sections':'Бөлүмдөр',
+    'f_about':'Квартира, үй, офис жана коммерциялык помещениелердин толук ремонту. Бишкек.',
+    'f_note':'© Royal Ordo. Демонстрациялык концепт — иш жүгүртүүчү эмес сайт.',
+    'wa_text':'Салам! Толук ремонт менен кызыкырсам. Аты: '
+  },
+  ru:{
+    'nav_services':'Услуги','nav_steps':'Процесс','nav_works':'Работы','nav_contacts':'Контакты',
+    'cta_header':'Получить смету','hero_eyebrow':'Ремонт под ключ · Бишкек',
+    'hero_h1a':'Ремонт, который','hero_h1b':'сдают в срок',
+    'hero_p':'Полный цикл работ: проект, черновые, отделка, электрика, сантехника, уборка. Один договор и одна смета на весь объект.',
+    'hero_btn':'Рассчитать стоимость','hero_tel_label':'Звоните или WhatsApp',
+    'm1_v':'0 ₽','m1_l':'выезд и замер','m2_v':'12','m2_l':'этапов работ',
+    'm3_v':'1','m3_l':'подрядчик на весь объект','m4_v':'100%','m4_l':'смета зафиксирована до старта',
+    'svc_eyebrow':'Состав работ','svc_h2':'Что входит в ремонт под ключ',
+    'svc_p':'Двенадцать этапов от демонтажа до сдачи. Каждый — с фиксированной ценой в смете.',
+    's1':'Проект и материалы','s1d':'Концепция под бюджет и стиль, подбор отделки и технических решений.',
+    's2':'Демонтаж','s2d':'Снос старых покрытий и конструкций, вынос, подготовка площадки.',
+    's3':'Черновые работы','s3d':'Выравнивание стен и потолков, стяжка, шумо- и гидроизоляция.',
+    's4':'Электромонтаж','s4d':'Разводка, розетки и выключатели, подготовка под светильники.',
+    's5':'Сантехника','s5d':'Разводка труб, установка сантехнического оборудования.',
+    's6':'Потолочные системы','s6d':'Монтаж потолков со встроенной подсветкой и трековыми линиями.',
+    's7':'Чистовая отделка','s7d':'Окраска, обои, декоративные панели, молдинги, лепнина.',
+    's8':'Напольные покрытия','s8d':'Ламинат, паркет, плитка — укладка с точностью геометрии.',
+    's9':'Двери и откосы','s9d':'Монтаж дверей, плинтусов, откосов.',
+    's10':'Техника и климат','s10d':'Монтаж и подключение бытовой техники и кондиционеров.',
+    's11':'Ниши и карнизы','s11d':'Скрытые карнизы, потолочные ниши с подсветкой.',
+    's12':'Уборка и сдача','s12d':'Финальная уборка, передача готового объекта.',
+    'stp_eyebrow':'Процесс','stp_h2':'От звонка до ключей — четыре шага',
+    'stp_p':'Без «разберёмся по ходу». Каждый этап зафиксирован в договоре.',
+    'et1':'ЭТАП 01','e1':'Заявка','e1d':'Обсуждаем задачу по телефону или WhatsApp, ориентируемся по площади и бюджету.',
+    'et2':'ЭТАП 02','e2':'Выезд и замер','e2d':'Бесплатно выезжаем на объект, снимаем размеры, уточняем детали.',
+    'et3':'ЭТАП 03','e3':'Смета и договор','e3d':'Считаем подробную смету, фиксируем цены и сроки. Дальше — по плану.',
+    'et4':'ЭТАП 04','e4':'Ремонт и сдача','e4d':'Выполняем работы, проводим финальную уборку и передаём готовый объект.',
+    'wrk_eyebrow':'Портфолио','wrk_h2':'Сданные объекты','wrk_p':'Фотографии работ Royal Ordo.','obj':'ОБЪЕКТ',
+    'grt_eyebrow':'Обязательства','grt_h2':'Что мы гарантируем',
+    'g1':'Бесплатный выезд','g1d':'Консультация и обмеры до подписания договора — без оплаты.',
+    'g2':'Смета до старта','g2d':'Фиксированные цены. Никаких скрытых платежей в процессе.',
+    'g3':'Геометрия и детали','g3d':'Карнизы, панели, молдинги — ровно, без перекосов.',
+    'g4':'Сдача в срок','g4d':'Работы планируются и сдаются по графику.',
+    'cta_h2':'Узнайте точную стоимость своего ремонта',
+    'cta_p':'Выезд бесплатный, смета подробная. Точную цифру вы увидите до начала работ.',
+    'cta_ig':'@royal_ordo_ — Instagram','cta_submit':'Получить смету','cta_wa':'Написать в WhatsApp',
+    'f_name':'Имя','f_phone':'Телефон для связи','f_about':'Площадь, тип ремонта, сроки','f_msg':'Комментарий',
+    'f_contacts':'Контакты','f_sections':'Разделы',
+    'f_about':'Ремонт квартир, домов, офисов и коммерческих помещений под ключ. Бишкек.',
+    'f_note':'© Royal Ordo. Демонстрационный концепт, не действующий сайт.',
+    'wa_text':'Здравствуйте! Интересует ремонт под ключ. Имя: '
+  }
+};
+var cur = 'ky';
+var $ = function(s){ return document.querySelector(s); };
+
+function wMsg(){
+  var d = I18N[cur];
+  return d.wa_text + ($('#fname')||{}).value + ', телефон: ' + (($('#fphone')||{}).value||'') + '. ' + (($('#fmsg')||{}).value||'');
+}
+
+function setLang(l){
+  cur = l;
+  var d = I18N[l];
+  document.documentElement.lang = l;
+  document.title = (l==='ky') ? 'ROYAL ORDO — Бишкекте толук ремонт'
+                                 : 'ROYAL ORDO — ремонт под ключ в Бишкеке';
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k = el.getAttribute('data-i18n');
+    if (d[k] !== undefined) el.textContent = d[k];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+    var k = el.getAttribute('data-i18n-ph');
+    if (d[k] !== undefined) el.placeholder = d[k];
+  });
+  document.querySelectorAll('.lang button').forEach(function(b){
+    b.classList.toggle('active', b.getAttribute('data-lang') === l);
+    b.setAttribute('aria-pressed', b.getAttribute('data-lang') === l ? 'true' : 'false');
+  });
+  try { localStorage.setItem('ro-lang', l); } catch(e){}
+}
+
+document.querySelectorAll('.lang button').forEach(function(b){
+  b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang')); });
+});
+
+/* ---------- Параллакс фона hero ---------- */
 (function(){
   var layer = document.querySelector('.hero-img');
   var hero  = document.querySelector('.hero');
   if (!layer || !hero) return;
-
   var fine   = window.matchMedia('(pointer:fine)').matches;
   var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
   if (!fine || reduce) return;
-
   var ticking = false;
-
   function update(){
     var h = hero.offsetHeight;
-    // прогресс 0..1: 0 — верх hero в вьюпорте, 1 — hero ушёл целиком
     var p = Math.min(1, Math.max(0, window.scrollY / h));
-    // максимальный ход 9% высоты hero в каждую сторону
     var shift = (p - 0.5) * h * 0.18;
     layer.style.transform = 'translate3d(0,' + shift.toFixed(2) + 'px,0)';
     ticking = false;
   }
-
-  function onScroll(){
-    if (!ticking){ ticking = true; requestAnimationFrame(update); }
-  }
-
+  function onScroll(){ if (!ticking){ ticking = true; requestAnimationFrame(update); } }
   window.addEventListener('scroll', onScroll, {passive:true});
   window.addEventListener('resize', onScroll);
   update();
 })();
+
+/* ---------- Инициализация языка ---------- */
+var saved = null;
+try { saved = localStorage.getItem('ro-lang'); } catch(e){}
+setLang(saved === 'ru' ? 'ru' : 'ky');
 </script>
 </body>
 </html>
