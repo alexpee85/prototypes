@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ROYAL ORDO — ремонт под ключ в Бишкеке</title>
+<meta name="description" content="Ремонт квартир, домов и офисов под ключ. Бесплатный выезд и смета, Бишкек.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FAF7F2; --paper-2:#F2EDE4; --ink:#1A1815; --ink-2:#4A453D;
+  --muted:#8A8175; --line:#DCD4C7; --accent:#9A3412; --accent-soft:#C2410C;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Manrope',system-ui,sans-serif;background:var(--paper);color:var(--ink);
+  line-height:1.6;-webkit-font-smoothing:antialiased;font-weight:400;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.display{font-family:'Fraunces',Georgia,serif;font-weight:400;line-height:1.05;letter-spacing:-.02em}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.eyebrow{
+  font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:20px;
+}
+.rule{height:1px;background:var(--line);border:0}
+
+/* header */
+header{position:sticky;top:0;z-index:30;background:rgba(250,247,242,.94);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;justify-content:space-between;height:76px}
+.mark{font-family:'Fraunces',serif;font-size:1.5rem;letter-spacing:-.03em}
+.mark i{font-style:normal;color:var(--accent)}
+nav{display:flex;gap:34px;font-size:.875rem;font-weight:500}
+nav a{color:var(--ink-2);position:relative;padding-bottom:2px}
+nav a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--accent);transition:width .25s}
+nav a:hover{color:var(--ink)}
+nav a:hover::after{width:100%}
+.hd-cta{background:var(--ink);color:var(--paper);padding:11px 22px;font-size:.85rem;font-weight:600;border-radius:2px}
+.hd-cta:hover{background:var(--accent)}
+
+/* hero — асимметричная композиция, не центр-стек */
+.hero{padding:0;position:relative}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:0;align-items:stretch}
+.hero-copy{padding:96px 48px 96px 32px;display:flex;flex-direction:column;justify-content:center}
+.hero-copy h1{font-size:clamp(2.9rem,5.4vw,4.9rem);margin-bottom:28px}
+.hero-copy h1 em{font-style:italic;color:var(--accent)}
+.hero-copy p{font-size:1.075rem;color:var(--ink-2);max-width:44ch;margin-bottom:36px;font-weight:300}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn-primary{background:var(--accent);color:#fff;padding:15px 30px;font-weight:600;font-size:.95rem;border-radius:2px;transition:background .2s}
+.btn-primary:hover{background:var(--ink)}
+.btn-ghost{border:1px solid var(--ink);color:var(--ink);padding:14px 28px;font-weight:500;font-size:.95rem;border-radius:2px;transition:.2s}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.hero-fig{position:relative;min-height:600px;background:var(--paper-2)}
+.hero-fig img{width:100%;height:100%;object-fit:cover}
+.hero-badge{
+  position:absolute;left:0;bottom:0;background:var(--paper);padding:20px 28px;
+  border-top:1px solid var(--line);border-right:1px solid var(--line);
+}
+.hero-badge b{font-family:'Fraunces',serif;font-size:1.5rem;display:block;line-height:1}
+.hero-badge span{font-size:.75rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+
+/* полоса доверия */
+.trust{border-bottom:1px solid var(--line);background:var(--paper-2)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.trust-item{padding:28px 24px;border-right:1px solid var(--line)}
+.trust-item:last-child{border-right:0}
+.trust-item b{display:block;font-size:.9rem;font-weight:600;margin-bottom:4px}
+.trust-item span{font-size:.82rem;color:var(--muted)}
+
+/* секции */
+section{padding:110px 0}
+.sec-head{max-width:62ch;margin-bottom:64px}
+.sec-head h2{font-size:clamp(2rem,3.6vw,3.1rem);margin-bottom:18px}
+.sec-head p{color:var(--ink-2);font-size:1.02rem;font-weight:300}
+
+/* услуги — НЕ одинаковые карточки: нумерованный список с фото у первых */
+.svc{display:grid;grid-template-columns:repeat(12,1fr);gap:0;border-top:1px solid var(--line)}
+.svc-item{
+  grid-column:span 4;padding:40px 32px 40px 0;border-bottom:1px solid var(--line);
+  display:flex;flex-direction:column;gap:12px;
+}
+.svc-item:nth-child(3n+2),.svc-item:nth-child(3n+3){padding-left:32px;border-left:1px solid var(--line)}
+.svc-num{font-family:'Fraunces',serif;font-size:.85rem;color:var(--accent);letter-spacing:.1em}
+.svc-item h3{font-size:1.28rem;line-height:1.25}
+.svc-item p{font-size:.9rem;color:var(--muted);font-weight:300}
+
+/* процесс — горизонтальная ось, не колонки */
+.process{background:var(--ink);color:var(--paper)}
+.process .eyebrow{color:var(--accent-soft)}
+.process .sec-head h2{color:var(--paper)}
+.process .sec-head p{color:rgba(250,247,242,.66)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(250,247,242,.18)}
+.step{padding:36px 28px;border-right:1px solid rgba(250,247,242,.18);position:relative}
+.step:last-child{border-right:0}
+.step-num{font-family:'Fraunces',serif;font-size:2.6rem;color:rgba(250,247,242,.16);line-height:1;margin-bottom:20px}
+.step h3{font-size:1.12rem;margin-bottom:10px;color:var(--paper)}
+.step p{font-size:.88rem;color:rgba(250,247,242,.6);font-weight:300}
+
+/* работы — асимметричная сетка, разный вес блоков */
+.work{background:var(--paper-2)}
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.g-a{grid-column:span 7;grid-row:span 2}
+.g-b{grid-column:span 5}
+.g-c{grid-column:span 5}
+.g-d{grid-column:span 4}
+.g-e{grid-column:span 4}
+.g-f{grid-column:span 4}
+.gallery figure{position:relative;overflow:hidden;background:var(--paper);border-radius:2px}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+.gallery figure:hover img{transform:scale(1.04)}
+.g-a img{aspect-ratio:4/5}
+.g-b img,.g-c img{aspect-ratio:16/10}
+.g-d img,.g-e img,.g-f img{aspect-ratio:4/3}
+
+/* гарантии */
+.guarantee{display:grid;grid-template-columns:repeat(2,1fr);gap:56px;align-items:start}
+.g-list{display:flex;flex-direction:column}
+.g-row{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid var(--line)}
+.g-row:first-child{border-top:1px solid var(--line)}
+.g-mark{flex:0 0 26px;height:26px;border:1.5px solid var(--accent);border-radius:50%;display:grid;place-items:center;font-size:.72rem;color:var(--accent);margin-top:3px}
+.g-row b{font-weight:600;font-size:.98rem;display:block;margin-bottom:3px}
+.g-row span{font-size:.88rem;color:var(--muted);font-weight:300}
+
+/* CTA + форма */
+.cta{background:var(--accent);color:#fff;padding:96px 0}
+.cta-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:start}
+.cta h2{font-size:clamp(2.1rem,3.8vw,3.2rem);color:#fff;margin-bottom:22px}
+.cta p{color:rgba(255,255,255,.82);font-size:1.02rem;font-weight:300;max-width:42ch;margin-bottom:32px}
+.cta-tel{display:inline-block;font-family:'Fraunces',serif;font-size:2rem;color:#fff;margin-bottom:8px}
+.cta-ig{color:rgba(255,255,255,.82);font-size:.95rem}
+.cta-ig:hover{color:#fff}
+form{display:flex;flex-direction:column;gap:12px}
+form input,form textarea{
+  font:inherit;font-size:.95rem;padding:15px 18px;border:1px solid rgba(255,255,255,.34);
+  background:rgba(255,255,255,.07);color:#fff;border-radius:2px;
+}
+form input::placeholder,form textarea::placeholder{color:rgba(255,255,255,.6)}
+form input:focus,form textarea:focus{outline:none;border-color:#fff;background:rgba(255,255,255,.13)}
+form textarea{resize:vertical;min-height:96px}
+form button{
+  font:inherit;font-weight:600;font-size:.98rem;padding:16px;background:#fff;color:var(--accent);
+  border:0;border-radius:2px;cursor:pointer;transition:.2s;
+}
+form button:hover{background:var(--ink);color:#fff}
+.wa-btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;padding:15px;
+  border:1px solid rgba(255,255,255,.5);color:#fff;border-radius:2px;font-weight:500;font-size:.93rem;
+}
+.wa-btn:hover{background:rgba(255,255,255,.12)}
+
+footer{background:var(--ink);color:rgba(250,247,242,.6);padding:56px 0;font-size:.87rem}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+footer b{color:var(--paper);display:block;margin-bottom:14px;font-size:.95rem}
+footer a:hover{color:var(--paper)}
+.f-bottom{margin-top:44px;padding-top:24px;border-top:1px solid rgba(250,247,242,.14);font-size:.8rem;color:var(--muted)}
+
+@media(max-width:960px){
+  .wrap{padding:0 22px}
+  nav{display:none}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-copy{padding:64px 22px 48px}
+  .hero-fig{min-height:400px}
+  .trust-grid{grid-template-columns:repeat(2,1fr)}
+  .trust-item{border-bottom:1px solid var(--line)}
+  section{padding:76px 0}
+  .svc{grid-template-columns:1fr}
+  .svc-item,.svc-item:nth-child(3n+2),.svc-item:nth-child(3n+3){grid-column:span 12;padding:28px 0;border-left:0}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .step{border-bottom:1px solid rgba(250,247,242,.18)}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .g-a,.g-b,.g-c,.g-d,.g-e,.g-f{grid-column:span 1;grid-row:span 1}
+  .g-a{grid-column:span 2}
+  .guarantee,.cta-grid,.f-grid{grid-template-columns:1fr;gap:36px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hd wrap">
+    <div class="mark">ROYAL <i>ORDO</i></div>
+    <nav>
+      <a href="#services">Что делаем</a>
+      <a href="#process">Как работаем</a>
+      <a href="#work">Работы</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <a href="#contact" class="hd-cta">Бесплатная смета</a>
+  </div>
+</header>
+
+<!-- HERO: асимметрия 1fr / 1.08fr — текст слева, фото в край -->
+<div class="hero">
+  <div class="hero-grid wrap" style="padding:0">
+    <div class="hero-copy">
+      <div class="eyebrow">Ремонт под ключ · Бишкек</div>
+      <h1>Сдаём объект, <em>в который возвращаешься</em> каждый день</h1>
+      <p>Полный цикл: проект, черновые работы, отделка, электрика, сантехника, уборка. Один договор, одна смета, одна команда.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Рассчитать стоимость</a>
+        <a href="https://wa.me/996779874777" class="btn-ghost">Написать в WhatsApp</a>
+      </div>
+    </div>
+    <figure class="hero-fig">
+      <img src="img/hero.jpg" alt="Свежий ремонт — готовый интерьер">
+      <div class="hero-badge"><b>0 ₽</b><span>выезд, замер, консультация</span></div>
+    </figure>
+  </div>
+</div>
+
+<div class="trust">
+  <div class="trust-grid wrap" style="padding:0">
+    <div class="trust-item"><b>Смета до старта</b><span>Цены зафиксированы в документе</span></div>
+    <div class="trust-item"><b>Срок — обязательство</b><span>Сдаём в оговорённую дату</span></div>
+    <div class="trust-item"><b>Работаем официально</b><span>Договор и полная смета</span></div>
+    <div class="trust-item"><b>Геометрия и детали</b><span>Карнизы, панели, молдинги</span></div>
+  </div>
+</div>
+
+<!-- УСЛУГИ: нумерованная сетка с вертикальными разделителями, не карточки -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Полный цикл</div>
+      <h2>Один подрядчик на весь ремонт</h2>
+      <p>Не нужно искать десяток мастеров и контролировать каждого. Мы берём весь объект на себя — от первого замера до финальной уборки.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-item"><div class="svc-num">01</div><h3>Проект и подбор материалов</h3><p>Концепция под ваш бюджет и стиль жизни, подбор отделки и технических решений.</p></div>
+      <div class="svc-item"><div class="svc-num">02</div><h3>Демонтаж</h3><p>Снос старых покрытий и конструкций, вынос, подготовка площадки.</p></div>
+      <div class="svc-item"><div class="svc-num">03</div><h3>Черновые работы</h3><p>Выравнивание стен и потолков, стяжка пола, шумо- и гидроизоляция.</p></div>
+      <div class="svc-item"><div class="svc-num">04</div><h3>Электромонтаж</h3><p>Разводка, розетки и выключатели, подготовка под светильники и технику.</p></div>
+      <div class="svc-item"><div class="svc-num">05</div><h3>Сантехника</h3><p>Разводка труб, установка сантехнического оборудования.</p></div>
+      <div class="svc-item"><div class="svc-num">06</div><h3>Потолочные системы</h3><p>Монтаж с встроенной подсветкой и трековыми линиями.</p></div>
+      <div class="svc-item"><div class="svc-num">07</div><h3>Чистовая отделка</h3><p>Окраска, обои, декоративные панели, молдинги, лепнина.</p></div>
+      <div class="svc-item"><div class="svc-num">08</div><h3>Напольные покрытия</h3><p>Ламинат, паркет, плитка — укладка с точностью геометрии.</p></div>
+      <div class="svc-item"><div class="svc-num">09</div><h3>Двери, плинтусы, откосы</h3><p>Завершающие элементы, которые делают интерьер собранным.</p></div>
+      <div class="svc-item"><div class="svc-num">10</div><h3>Техника и кондиционеры</h3><p>Монтаж и подключение бытовой техники и климата.</p></div>
+      <div class="svc-item"><div class="svc-num">11</div><h3>Потолочные ниши и карнизы</h3><p>Скрытые карнизы, ниши с подсветкой — сложные решения без ошибок.</p></div>
+      <div class="svc-item"><div class="svc-num">12</div><h3>Уборка и сдача</h3><p>Финальная уборка и передача готового объекта.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ПРОЦЕСС: тёмная секция, горизонтальная ось -->
+<section id="process" class="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Как это работает</div>
+      <h2>Четыре шага от звонка до ключей</h2>
+      <p>Прозрачный процесс без «разберёмся по ходу».</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><h3>Заявка</h3><p>Обсуждаем задачу по телефону или в WhatsApp, ориентируемся по бюджету и срокам.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>Выезд и замер</h3><p>Бесплатно выезжаем на объект, снимаем размеры, уточняем детали и пожелания.</p></div>
+      <div class="step"><div class="step-num">3</div><h3>Смета и договор</h3><p>Считаем подробную смету, фиксируем цены и сроки. Дальше — по плану.</p></div>
+      <div class="step"><div class="step-num">4</div><h3>Ремонт и сдача</h3><p>Выполняем работы, проводим уборку и передаём готовый объект.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- РАБОТЫ: асимметричная сетка, один крупный блок -->
+<section id="work" class="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Реальные объекты</div>
+      <h2>Работы, сданные нами</h2>
+      <p>Фотографии с объектов Royal Ordo.</p>
+    </div>
+    <div class="gallery">
+      <figure class="g-a"><img src="img/work-1.jpg" alt="Ремонт квартиры — готовый интерьер"></figure>
+      <figure class="g-b"><img src="img/work-2.jpg" alt="Потолок с подсветкой"></figure>
+      <figure class="g-c"><img src="img/work-3.jpg" alt="Стеновые панели"></figure>
+      <figure class="g-d"><img src="img/work-4.jpg" alt="Сантехника"></figure>
+      <figure class="g-e"><img src="img/work-5.jpg" alt="Напольное покрытие"></figure>
+      <figure class="g-f"><img src="img/work-6.jpg" alt="Монтаж дверей"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ГАРАНТИИ: две колонки — обещание + список -->
+<section>
+  <div class="wrap">
+    <div class="guarantee">
+      <div>
+        <div class="eyebrow">Почему нам доверяют</div>
+        <h2 style="font-size:clamp(2rem,3.4vw,2.9rem);margin-bottom:20px">Один исполнитель — одна ответственность</h2>
+        <p style="color:var(--ink-2);font-weight:300;font-size:1.02rem">
+          Когда ремонт ведёт одна команда, за результат отвечает одна компания.
+          Не нужно делить ответственность между десятком подрядчиков — и объяснять, кто ошибся.
+        </p>
+      </div>
+      <div class="g-list">
+        <div class="g-row"><div class="g-mark">✓</div><div><b>Бесплатный выезд и замер</b><span>Консультация и обмеры до подписания договора</span></div></div>
+        <div class="g-row"><div class="g-mark">✓</div><div><b>Смета до начала работ</b><span>Никаких скрытых платежей и неожиданных расходов</span></div></div>
+        <div class="g-row"><div class="g-mark">✓</div><div><b>Соблюдение геометрии</b><span>Карнизы, стеновые панели, молдинги — ровно, без перекосов</span></div></div>
+        <div class="g-row"><div class="g-mark">✓</div><div><b>Строго в срок</b><span>Работы планируются и сдаются по графику</span></div></div>
+        <div class="g-row"><div class="g-mark">✓</div><div><b>Качественные материалы</b><span>Проверенные поставщики и современные технологии</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="cta">
+  <div class="cta-grid wrap">
+    <div>
+      <h2>Рассчитаем стоимость вашего ремонта</h2>
+      <p>Выезжаем бесплатно, считаем подробную смету. Вы увидите точную цифру до начала работ.</p>
+      <a href="tel:+996779874777" class="cta-tel">+996 779 874 777</a><br>
+      <a href="https://instagram.com/royal_ordo_" class="cta-ig" target="_blank">@royal_ordo_ в Instagram</a>
+    </div>
+    <form onsubmit="event.preventDefault();window.open('https://wa.me/996779874777?text='+encodeURIComponent('Здравствуйте! Интересует ремонт под ключ. Имя: '+fname.value+', телефон: '+fphone.value+'. '+fmsg.value),'_blank')">
+      <input id="fname" type="text" placeholder="Как к вам обращаться" required>
+      <input id="fphone" type="tel" placeholder="Телефон для связи" required>
+      <input type="text" placeholder="Что нужно: площадь, тип ремонта, сроки">
+      <textarea id="fmsg" placeholder="Комментарий"></textarea>
+      <button type="submit">Получить смету</button>
+      <a href="https://wa.me/996779874777" class="wa-btn" target="_blank">Написать в WhatsApp</a>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div><b>ROYAL ORDO</b><p>Ремонт квартир, домов, офисов и коммерческих помещений под ключ. Бишкек, Кыргызстан.</p></div>
+      <div><b>Контакты</b><p><a href="tel:+996779874777">+996 779 874 777</a></p><p><a href="https://instagram.com/royal_ordo_" target="_blank">@royal_ordo_</a></p></div>
+      <div><b>Разделы</b><p><a href="#services">Что делаем</a></p><p><a href="#process">Как работаем</a></p><p><a href="#work">Работы</a></p></div>
+    </div>
+    <div class="f-bottom">© Royal Ordo. Демонстрационный концепт, не действующий сайт.</div>
+  </div>
+</footer>
+
+</body>
+</html>
