@@ -234,16 +234,21 @@ html[data-contrast="high"] .approach .step-n,html[data-contrast="high"] .lede-se
 html[data-contrast="high"] .hero-rotate{color:#8a4a12}
 html[data-contrast="high"] .service{background:#fff}
 html[data-contrast="high"] .hero-bg img{opacity:.16}
-.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(36px,5.5vw,var(--space-6));align-items:end}
+.hero-grid{
+  position:relative;z-index:1;
+  display:grid;
+  grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  gap:clamp(36px,5.5vw,var(--space-6));align-items:end
+}
 .hero-title{margin-bottom:var(--space-4)}
 .hero-title .line{display:block;overflow:hidden}
-/* Фиксированная ширина фразы: смена текста не сдвигает сетку */
+/* Фиксированная ширина фразы: смена текста не сдвигает сетку.
+   minmax(0,…) выше не даёт грид-элементам раздуваться по содержимому. */
 .hero-rotate{
   display:block;width:100%;text-align:left;color:var(--clay);font-style:italic;
   min-height:2.1em
 }
-.hero-rotate ._tm-word{white-space:nowrap}
-.hero-rotate-inner{display:inline-block;min-width:min(100%,20ch)}
+.hero-rotate-inner{display:block;width:100%}
 .hero-actions{display:flex;gap:var(--space-2);flex-wrap:wrap;margin-top:var(--space-5)}
 .hero-meta{
   display:flex;gap:var(--space-5);flex-wrap:wrap;margin-top:var(--space-5);
