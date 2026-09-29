@@ -340,7 +340,9 @@ html[data-contrast="high"] .a11y-switch input::after{background:#fff}
   /* Правая колонка фиксирована — карточка записи не может сдвинуться
      ни при какой длине фразы в заголовке. Левая забирает остаток. */
   grid-template-columns:minmax(0,1fr) clamp(340px,32vw,430px);
-  gap:clamp(36px,5.5vw,var(--space-6));align-items:end
+  /* start, а не end: при end высокая карточка выравнивалась по низу
+     и оставляла пустое поле над текстом слева. */
+  gap:clamp(36px,5.5vw,var(--space-6));align-items:start
 }
 .hero-title{margin-bottom:var(--space-4)}
 /* min-width:0 у колонки: без неё грид-элемент по умолчанию не даёт
@@ -387,24 +389,25 @@ html[data-contrast="high"] .a11y-switch input::after{background:#fff}
 /* Карточка записи */
 .booking-card{
   background:var(--white);border:1px solid var(--line-soft);
-  padding:clamp(26px,3.4vw,38px);box-shadow:var(--lift-2)
+  box-shadow:var(--lift-2)
 }
+.booking-card{padding:clamp(22px,2.6vw,30px)}
 .booking-card h2{font-size:1.5rem;margin-bottom:6px;letter-spacing:-.024em}
-.booking-card > p{font-size:var(--fs-small);color:var(--ink-muted);margin-bottom:var(--space-4)}
-.card-rule{height:1px;background:var(--line-soft);margin:0 0 var(--space-4)}
+.booking-card > p{font-size:var(--fs-small);color:var(--ink-muted);margin-bottom:var(--space-3)}
+.card-rule{height:1px;background:var(--line-soft);margin:0 0 var(--space-3)}
 
-.field{margin-bottom:var(--space-3)}
+.field{margin-bottom:var(--space-2)}
 .field > label{
   display:block;font-size:var(--fs-micro);letter-spacing:var(--tracking-caps);
-  text-transform:uppercase;color:var(--ink-muted);font-weight:600;margin-bottom:9px
+  text-transform:uppercase;color:var(--ink-muted);font-weight:600;margin-bottom:7px
 }
 .field input,.field select,.field textarea{
-  width:100%;min-height:52px;padding:13px 15px;
+  width:100%;min-height:48px;padding:11px 14px;
   background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);
   font:inherit;font-size:var(--fs-body);color:var(--ink);
   transition:border-color .2s ease,background-color .2s ease
 }
-.field textarea{min-height:104px;resize:vertical;line-height:1.55}
+.field textarea{min-height:72px;resize:vertical;line-height:1.5}
 .field select{appearance:none;cursor:pointer;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%2378766e' stroke-width='1.3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right 15px center;padding-right:40px}
@@ -417,20 +420,21 @@ html[data-contrast="high"] .a11y-switch input::after{background:#fff}
 .field.is-invalid .field-error{display:block}
 
 .consent{
-  display:flex;gap:12px;align-items:flex-start;margin:var(--space-3) 0 var(--space-3);
-  padding:var(--space-2) var(--space-3);background:var(--forest-soft);
+  display:flex;gap:11px;align-items:flex-start;margin:var(--space-2) 0 var(--space-2);
+  padding:11px var(--space-2);background:var(--forest-soft);
   border:1px solid transparent;cursor:pointer;
   transition:border-color .2s ease
 }
 .consent:hover{border-color:#c9d6d1}
+.consent:focus-within{border-color:var(--forest);box-shadow:0 0 0 2px rgba(30,58,50,.12)}
 .consent input{
-  appearance:none;width:21px;height:21px;min-width:21px;margin:2px 0 0;flex:none;
+  appearance:none;width:24px;height:24px;min-width:24px;margin:0;flex:none;
   border:1.5px solid #9aada6;border-radius:2px;background:var(--white);cursor:pointer;
   transition:background-color .18s ease,border-color .18s ease
 }
 .consent input:checked{background:var(--forest);border-color:var(--forest);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='10' viewBox='0 0 13 10'%3E%3Cpath d='M1 5l3.6 3.6L12 1' stroke='%23f7f5f0' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
 .consent input:focus-visible{outline:2px solid var(--forest);outline-offset:2px}
-.consent label{font-size:var(--fs-small);color:var(--ink-2);line-height:1.5;cursor:pointer}
+.consent > span{font-size:var(--fs-small);color:var(--ink-2);line-height:1.5}
 .consent a{color:var(--forest-2);text-underline-offset:3px}
 .consent.is-invalid{border-color:var(--error)}
 .form-note{font-size:var(--fs-micro);color:var(--ink-muted);margin-top:var(--space-2);line-height:1.55}
@@ -670,13 +674,15 @@ html[data-contrast="high"] .a11y-switch input::after{background:#fff}
             <textarea id="comment" name="comment" rows="3" placeholder="Например: болит справа, удобно после 18:00"></textarea>
           </div>
 
-          <div class="consent" data-field="consent">
+          <!-- Вся плашка кликабельна: раньше input был внутри div,
+               и клик по свободному месту ничего не делал -->
+          <label class="consent" data-field="consent" for="consent">
             <input type="checkbox" id="consent" name="consent" required>
-            <label for="consent">
+            <span>
               Согласен на обработку персональных данных в соответствии с
-              <a href="#policy">политикой конфиденциальности</a>.
-            </label>
-          </div>
+              <a href="#policy" data-stop-consent>политикой конфиденциальности</a>.
+            </span>
+          </label>
 
           <button class="btn btn-fill btn-block" type="submit" style="width:100%"><span>Записаться на приём</span></button>
           <p class="form-note">
@@ -1014,6 +1020,10 @@ function validate() {
 ['name', 'phone', 'service'].forEach((id) =>
   document.getElementById(id).addEventListener('blur', validate));
 document.getElementById('consent').addEventListener('change', validate);
+// Ссылка на политику лежит внутри <label>: без остановки клик по ней
+// переключил бы чекбокс согласия.
+const policyLink = document.querySelector('[data-stop-consent]');
+if (policyLink) policyLink.addEventListener('click', (e) => e.stopPropagation());
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
