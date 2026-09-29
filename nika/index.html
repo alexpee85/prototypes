@@ -330,6 +330,9 @@ html[data-contrast="high"] .a11y-switch input::after{background:#fff}
   gap:clamp(36px,5.5vw,var(--space-6));align-items:end
 }
 .hero-title{margin-bottom:var(--space-4)}
+/* min-width:0 у колонки: без неё грид-элемент по умолчанию не даёт
+   содержимому сжиматься, и nowrap-фраза расширяла колонку. */
+.hero-title,.hero-title .line{min-width:0}
 /* Без overflow:hidden — он обрезал перенесённые строки и пропускал
    текст под карточку записи. Ниже фраза переносится внутри колонки. */
 .hero-title .line{display:block}
@@ -339,11 +342,21 @@ html[data-contrast="high"] .a11y-switch input::after{background:#fff}
    высота hero не прыгает при ротации. */
 .hero-rotate{
   display:block;width:100%;text-align:left;color:var(--clay);font-style:italic;
-  min-height:2.08em;overflow-wrap:break-word
+  min-height:2.08em
 }
-.hero-rotate-inner{display:block;width:100%;max-width:100%}
-/* Torph оборачивает сегменты в ._tm-word: оставляем перенос внутри колонки */
-.hero-rotate ._tm-word{display:inline;overflow-wrap:break-word}
+/* Torph выставляет контейнеру white-space:nowrap — из-за этого фраза
+   не переносилась и наезжала на карточку. Возвращаем перенос:
+   ломать будем по границам слов, чтобы получить ровно две строки. */
+.hero-rotate-inner,
+.hero-rotate ._tm-word{
+  display:inline-block;
+  white-space:normal;
+  overflow-wrap:normal;
+  word-break:normal;
+  max-width:100%;
+}
+/* Слово не влезает в строку — переносим целиком, а не по буквам */
+.hero-rotate ._tm-word{overflow-wrap:break-word}
 /* «которое» — статичный префикс, не участвует в ротации */
 .hero-lead{white-space:nowrap}
 .hero-actions{display:flex;gap:var(--space-2);flex-wrap:wrap;margin-top:var(--space-5)}
