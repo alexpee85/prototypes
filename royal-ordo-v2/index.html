@@ -45,7 +45,8 @@ nav a:hover{color:var(--ac)}
 .hero-in h1 span{color:var(--ac)}
 .hero-in p{font-size:1.05rem;color:var(--ink-2);max-width:52ch;margin-bottom:38px;font-weight:300}
 .hero-row{display:flex;gap:56px;align-items:flex-end;flex-wrap:wrap}
-.hero-tel{font-size:1.6rem;font-weight:500;letter-spacing:-.02em}
+.hero-tel{font-size:1.6rem;font-weight:500;letter-spacing:-.02em;position:relative;transition:color .2s}
+.hero-tel:hover{color:var(--ac)}
 .hero-tel small{display:block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:5px}
 .btn{background:var(--ac);color:var(--void);padding:15px 30px;font-weight:700;font-size:.9rem;transition:.2s}
 .btn:hover{background:var(--ink)}
@@ -53,8 +54,11 @@ nav a:hover{color:var(--ac)}
 /* метрики */
 .metrics{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--s1)}
 .metrics-grid{display:grid;grid-template-columns:repeat(4,1fr)}
-.m{padding:32px 28px;border-right:1px solid var(--line)}
+.m{padding:32px 28px;border-right:1px solid var(--line);transition:background .22s ease}
 .m:last-child{border-right:0}
+.m:hover{background:var(--s2)}
+.m b{transition:color .2s}
+.m:hover b{color:var(--ink)}
 .m b{display:block;font-size:1.9rem;font-weight:500;letter-spacing:-.03em;color:var(--ac);margin-bottom:5px;line-height:1}
 .m span{font-size:.8rem;color:var(--ink-2);font-weight:300}
 
@@ -65,19 +69,36 @@ section{padding:112px 0}
 
 /* услуги — плотная табличная сетка, не карточки */
 .svc{border-top:1px solid var(--line)}
-.svc-row{display:grid;grid-template-columns:78px minmax(0,1.15fr) minmax(0,1.5fr);gap:32px;padding:26px 0;border-bottom:1px solid var(--line);align-items:baseline;transition:.2s}
-.svc-row:hover{background:var(--s1);padding-left:18px;padding-right:18px}
+/* hover-подсветка строки без сдвига layout: трансформация, не padding */
+.svc-row{
+  display:grid;grid-template-columns:78px minmax(0,1.15fr) minmax(0,1.5fr);gap:32px;
+  padding:26px 0;border-bottom:1px solid var(--line);align-items:baseline;
+  position:relative;transition:background .22s ease,transform .22s cubic-bezier(.2,.7,.3,1);
+}
+.svc-row::before{
+  content:'';position:absolute;left:-20px;top:0;bottom:0;width:2px;background:var(--ac);
+  transform:scaleY(0);transform-origin:top;transition:transform .28s cubic-bezier(.2,.7,.3,1);
+}
+.svc-row:hover{background:var(--s1);transform:translateX(20px)}
+.svc-row:hover::before{transform:scaleY(1)}
 .svc-row:hover .svc-i{color:var(--ac)}
+.svc-row:hover h3{color:var(--ac)}
 .svc-i{font-size:.78rem;color:var(--muted);font-weight:500;letter-spacing:.06em;transition:.2s}
 .svc-row h3{font-size:1.18rem;font-weight:500}
 .svc-row p{font-size:.9rem;color:var(--ink-2);font-weight:300}
 
 /* этапы — вертикальный таймлайн */
 .tl{display:flex;flex-direction:column;border-left:1px solid var(--line);margin-left:38px}
-.tl-item{position:relative;padding:0 0 52px 46px}
+.tl-item{position:relative;padding:0 0 52px 46px;transition:transform .25s cubic-bezier(.2,.7,.3,1)}
 .tl-item:last-child{padding-bottom:0}
-.tl-item::before{content:'';position:absolute;left:-5px;top:7px;width:9px;height:9px;background:var(--ac)}
-.tl-item h3{font-size:1.3rem;margin-bottom:10px}
+.tl-item::before{
+  content:'';position:absolute;left:-5px;top:7px;width:9px;height:9px;background:var(--ac);
+  transition:transform .25s cubic-bezier(.2,.7,.3,1),box-shadow .25s ease;
+}
+.tl-item:hover{transform:translateX(8px)}
+.tl-item:hover::before{transform:scale(1.45);box-shadow:0 0 0 5px var(--ac-dim)}
+.tl-item:hover h3{color:var(--ac)}
+.tl-item h3{font-size:1.3rem;margin-bottom:10px;transition:color .2s}
 .tl-item p{color:var(--ink-2);font-weight:300;font-size:.95rem;max-width:60ch}
 .tl-n{display:block;font-size:.68rem;letter-spacing:.2em;color:var(--muted);margin-bottom:8px}
 
@@ -89,9 +110,22 @@ section{padding:112px 0}
 .w3{grid-column:span 4}
 .w4{grid-column:span 4}
 .w5{grid-column:span 4}
-.gal figure{overflow:hidden;background:var(--s2);border-radius:4px}
+.gal figure{overflow:hidden;background:var(--s2);border-radius:4px;position:relative;transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s ease}
+.gal figure:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.42)}
+.gal figure::after{
+  content:'';position:absolute;inset:0;background:var(--ac);opacity:0;
+  transition:opacity .3s ease;pointer-events:none;mix-blend-mode:overlay;
+}
+.gal figure:hover::after{opacity:.09}
 .gal img{width:100%;height:100%;object-fit:cover;transition:.5s;filter:saturate(.9)}
 .gal figure:hover img{transform:scale(1.035);filter:saturate(1.1)}
+/* номер объекта появляется при наведении */
+.gal figcaption{
+  position:absolute;left:0;bottom:0;padding:10px 16px;font-size:.7rem;letter-spacing:.18em;
+  color:var(--ac);background:rgba(12,13,14,.82);border-top:1px solid var(--ac);border-right:1px solid var(--ac);
+  transform:translateY(100%);opacity:0;transition:.3s cubic-bezier(.2,.7,.3,1);pointer-events:none;
+}
+.gal figure:hover figcaption{transform:translateY(0);opacity:1}
 .w1 img{aspect-ratio:16/10}
 .w2 img,.w3 img{aspect-ratio:4/5}
 .w4 img,.w5 img{aspect-ratio:4/3}
@@ -103,9 +137,17 @@ section{padding:112px 0}
 .gc:nth-last-child(-n+2){border-bottom:0}
 .gc h3{font-size:1.1rem;margin-bottom:10px}
 .gc p{font-size:.9rem;color:var(--ink-2);font-weight:300}
-.gc i{font-style:normal;color:var(--ac);display:block;margin-bottom:16px;font-size:.9rem;letter-spacing:.14em}
+.gc{transition:background .22s ease}
+.gc:hover{background:var(--s1)}
+.gc h3{transition:color .2s}
+.gc:hover h3{color:var(--ac)}
+.gc i{font-style:normal;color:var(--ac);display:block;margin-bottom:16px;font-size:.9rem;letter-spacing:.14em;transition:color .2s}
+.gc:hover i{color:var(--ink)}
 
 /* CTA */
+.btn{background:var(--ac);color:var(--void);padding:15px 30px;font-weight:700;font-size:.9rem;transition:background .22s ease,color .22s ease,transform .22s cubic-bezier(.2,.7,.3,1)}
+.btn:hover{background:var(--ink);color:var(--ac);transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
 .cta{background:var(--ac);color:var(--void)}
 .cta-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:70px;align-items:start}
 .cta h2{font-size:clamp(2rem,3.7vw,3.1rem);margin-bottom:20px;font-weight:500}
@@ -128,6 +170,18 @@ footer{padding:56px 0;font-size:.85rem;color:var(--muted)}
 footer b{color:var(--ink);display:block;margin-bottom:13px}
 footer a:hover{color:var(--ac)}
 .fb{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);font-size:.78rem}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .svc-row:hover,.tl-item:hover,.btn:hover,.gal figure:hover{transform:none!important}
+  .gal img,.gal figure:hover img{transform:none!important}
+  .gal figcaption{display:none}
+}
+
+/* доступность: видимый фокус */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
+  outline:2px solid var(--ac);outline-offset:3px;
+}
 
 @media(max-width:960px){
   .wrap{padding:0 20px}
@@ -237,11 +291,11 @@ footer a:hover{color:var(--ac)}
       <p>Фотографии работ Royal Ordo.</p>
     </div>
     <div class="gal">
-      <figure class="w1"><img src="img/work-1.jpg" alt="Готовый интерьер после ремонта"></figure>
-      <figure class="w2"><img src="img/work-2.jpg" alt="Потолок с подсветкой"></figure>
-      <figure class="w3"><img src="img/work-3.jpg" alt="Декоративные панели"></figure>
-      <figure class="w4"><img src="img/work-4.jpg" alt="Сантехнический узел"></figure>
-      <figure class="w5"><img src="img/work-6.jpg" alt="Монтаж дверей"></figure>
+      <figure class="w1"><img src="img/work-1.jpg" alt="Готовый интерьер после ремонта"><figcaption>ОБЪЕКТ 01</figcaption></figure>
+      <figure class="w2"><img src="img/work-2.jpg" alt="Потолок с подсветкой"><figcaption>ОБЪЕКТ 02</figcaption></figure>
+      <figure class="w3"><img src="img/work-3.jpg" alt="Декоративные панели"><figcaption>ОБЪЕКТ 03</figcaption></figure>
+      <figure class="w4"><img src="img/work-4.jpg" alt="Сантехнический узел"><figcaption>ОБЪЕКТ 04</figcaption></figure>
+      <figure class="w5"><img src="img/work-6.jpg" alt="Монтаж дверей"><figcaption>ОБЪЕКТ 05</figcaption></figure>
     </div>
   </div>
 </section>
