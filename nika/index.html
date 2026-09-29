@@ -237,18 +237,23 @@ html[data-contrast="high"] .hero-bg img{opacity:.16}
 .hero-grid{
   position:relative;z-index:1;
   display:grid;
-  grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  /* Правая колонка фиксирована — карточка записи не может сдвинуться
+     ни при какой длине фразы в заголовке. Левая забирает остаток. */
+  grid-template-columns:minmax(0,1fr) clamp(340px,32vw,430px);
   gap:clamp(36px,5.5vw,var(--space-6));align-items:end
 }
 .hero-title{margin-bottom:var(--space-4)}
 .hero-title .line{display:block;overflow:hidden}
-/* Фиксированная ширина фразы: смена текста не сдвигает сетку.
-   minmax(0,…) выше не даёт грид-элементам раздуваться по содержимому. */
+/* Фраза занимает отдельный блок: не влияет на ширину колонки.
+   min-height резервирует место под самую длинную фразу, чтобы
+   высота hero не прыгала. */
 .hero-rotate{
   display:block;width:100%;text-align:left;color:var(--clay);font-style:italic;
   min-height:2.1em
 }
 .hero-rotate-inner{display:block;width:100%}
+/* «которое» — статичный префикс, не участвует в ротации */
+.hero-lead{white-space:nowrap}
 .hero-actions{display:flex;gap:var(--space-2);flex-wrap:wrap;margin-top:var(--space-5)}
 .hero-meta{
   display:flex;gap:var(--space-5);flex-wrap:wrap;margin-top:var(--space-5);
@@ -469,7 +474,7 @@ html[data-contrast="high"] .hero-bg img{opacity:.16}
         <span class="eyebrow">Семейная стоматология · Ленинский район</span>
         <h1 class="hero-title">
           <span class="line">Лечение зубов,</span>
-          <span class="line">которое <span class="hero-rotate"><span class="hero-rotate-inner" id="morphSlot" role="text" aria-label="не вызывает страха">не вызывает страха</span></span></span>
+          <span class="line"><span class="hero-lead">которое</span> <span class="hero-rotate"><span class="hero-rotate-inner" id="morphSlot" role="text" aria-label="не вызывает страха">не вызывает страха</span></span></span>
         </h1>
         <p class="lead">
           Клиника «Ника» на улице Июльских Дней — терапия, хирургия, эстетика,
