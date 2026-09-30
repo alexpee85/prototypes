@@ -210,6 +210,90 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .gc:last-child{border-bottom:0!important}
   .cta-grid,.fg{grid-template-columns:1fr;gap:34px}
 }
+/* ---------- Блок отзывов и квиз — вставляется перед <section id="cta" class="cta"> ---------- */
+
+/* ===== ОТЗЫВЫ ===== */
+.rev-sec{background:var(--void)}
+.rev-note{
+  border:1px dashed var(--line);padding:18px 22px;margin-bottom:44px;
+  font-size:.85rem;color:var(--muted);display:flex;gap:12px;align-items:flex-start;
+}
+.rev-note b{color:var(--ac);font-weight:600;display:block;margin-bottom:5px;letter-spacing:.04em}
+.rev{columns:3;column-gap:24px;margin:0;padding:0}
+@media(max-width:960px){.rev{columns:1}}
+.rev-item{
+  break-inside:avoid;margin-bottom:24px;padding:28px 26px;
+  background:var(--s1);border:1px solid var(--line);
+  transition:background .22s ease,border-color .22s ease,transform .22s cubic-bezier(.2,.7,.3,1);
+}
+.rev-item:hover{background:var(--s2);border-color:var(--ac);transform:translateY(-3px)}
+.rev-item.empty{border-style:dashed;background:transparent;display:grid;place-items:center;min-height:190px;text-align:center}
+.rev-quote{font-size:.98rem;color:var(--ink-2);font-weight:300;line-height:1.7;margin-bottom:18px}
+.rev-item.empty .rev-quote{color:var(--muted);font-size:.9rem;max-width:30ch;margin:0 auto 16px}
+.rev-by{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--line)}
+.rev-av{
+  width:38px;height:38px;flex:0 0 38px;border-radius:50%;
+  background:var(--s2);border:1px solid var(--ac);
+  display:grid;place-items:center;font-size:.8rem;font-weight:700;color:var(--ac);
+}
+.rev-item.empty .rev-av{background:transparent;border-style:dashed;color:var(--muted)}
+.rev-name{font-size:.9rem;font-weight:500}
+.rev-meta{font-size:.75rem;color:var(--muted)}
+
+/* ===== КВИЗ ===== */
+.quiz{background:var(--s1);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.qz-wrap{max-width:760px;margin:0 auto}
+.qz-bar{display:flex;gap:5px;margin-bottom:40px}
+.qz-bar i{flex:1;height:2px;background:var(--line);transition:background .3s}
+.qz-bar i.on{background:var(--ac)}
+.qz-step{display:none;animation:qzIn .35s cubic-bezier(.2,.7,.3,1)}
+.qz-step.on{display:block}
+@keyframes qzIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.qz-q{font-size:clamp(1.4rem,2.6vw,1.9rem);margin-bottom:8px;font-weight:500;line-height:1.2}
+.qz-hint{font-size:.88rem;color:var(--muted);margin-bottom:28px;font-weight:300}
+.qz-opts{display:grid;gap:10px;margin-bottom:32px}
+.qz-opt{
+  display:flex;align-items:center;gap:14px;padding:17px 20px;
+  border:1px solid var(--line);cursor:pointer;background:transparent;
+  font:inherit;font-size:.95rem;color:var(--ink);text-align:left;width:100%;
+  transition:border-color .2s,background .2s,transform .2s cubic-bezier(.2,.7,.3,1);
+}
+.qz-opt:hover{border-color:var(--ac);background:var(--void);transform:translateX(6px)}
+.qz-opt.sel{border-color:var(--ac);background:rgba(200,169,106,.09)}
+.qz-mark{
+  flex:0 0 22px;height:22px;border:1.5px solid var(--line);border-radius:50%;
+  display:grid;place-items:center;font-size:.7rem;color:transparent;transition:.2s;
+}
+.qz-opt.sel .qz-mark{border-color:var(--ac);background:var(--ac);color:var(--void)}
+.qz-num{margin-left:auto;font-size:.75rem;color:var(--muted);font-weight:500}
+
+/* поле ввода площади */
+.qz-input{
+  font:inherit;font-size:1.05rem;padding:17px 20px;width:100%;
+  background:var(--void);border:1px solid var(--line);color:var(--ink);
+  margin-bottom:32px;transition:border-color .2s;
+}
+.qz-input:focus{outline:none;border-color:var(--ac)}
+.qz-input::placeholder{color:var(--muted)}
+.qz-nav{display:flex;gap:12px;align-items:center}
+.qz-back{background:transparent;border:1px solid var(--line);color:var(--ink-2);padding:14px 22px;font:inherit;font-size:.88rem;cursor:pointer;transition:.2s}
+.qz-back:hover{border-color:var(--ink);color:var(--ink)}
+.qz-next{background:var(--ac);color:var(--void);border:0;padding:14px 30px;font:inherit;font-weight:700;font-size:.9rem;cursor:pointer;transition:background .22s,color .22s,transform .22s cubic-bezier(.2,.7,.3,1)}
+.qz-next:hover:not(:disabled){background:var(--ink);color:var(--ac);transform:translateY(-2px)}
+.qz-next:disabled{background:var(--s2);color:var(--muted);cursor:not-allowed}
+.qz-hint-sm{font-size:.78rem;color:var(--muted);margin-left:auto}
+
+/* итог */
+.qz-done{text-align:center;padding:20px 0}
+.qz-sum{
+  border:1px solid var(--ac);padding:30px;margin:24px 0 30px;
+  display:grid;gap:10px;text-align:left;
+}
+.qz-sum div{display:flex;justify-content:space-between;gap:20px;font-size:.92rem;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.qz-sum div:last-child{border-bottom:0;padding-bottom:0}
+.qz-sum span:first-child{color:var(--muted)}
+.qz-sum b{font-weight:500;color:var(--ac)}
+
 </style>
 </head>
 <body>
@@ -331,6 +415,126 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   </div>
 </section>
 
+
+<!-- ОТЗЫВЫ -->
+<section class="rev-sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="rev_eyebrow">Ойгүмдөр</div>
+      <h2 data-i18n="rev_h2">Биз жөнүндө эмне айтат</h2>
+    </div>
+
+    <div class="rev-note">
+      <span style="flex:0 0 auto;font-size:1.1rem">!</span>
+      <div>
+        <b data-i18n="rev_note_t">Буйук: бул жерде чыныгы ойгүмдөр болушу керек</b>
+        <span data-i18n="rev_note_d">Ошол адамдын аты-жөтү, телефону жана объектинин аты — Royal Ordo'нун өз иштери. Мисалы: «Квартира, Чейпото көчөсү, 2 бөлмөлүү, 2 ай».</span>
+      </div>
+    </div>
+
+    <div class="rev">
+      <div class="rev-item empty">
+        <div class="rev-av">?</div>
+        <div class="rev-quote" data-i18n="rev_ph1">Буду жерге 1-ойгүм: эмне курулду, канча убакыт, кайсы тапшырма, натыйжа кандай болду</div>
+        <div class="rev-meta" data-i18n="rev_ph2">Аты · объект</div>
+      </div>
+      <div class="rev-item empty">
+        <div class="rev-av">?</div>
+        <div class="rev-quote" data-i18n="rev_ph3">2-ойгүм — эмне кыйын болду жана Royal Ordo кантип чечти</div>
+        <div class="rev-meta" data-i18n="rev_ph2">Аты · объект</div>
+      </div>
+      <div class="rev-item empty">
+        <div class="rev-av">?</div>
+        <div class="rev-quote" data-i18n="rev_ph4">3-ойгүм — эс алуу же кайта чакыруу</div>
+        <div class="rev-meta" data-i18n="rev_ph2">Аты · объект</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- КВИЗ -->
+<section class="quiz" id="quiz">
+  <div class="wrap qz-wrap">
+    <div class="sec-head" style="margin-bottom:38px">
+      <div class="eyebrow" data-i18n="qz_eyebrow">Ылдамды смета</div>
+      <h2 data-i18n="qz_h2">4 сууоп — сметаны даярдап беребиз</h2>
+    </div>
+
+    <div class="qz-bar" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+
+    <!-- шаг 1 -->
+    <div class="qz-step on" data-qz="0">
+      <div class="qz-q" data-i18n="q1">Эмне ремонт керек?</div>
+      <div class="qz-hint" data-i18n="q1h">Эң жакын варианты тандаңыз</div>
+      <div class="qz-opts">
+        <button type="button" class="qz-opt" data-v="Квартира"><span class="qz-mark">✓</span><span data-i18n="q1a">Квартира</span></button>
+        <button type="button" class="qz-opt" data-v="Үй"><span class="qz-mark">✓</span><span data-i18n="q1b">Үй</span></button>
+        <button type="button" class="qz-opt" data-v="Офис"><span class="qz-mark">✓</span><span data-i18n="q1c">Офис</span></button>
+        <button type="button" class="qz-opt" data-v="Коммерциялык помещение"><span class="qz-mark">✓</span><span data-i18n="q1d">Коммерциялык помещение</span></button>
+      </div>
+      <div class="qz-nav"><button type="button" class="qz-next" disabled data-i18n="qz_next">Кийинки →</button></div>
+    </div>
+
+    <!-- шаг 2 -->
+    <div class="qz-step" data-qz="1">
+      <div class="qz-q" data-i18n="q2">Аянтма канча м²?</div>
+      <div class="qz-hint" data-i18n="q2h">Так коюунун кереги жок — жакындап жетсе тура</div>
+      <input class="qz-input" id="qzArea" type="number" inputmode="numeric" min="10" max="1000" data-i18n-ph="q2ph" placeholder="Мисалы, 65">
+      <div class="qz-nav">
+        <button type="button" class="qz-back" data-i18n="qz_back">← Артка</button>
+        <button type="button" class="qz-next" disabled data-i18n="qz_next">Кийинки →</button>
+      </div>
+    </div>
+
+    <!-- шаг 3 -->
+    <div class="qz-step" data-qz="2">
+      <div class="qz-q" data-i18n="q3">Кайсы этаптан башталышы керек?</div>
+      <div class="qz-hint" data-i18n="q3h">Биз толук циклди кыла алабыз</div>
+      <div class="qz-opts">
+        <button type="button" class="qz-opt" data-v="Бүт толук ремонт"><span class="qz-mark">✓</span><span data-i18n="q3a">Бүт толук ремонт</span></button>
+        <button type="button" class="qz-opt" data-v="Бүгүнүлтүү гана"><span class="qz-mark">✓</span><span data-i18n="q3b">Бүгүнүлтүү гана</span></button>
+        <button type="button" class="qz-opt" data-v="Бир этап гана (электрика, сантехника)"><span class="qz-mark">✓</span><span data-i18n="q3c">Бир этап гана</span></button>
+        <button type="button" class="qz-opt" data-v="Кеңеш керек"><span class="qz-mark">✓</span><span data-i18n="q3d">Кеңеш керек</span></button>
+      </div>
+      <div class="qz-nav">
+        <button type="button" class="qz-back" data-i18n="qz_back">← Артка</button>
+        <button type="button" class="qz-next" disabled data-i18n="qz_next">Кийинки →</button>
+      </div>
+    </div>
+
+    <!-- шаг 4 -->
+    <div class="qz-step" data-qz="3">
+      <div class="qz-q" data-i18n="q4">Качан баштоо керек?</div>
+      <div class="qz-hint" data-i18n="q4h">Биз календарьыбызга киребиз</div>
+      <div class="qz-opts">
+        <button type="button" class="qz-opt" data-v="Аптасы менен"><span class="qz-mark">✓</span><span data-i18n="q4a">Аптасы менен</span></button>
+        <button type="button" class="qz-opt" data-v="1–2 ай"><span class="qz-mark">✓</span><span data-i18n="q4b">1–2 ай</span></button>
+        <button type="button" class="qz-opt" data-v="2–3 ай"><span class="qz-mark">✓</span><span data-i18n="q4c">2–3 ай</span></button>
+        <button type="button" class="qz-opt" data-v="Кене эмес, чегитсиз"><span class="qz-mark">✓</span><span data-i18n="q4d">Кене эмес, чегитсиз</span></button>
+      </div>
+      <div class="qz-nav">
+        <button type="button" class="qz-back" data-i18n="qz_back">← Артка</button>
+        <button type="button" class="qz-next" disabled data-i18n="qz_submit">Смета алуу</button>
+      </div>
+    </div>
+
+    <!-- итог -->
+    <div class="qz-step" data-qz="4">
+      <div class="qz-done">
+        <div class="qz-q" data-i18n="q5">Бир гана калды</div>
+        <div class="qz-hint" data-i18n="q5h">Телефонуңуз — ченөө үчүн чакырабыз</div>
+        <input class="qz-input" id="qzName" type="text" data-i18n-ph="qz_name" placeholder="Аты" required>
+        <input class="qz-input" id="qzPhone" type="tel" data-i18n-ph="qz_phone" placeholder="Телефон" required>
+        <div class="qz-sum" id="qzSum"></div>
+        <div class="qz-nav" style="justify-content:center">
+          <button type="button" class="qz-next" id="qzSend" data-i18n="qz_send">Жөнөтүү</button>
+        </div>
+        <div class="qz-hint-sm" style="text-align:center;margin-top:18px" data-i18n="qz_via">Тапшыруу WhatsApp аркылуу</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section id="cta" class="cta">
   <div class="cta-grid wrap">
@@ -402,7 +606,28 @@ var I18N = {
     'cta_h2':'Ремонтуңуздун так нархын эсептейли',
     'cta_p':'Чыгып чөңөө акысыз, смета толук. Иш баштоого чейин так санду көрөлү.',
     'cta_ig':'@royal_ordo_ — Instagram','cta_submit':'Смета алуу','cta_wa':'WhatsApp жазуу',
-    'f_name':'Аты','f_phone':'Байланыш телефону','f_about':'Аянтма, түрү, мөөртүмү','f_msg':'Пикир',
+    'f_name':'Аты','f_phone':'Байланыш телефону',    'rev_eyebrow':'Ойгүмдөр','rev_h2':'Биз жөнүндө эмне айтат',
+    'rev_note_t':'Буйук: бул жерде чыныгы ойгүмдөр болушу керек',
+    'rev_note_d':"Ошол адамдын аты-жөтү, телефону жана объектинин аты — Royal Ordo'нун өз иштери. Мисалы: «Квартира, Чейпото көчөсү, 2 бөлмөлүү, 2 ай».",
+    'rev_ph1':'Буду жерге 1-ойгүм: эмне курулду, канча убакыт, кайсы тапшырма, натыйжа кандай болду',
+    'rev_ph2':'Аты · объект',
+    'rev_ph3':'2-ойгүм — эмне кыйын болду жана Royal Ordo кантип чечти',
+    'rev_ph4':'3-ойгүм — эс алуу же кайта чакыруу',
+    'qz_eyebrow':'Ылдамды смета','qz_h2':'4 сууоп — сметаны даярдап беребиз',
+    'q1':'Эмне ремонт керек?','q1h':'Эң жакын варианты тандаңыз',
+    'q1a':'Квартира','q1b':'Үй','q1c':'Офис','q1d':'Коммерциялык помещение',
+    'q2':'Аянтма канча м²?','q2h':'Так коюунун кереги жок — жакындап жетсе тура','q2ph':'Мисалы, 65',
+    'q3':'Кайсы этаптан башталышы керек?','q3h':'Биз толук циклди кыла алабыз',
+    'q3a':'Бүт толук ремонт','q3b':'Бүгүнүлтүү гана','q3c':'Бир этап гана','q3d':'Кеңеш керек',
+    'q4':'Качан баштоо керек?','q4h':'Биз календарьыбызга киребиз',
+    'q4a':'Аптасы менен','q4b':'1–2 ай','q4c':'2–3 ай','q4d':'Кене эмес, чегитсиз',
+    'q5':'Бир гана калды','q5h':'Телефонуңуз — ченөө үчүн чакырабыз',
+    'qz_name':'Аты','qz_phone':'Телефон',
+    'qz_next':'Кийинки →','qz_back':'← Артка','qz_submit':'Смета алуу',
+    'qz_send':'Жөнөтүү','qz_via':'Тапшыруу WhatsApp аркылуу',
+    'qz_sum1':'Объект','qz_sum2':'Аянтма','qz_sum3':'Иш көлөмү','qz_sum4':'Башталышы',
+    'wa_text2':'Салам! Ремонт арызыбы: ',
+'f_about':'Аянтма, түрү, мөөртүмү','f_msg':'Пикир',
     'f_contacts':'Байланыш','f_sections':'Бөлүмдөр',
     'f_about':'Квартира, үй, офис жана коммерциялык помещениелердин толук ремонту. Бишкек.',
     'f_note':'© Royal Ordo. Демонстрациялык концепт — иш жүгүртүүчү эмес сайт.',
@@ -445,13 +670,35 @@ var I18N = {
     'cta_h2':'Узнайте точную стоимость своего ремонта',
     'cta_p':'Выезд бесплатный, смета подробная. Точную цифру вы увидите до начала работ.',
     'cta_ig':'@royal_ordo_ — Instagram','cta_submit':'Получить смету','cta_wa':'Написать в WhatsApp',
-    'f_name':'Имя','f_phone':'Телефон для связи','f_about':'Площадь, тип ремонта, сроки','f_msg':'Комментарий',
+    'f_name':'Имя','f_phone':'Телефон для связи',    'rev_eyebrow':'Отзывы','rev_h2':'Что говорят о нас',
+    'rev_note_t':'Важно: здесь должны быть настоящие отзывы',
+    'rev_note_d':"Имя, телефон и название объекта — по реальным работам Royal Ordo. Например: «Квартира, ул. Чейпото, 2 комнаты, 2 месяца».",
+    'rev_ph1':'Сюда 1-й отзыв: что сделали, сколько времени, какая задача, каков результат',
+    'rev_ph2':'Имя · объект',
+    'rev_ph3':'2-й отзыв — что было сложно и как Royal Ordo решил',
+    'rev_ph4':'3-й отзыв — повторный заказ или рекомендация',
+    'qz_eyebrow':'Быстрый расчёт','qz_h2':'4 вопроса — и смета готова',
+    'q1':'Что нужно отремонтировать?','q1h':'Выберите ближайший вариант',
+    'q1a':'Квартира','q1b':'Дом','q1c':'Офис','q1d':'Коммерческое помещение',
+    'q2':'Какая площадь?','q2h':'Точно считать не нужно — подойдёт примерно','q2ph':'Например, 65',
+    'q3':'С какого этапа начинать?','q3h':'Мы можем взять весь цикл',
+    'q3a':'Полный ремонт под ключ','q3b':'Только чистовая отделка','q3c':'Только один этап','q3d':'Нужен совет',
+    'q4':'Когда планируете начать?','q4h':'Мы сразу поставим в график',
+    'q4a':'В течение недели','q4b':'1–2 месяца','q4c':'2–3 месяца','q4d':'Пока не решил',
+    'q5':'Осталось одно','q5h':'Телефон — чтобы пригласить на замер',
+    'qz_name':'Имя','qz_phone':'Телефон',
+    'qz_next':'Далее →','qz_back':'← Назад','qz_submit':'Получить смету',
+    'qz_send':'Отправить','qz_via':'Отправка через WhatsApp',
+    'qz_sum1':'Объект','qz_sum2':'Площадь','qz_sum3':'Объём работ','qz_sum4':'Начало',
+    'wa_text2':'Здравствуйте! Заявка на ремонт: ',
+'f_about':'Площадь, тип ремонта, сроки','f_msg':'Комментарий',
     'f_contacts':'Контакты','f_sections':'Разделы',
     'f_about':'Ремонт квартир, домов, офисов и коммерческих помещений под ключ. Бишкек.',
     'f_note':'© Royal Ordo. Демонстрационный концепт, не действующий сайт.',
     'wa_text':'Здравствуйте! Интересует ремонт под ключ. Имя: '
   }
 };
+var langNow = 'ky';
 var cur = 'ky';
 var $ = function(s){ return document.querySelector(s); };
 
@@ -462,6 +709,7 @@ function wMsg(){
 
 function setLang(l){
   cur = l;
+  langNow = l;
   var d = I18N[l];
   document.documentElement.lang = l;
   document.title = (l==='ky') ? 'ROYAL ORDO — Бишкекте толук ремонт'
@@ -484,6 +732,95 @@ function setLang(l){
 document.querySelectorAll('.lang button').forEach(function(b){
   b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang')); });
 });
+
+
+/* ---------- Квиз: 4 шага + сбор заявки в WhatsApp ---------- */
+(function(){
+  var steps = document.querySelectorAll('.qz-step');
+  if (!steps.length) return;
+  var bar   = document.querySelectorAll('.qz-bar i');
+  var ans   = {o:null, area:null, scope:null, when:null};
+  var cur   = 0;
+
+  function paint(){
+    steps.forEach(function(s,i){ s.classList.toggle('on', i===cur); });
+    bar.forEach(function(b,i){ b.classList.toggle('on', i<=cur); });
+  }
+
+  // выбор варианта: подсветка + разблокировка «далее»
+  document.querySelectorAll('.qz-step').forEach(function(step){
+    step.querySelectorAll('.qz-opt').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        step.querySelectorAll('.qz-opt').forEach(function(b){
+          b.classList.remove('sel'); b.setAttribute('aria-pressed','false');
+        });
+        btn.classList.add('sel'); btn.setAttribute('aria-pressed','true');
+        var idx = +step.getAttribute('data-qz');
+        if (idx===0) ans.o = btn.getAttribute('data-v');
+        if (idx===2) ans.scope = btn.getAttribute('data-v');
+        if (idx===3) ans.when = btn.getAttribute('data-v');
+        var next = step.querySelector('.qz-next');
+        if (next) next.disabled = false;
+      });
+    });
+  });
+
+  // площадь
+  var area = document.getElementById('qzArea');
+  if (area) area.addEventListener('input', function(){
+    ans.area = area.value;
+    var st = area.closest('.qz-step');
+    var next = st.querySelector('.qz-next');
+    if (next) next.disabled = !(parseInt(area.value,10) > 0);
+  });
+
+  document.querySelectorAll('.qz-next').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      if (btn.disabled) return;
+      if (cur < steps.length - 1){ cur++; paint(); }
+    });
+  });
+  document.querySelectorAll('.qz-back').forEach(function(btn){
+    btn.addEventListener('click', function(){ if (cur > 0){ cur--; paint(); } });
+  });
+
+  // итог: подставить ответы
+  var sum = document.getElementById('qzSum');
+  function fillSum(){
+    if (!sum) return;
+    var L = I18N[langNow];
+    sum.innerHTML =
+      '<div><span>'+L.qz_sum1+'</span><b>'+(ans.o||'—')+'</b></div>'+
+      '<div><span>'+L.qz_sum2+'</span><b>'+(ans.area? ans.area+' м²' : '—')+'</b></div>'+
+      '<div><span>'+L.qz_sum3+'</span><b>'+(ans.scope||'—')+'</b></div>'+
+      '<div><span>'+L.qz_sum4+'</span><b>'+(ans.when||'—')+'</b></div>';
+  }
+  // заполняем при входе на последний шаг
+  var sendBtn = document.getElementById('qzSend');
+  if (sendBtn){
+    var last = steps[steps.length-1];
+    var prevBtn = steps[steps.length-2].querySelector('.qz-next');
+    if (prevBtn) prevBtn.addEventListener('click', function(){ setTimeout(fillSum, 30); });
+  }
+
+  if (sendBtn){
+    sendBtn.addEventListener('click', function(){
+      var L = I18N[langNow];
+      var name = (document.getElementById('qzName')||{}).value || '';
+      var tel  = (document.getElementById('qzPhone')||{}).value || '';
+      if (!name || !tel) { alert(L.qz_name + ' / ' + L.qz_phone); return; }
+      var txt = (L.wa_text2 || L.wa_text) +
+        L.qz_sum1 + ': ' + (ans.o||'') + '\n' +
+        L.qz_sum2 + ': ' + (ans.area||'') + ' m2\n' +
+        L.qz_sum3 + ': ' + (ans.scope||'') + '\n' +
+        L.qz_sum4 + ': ' + (ans.when||'') + '\n' +
+        L.f_name + ': ' + name + '\n' + L.qz_phone + ': ' + tel;
+      window.open('https://wa.me/996779874777?text='+encodeURIComponent(txt),'_blank');
+    });
+  }
+
+  paint();
+})();
 
 /* ---------- Параллакс фона hero ---------- */
 (function(){
