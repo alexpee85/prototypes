@@ -115,15 +115,11 @@ section{padding:108px 0}
 
 /* РАБОТЫ */
 .works-sec{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.gal{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
-.w1{grid-column:span 8}
-.w2{grid-column:span 4}
-.w3{grid-column:span 4}
-.w4{grid-column:span 4}
-.w5{grid-column:span 4}
+.gal{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.w1,.w2,.w3,.w4,.w5{grid-column:span 1}
 .gal figure{overflow:hidden;background:var(--bg);border-radius:4px;position:relative;transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s}
 .gal figure:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(42,37,33,.1)}
-.gal img{width:100%;height:100%;object-fit:cover;transition:.5s;filter:saturate(.92)}
+.gal img{width:100%;object-fit:cover;transition:.5s;filter:saturate(.92)}
 .gal figure:hover img{transform:scale(1.03);filter:saturate(1.05)}
 .gal figcaption{
   position:absolute;left:0;bottom:0;padding:10px 16px;font-size:.68rem;letter-spacing:.2em;
@@ -131,9 +127,7 @@ section{padding:108px 0}
   transform:translateY(100%);opacity:0;transition:.3s cubic-bezier(.2,.7,.3,1);pointer-events:none;
 }
 .gal figure:hover figcaption{transform:translateY(0);opacity:1}
-.w1 img{aspect-ratio:16/10}
-.w2 img,.w3 img{aspect-ratio:4/5}
-.w4 img,.w5 img{aspect-ratio:4/3}
+.gal img{aspect-ratio:3/4}
 
 /* ОТЗЫВЫ */
 .rev-note{border:1px dashed var(--line);padding:18px 24px;margin-bottom:42px;font-size:.86rem;color:var(--muted);display:flex;gap:14px;align-items:flex-start;background:var(--surface)}
@@ -230,7 +224,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .tl-item{padding-left:32px}
   .gal{grid-template-columns:repeat(2,1fr)}
   .w1,.w2,.w3,.w4,.w5{grid-column:span 1}
-  .w1{grid-column:span 2}
   .cta-grid,.fg{grid-template-columns:1fr;gap:34px}
 }
 </style>
@@ -331,11 +324,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <p data-i18n="wrk_p">Результаты моих клиентов. Фото — с разрешения.</p>
     </div>
     <div class="gal">
-      <figure class="w1"><img src="img/work-1.jpg" alt="Результат работы косметолога"><figcaption data-i18n="obj">ПАЦИЕНТ 01</figcaption></figure>
-      <figure class="w2"><img src="img/work-2.jpg" alt="Результат работы косметолога"><figcaption data-i18n="obj">ПАЦИЕНТ 02</figcaption></figure>
-      <figure class="w3"><img src="img/work-3.jpg" alt="Результат работы косметолога"><figcaption data-i18n="obj">ПАЦИЕНТ 03</figcaption></figure>
-      <figure class="w4"><img src="img/work-4.jpg" alt="Результат работы косметолога"><figcaption data-i18n="obj">ПАЦИЕНТ 04</figcaption></figure>
-      <figure class="w5"><img src="img/work-5.jpg" alt="Результат работы косметолога"><figcaption data-i18n="obj">ПАЦИЕНТ 05</figcaption></figure>
+      <figure class="w1"><img src="img/work-1.jpg" alt="Результат работы косметолога"><figcaption data-i18n="obj">ДО / ПОСЛЕ</figcaption></figure>
+      <figure class="w2"><img src="img/work-2.jpg" alt="Результат работы косметолога"><figcaption data-i18n="obj">ДО / ПОСЛЕ</figcaption></figure>
+      <figure class="w3"><img src="img/work-3.jpg" alt="Результат работы косметолога"><figcaption data-i18n="obj">ДО / ПОСЛЕ</figcaption></figure>
+      <figure class="w4"><img src="img/work-4.jpg" alt="Результат работы косметолога"><figcaption data-i18n="obj">ДО / ПОСЛЕ</figcaption></figure>
+      <figure class="w5"><img src="img/work-5.jpg" alt="Результат работы косметолога"><figcaption data-i18n="obj">ДО / ПОСЛЕ</figcaption></figure>
     </div>
   </div>
 </section>
