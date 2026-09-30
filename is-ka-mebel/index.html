@@ -248,7 +248,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .qz-sum span:first-child{color:var(--muted)}
 .qz-sum b{font-weight:500;color:var(--ac)}
 
-
 </style>
 </head>
 <body>
@@ -627,6 +626,21 @@ function setLang(l){
 document.querySelectorAll('.lang button').forEach(function(b){
   b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));});
 });
+
+(function(){
+  var layer=document.querySelector('.hero-img'), hero=document.querySelector('.hero');
+  if(!layer||!hero) return;
+  if(!window.matchMedia('(pointer:fine)').matches) return;
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  var t=false;
+  function u(){var h=hero.offsetHeight;var p=Math.min(1,Math.max(0,scrollY/h));
+    layer.style.transform='translate3d(0,'+((p-0.5)*h*0.18).toFixed(2)+'px,0)';t=false;}
+  function s(){if(!t){t=true;requestAnimationFrame(u);}}
+  addEventListener('scroll',s,{passive:true}); addEventListener('resize',s); u();
+})();
+var s=null; try{s=localStorage.getItem('ika-lang');}catch(e){}
+setLang(s==='ky'?'ky':'ru');
+
 (function(){
   var steps = document.querySelectorAll('.qz-step');
   if (!steps.length) return;
@@ -706,27 +720,14 @@ document.querySelectorAll('.lang button').forEach(function(b){
         L.qz_sum2 + ': ' + (ans.area||'') + '\n' +
         L.qz_sum3 + ': ' + (ans.scope||'') + '\n' +
         L.qz_sum4 + ': ' + (ans.when||'') + '\n' +
-        L.f_name + ': ' + name + '\n' + L.qz_phone + ': ' + tel;
-      window.open('https://wa.me/996779874777?text='+encodeURIComponent(txt),'_blank');
+        L.qz_name + ': ' + name + '\n' + L.qz_phone + ': ' + tel;
+      window.open('https://wa.me/996502241615?text='+encodeURIComponent(txt),'_blank');
     });
   }
 
   paint();
 })();
 
-(function(){
-  var layer=document.querySelector('.hero-img'), hero=document.querySelector('.hero');
-  if(!layer||!hero) return;
-  if(!window.matchMedia('(pointer:fine)').matches) return;
-  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
-  var t=false;
-  function u(){var h=hero.offsetHeight;var p=Math.min(1,Math.max(0,scrollY/h));
-    layer.style.transform='translate3d(0,'+((p-0.5)*h*0.18).toFixed(2)+'px,0)';t=false;}
-  function s(){if(!t){t=true;requestAnimationFrame(u);}}
-  addEventListener('scroll',s,{passive:true}); addEventListener('resize',s); u();
-})();
-var s=null; try{s=localStorage.getItem('ika-lang');}catch(e){}
-setLang(s==='ky'?'ky':'ru');
 </script>
 </body>
 </html>
