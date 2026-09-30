@@ -194,6 +194,61 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .w1{grid-column:span 2}
   .cta-grid,.fg{grid-template-columns:1fr;gap:34px}
 }
+
+.quiz{background:var(--s1);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.qz-wrap{max-width:760px;margin:0 auto}
+.qz-bar{display:flex;gap:5px;margin-bottom:40px}
+.qz-bar i{flex:1;height:2px;background:var(--line);transition:background .3s}
+.qz-bar i.on{background:var(--ac)}
+.qz-step{display:none;animation:qzIn .35s cubic-bezier(.2,.7,.3,1)}
+.qz-step.on{display:block}
+@keyframes qzIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.qz-q{font-size:clamp(1.4rem,2.6vw,1.9rem);margin-bottom:8px;font-weight:500;line-height:1.2}
+.qz-hint{font-size:.88rem;color:var(--muted);margin-bottom:28px;font-weight:300}
+.qz-opts{display:grid;gap:10px;margin-bottom:32px}
+.qz-opt{
+  display:flex;align-items:center;gap:14px;padding:17px 20px;
+  border:1px solid var(--line);cursor:pointer;background:transparent;
+  font:inherit;font-size:.95rem;color:var(--ink);text-align:left;width:100%;
+  transition:border-color .2s,background .2s,transform .2s cubic-bezier(.2,.7,.3,1);
+}
+.qz-opt:hover{border-color:var(--ac);background:var(--void);transform:translateX(6px)}
+.qz-opt.sel{border-color:var(--ac);background:rgba(200,169,106,.09)}
+.qz-mark{
+  flex:0 0 22px;height:22px;border:1.5px solid var(--line);border-radius:50%;
+  display:grid;place-items:center;font-size:.7rem;color:transparent;transition:.2s;
+}
+.qz-opt.sel .qz-mark{border-color:var(--ac);background:var(--ac);color:var(--void)}
+.qz-num{margin-left:auto;font-size:.75rem;color:var(--muted);font-weight:500}
+
+/* поле ввода площади */
+.qz-input{
+  font:inherit;font-size:1.05rem;padding:17px 20px;width:100%;
+  background:var(--void);border:1px solid var(--line);color:var(--ink);
+  margin-bottom:32px;transition:border-color .2s;
+}
+.qz-input:focus{outline:none;border-color:var(--ac)}
+.qz-input::placeholder{color:var(--muted)}
+.qz-nav{display:flex;gap:12px;align-items:center}
+.qz-back{background:transparent;border:1px solid var(--line);color:var(--ink-2);padding:14px 22px;font:inherit;font-size:.88rem;cursor:pointer;transition:.2s}
+.qz-back:hover{border-color:var(--ink);color:var(--ink)}
+.qz-next{background:var(--ac);color:var(--void);border:0;padding:14px 30px;font:inherit;font-weight:700;font-size:.9rem;cursor:pointer;transition:background .22s,color .22s,transform .22s cubic-bezier(.2,.7,.3,1)}
+.qz-next:hover:not(:disabled){background:var(--ink);color:var(--ac);transform:translateY(-2px)}
+.qz-next:disabled{background:var(--s2);color:var(--muted);cursor:not-allowed}
+.qz-hint-sm{font-size:.78rem;color:var(--muted);margin-left:auto}
+
+/* итог */
+.qz-done{text-align:center;padding:20px 0}
+.qz-sum{
+  border:1px solid var(--ac);padding:30px;margin:24px 0 30px;
+  display:grid;gap:10px;text-align:left;
+}
+.qz-sum div{display:flex;justify-content:space-between;gap:20px;font-size:.92rem;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.qz-sum div:last-child{border-bottom:0;padding-bottom:0}
+.qz-sum span:first-child{color:var(--muted)}
+.qz-sum b{font-weight:500;color:var(--ac)}
+
+
 </style>
 </head>
 <body>
@@ -341,6 +396,88 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   </div>
 </section>
 
+<section class="quiz" id="quiz">
+  <div class="wrap qz-wrap">
+    <div class="sec-head" style="margin-bottom:38px">
+      <div class="eyebrow" data-i18n="qz_eyebrow">Ылдамды смета</div>
+      <h2 data-i18n="qz_h2">4 сууоп — сметаны даярдап беребиз</h2>
+    </div>
+
+    <div class="qz-bar" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+
+    <!-- шаг 1 -->
+    <div class="qz-step on" data-qz="0">
+      <div class="qz-q" data-i18n="q1">Эмне ремонт керек?</div>
+      <div class="qz-hint" data-i18n="q1h">Эң жакын варианты тандаңыз</div>
+      <div class="qz-opts">
+        <button type="button" class="qz-opt" data-v="Квартира"><span class="qz-mark">✓</span><span data-i18n="q1a">Квартира</span></button>
+        <button type="button" class="qz-opt" data-v="Үй"><span class="qz-mark">✓</span><span data-i18n="q1b">Үй</span></button>
+        <button type="button" class="qz-opt" data-v="Офис"><span class="qz-mark">✓</span><span data-i18n="q1c">Офис</span></button>
+        <button type="button" class="qz-opt" data-v="Коммерциялык помещение"><span class="qz-mark">✓</span><span data-i18n="q1d">Коммерциялык помещение</span></button>
+      </div>
+      <div class="qz-nav"><button type="button" class="qz-next" disabled data-i18n="qz_next">Кийинки →</button></div>
+    </div>
+
+    <!-- шаг 2 -->
+    <div class="qz-step" data-qz="1">
+      <div class="qz-q" data-i18n="q2">Аянтма канча м²?</div>
+      <div class="qz-hint" data-i18n="q2h">Так коюунун кереги жок — жакындап жетсе тура</div>
+      <input class="qz-input" id="qzArea" type="number" inputmode="numeric" min="10" max="1000" data-i18n-ph="q2ph" placeholder="Мисалы, 65">
+      <div class="qz-nav">
+        <button type="button" class="qz-back" data-i18n="qz_back">← Артка</button>
+        <button type="button" class="qz-next" disabled data-i18n="qz_next">Кийинки →</button>
+      </div>
+    </div>
+
+    <!-- шаг 3 -->
+    <div class="qz-step" data-qz="2">
+      <div class="qz-q" data-i18n="q3">Кайсы этаптан башталышы керек?</div>
+      <div class="qz-hint" data-i18n="q3h">Биз толук циклди кыла алабыз</div>
+      <div class="qz-opts">
+        <button type="button" class="qz-opt" data-v="Бүт толук ремонт"><span class="qz-mark">✓</span><span data-i18n="q3a">Бүт толук ремонт</span></button>
+        <button type="button" class="qz-opt" data-v="Бүгүнүлтүү гана"><span class="qz-mark">✓</span><span data-i18n="q3b">Бүгүнүлтүү гана</span></button>
+        <button type="button" class="qz-opt" data-v="Бир этап гана (электрика, сантехника)"><span class="qz-mark">✓</span><span data-i18n="q3c">Бир этап гана</span></button>
+        <button type="button" class="qz-opt" data-v="Кеңеш керек"><span class="qz-mark">✓</span><span data-i18n="q3d">Кеңеш керек</span></button>
+      </div>
+      <div class="qz-nav">
+        <button type="button" class="qz-back" data-i18n="qz_back">← Артка</button>
+        <button type="button" class="qz-next" disabled data-i18n="qz_next">Кийинки →</button>
+      </div>
+    </div>
+
+    <!-- шаг 4 -->
+    <div class="qz-step" data-qz="3">
+      <div class="qz-q" data-i18n="q4">Качан баштоо керек?</div>
+      <div class="qz-hint" data-i18n="q4h">Биз календарьыбызга киребиз</div>
+      <div class="qz-opts">
+        <button type="button" class="qz-opt" data-v="Аптасы менен"><span class="qz-mark">✓</span><span data-i18n="q4a">Аптасы менен</span></button>
+        <button type="button" class="qz-opt" data-v="1–2 ай"><span class="qz-mark">✓</span><span data-i18n="q4b">1–2 ай</span></button>
+        <button type="button" class="qz-opt" data-v="2–3 ай"><span class="qz-mark">✓</span><span data-i18n="q4c">2–3 ай</span></button>
+        <button type="button" class="qz-opt" data-v="Кене эмес, чегитсиз"><span class="qz-mark">✓</span><span data-i18n="q4d">Кене эмес, чегитсиз</span></button>
+      </div>
+      <div class="qz-nav">
+        <button type="button" class="qz-back" data-i18n="qz_back">← Артка</button>
+        <button type="button" class="qz-next" disabled data-i18n="qz_submit">Смета алуу</button>
+      </div>
+    </div>
+
+    <!-- итог -->
+    <div class="qz-step" data-qz="4">
+      <div class="qz-done">
+        <div class="qz-q" data-i18n="q5">Бир гана калды</div>
+        <div class="qz-hint" data-i18n="q5h">Телефонуңуз — ченөө үчүн чакырабыз</div>
+        <input class="qz-input" id="qzName" type="text" data-i18n-ph="qz_name" placeholder="Аты" required>
+        <input class="qz-input" id="qzPhone" type="tel" data-i18n-ph="qz_phone" placeholder="Телефон" required>
+        <div class="qz-sum" id="qzSum"></div>
+        <div class="qz-nav" style="justify-content:center">
+          <button type="button" class="qz-next" id="qzSend" data-i18n="qz_send">Жөнөтүү</button>
+        </div>
+        <div class="qz-hint-sm" style="text-align:center;margin-top:18px" data-i18n="qz_via">Тапшыруу WhatsApp аркылуу</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section id="cta" class="cta">
   <div class="cta-grid wrap">
@@ -406,6 +543,20 @@ ru:{
 'r2':'2-й отзыв — что оказалось сложно и как решили','r3':'3-й отзыв — повторный заказ или рекомендация',
 'cta_h2':'Рассчитаем стоимость вашей кухни','cta_p':'Замер бесплатный, покажем проект и посчитаем точную стоимость.',
 'f_contacts':'Контакты','f_sections':'Разделы',
+'qz_eyebrow':'Быстрый расчёт','qz_h2':'4 вопроса — и расчёт готов',
+'q1':'Что нужно изготовить?','q1h':'Выберите ближайший вариант',
+'q1a':'Кухня','q1b':'Шкаф-купе или гардеробная','q1c':'Кровать','q1d':'Другое',
+'q2':'Какой это этаж и нужен ли подъёмник?','q2h':'Влияет на сроки монтажа','q2ph':'Например, 4 этаж, нужен подъёмник',
+'q3':'Когда планируете заказывать?','q3h':'От этого зависит производственный график',
+'q3a':'В течение 2 недель','q3b':'1–2 месяца','q3c':'2–3 месяца','q3d':'Пока выбираю',
+'q4':'Есть ли у вас эскиз или замеры?','q4h':'Своё проектирование, если нет',
+'q4a':'Есть эскиз','q4b':'Есть замеры','q4c':'Нужна помощь в проекте','q4d':'Нужно всё с нуля',
+'q5':'Осталось одно','q5h':'Телефон — приедем на замер и посчитаем',
+'qz_name':'Имя','qz_phone':'Телефон',
+'qz_next':'Далее →','qz_back':'← Назад','qz_submit':'Получить расчёт',
+'qz_send':'Отправить','qz_via':'Отправка через WhatsApp',
+'qz_sum1':'Что делаем','qz_sum2':'Этаж','qz_sum3':'Когда','qz_sum4':'Проект',
+'wa_text2':'Здравствуйте! Заявка на мебель: ',
 'f_about':'Сборка и установка корпусной мебели: кухни, кровати, шкафы-купе, столы, тумбы, гардеробные, детские, школьные, офисные. Постоянным клиентам −10%. Бишкек.',
 'f_note':'© Is-Ka Mebel. Демонстрационный концепт, не действующий сайт.'
 },
@@ -442,6 +593,20 @@ ky:{
 'r3':'3-ойгүм — кайта заказ же сунуш',
 'cta_h2':'Кухняңыздын нархын эсептейли','cta_p':'Ченөө акысыз, долбоорду көрсөтүп, так нархын эсептейбиз.',
 'f_contacts':'Байланыш','f_sections':'Бөлүмдөр',
+'qz_eyebrow':'Ылдамды эсептөө','qz_h2':'4 сууоп — эсептөө даяр',
+'q1':'Эмне жасош керек?','q1h':'Эң жакын варианты тандаңыз',
+'q1a':'Кухня','q1b':'Шкаф-купе же текче','q1c':'Кровать','q1d':'Башка',
+'q2':'Кайсы кабат, көтөргөч керекпи?','q2h':'Монтаж убактысына таасир этет','q2ph':'Мисалы, 4 кабат, көтөргөч керек',
+'q3':'Качан буюртма бересиз?','q3h':'Ошолор өндүрүш графигине таасир этет',
+'q3a':'2 жума ичинде','q3b':'1–2 ай','q3c':'2–3 ай','q3d':'Азыр тандап жүргөн',
+'q4':'Сыздын эскизи же ченемеси барбы?','q4h':'Жок болсо биз долбоорду кылабыз',
+'q4a':'Эскиз бар','q4b':'Ченеме бар','q4c':'Долбоорго жардам керек','q4d':'Башынан керек',
+'q5':'Бир гана калды','q5h':'Телефон — ченөөгө келип, эсептөп беребиз',
+'qz_name':'Аты','qz_phone':'Телефон',
+'qz_next':'Кийинки →','qz_back':'← Артка','qz_submit':'Эсептөө алуу',
+'qz_send':'Жөнөтүү','qz_via':'WhatsApp аркылуу жөнөтүү',
+'qz_sum1':'Эмне жасабыз','qz_sum2':'Кабат','qz_sum3':'Качан','qz_sum4':'Долбоор',
+'wa_text2':'Салам! Мебель буюртмасы: ',
 'f_about':'Корпустук мебель чогсотуу жана орнотуу: кухня, кровать, шкаф-купе, стол, тумба, текче, балдар, мектеп, офис. Туруктуу кардадарга −10%. Бишкек.',
 'f_note':'© Is-Ka Mebel. Демонстрациялык концепт — иш жүгүртүүчү эмес сайт.'
 }};
@@ -462,6 +627,93 @@ function setLang(l){
 document.querySelectorAll('.lang button').forEach(function(b){
   b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));});
 });
+(function(){
+  var steps = document.querySelectorAll('.qz-step');
+  if (!steps.length) return;
+  var bar   = document.querySelectorAll('.qz-bar i');
+  var ans   = {o:null, area:null, scope:null, when:null};
+  var cur   = 0;
+
+  function paint(){
+    steps.forEach(function(s,i){ s.classList.toggle('on', i===cur); });
+    bar.forEach(function(b,i){ b.classList.toggle('on', i<=cur); });
+  }
+
+  // выбор варианта: подсветка + разблокировка «далее»
+  document.querySelectorAll('.qz-step').forEach(function(step){
+    step.querySelectorAll('.qz-opt').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        step.querySelectorAll('.qz-opt').forEach(function(b){
+          b.classList.remove('sel'); b.setAttribute('aria-pressed','false');
+        });
+        btn.classList.add('sel'); btn.setAttribute('aria-pressed','true');
+        var idx = +step.getAttribute('data-qz');
+        if (idx===0) ans.o = btn.getAttribute('data-v');
+        if (idx===2) ans.scope = btn.getAttribute('data-v');
+        if (idx===3) ans.when = btn.getAttribute('data-v');
+        var next = step.querySelector('.qz-next');
+        if (next) next.disabled = false;
+      });
+    });
+  });
+
+  // площадь
+  var area = document.getElementById('qzArea');
+  if (area) area.addEventListener('input', function(){
+    ans.area = area.value;
+    var st = area.closest('.qz-step');
+    var next = st.querySelector('.qz-next');
+    if (next) next.disabled = !(parseInt(area.value,10) > 0);
+  });
+
+  document.querySelectorAll('.qz-next').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      if (btn.disabled) return;
+      if (cur < steps.length - 1){ cur++; paint(); }
+    });
+  });
+  document.querySelectorAll('.qz-back').forEach(function(btn){
+    btn.addEventListener('click', function(){ if (cur > 0){ cur--; paint(); } });
+  });
+
+  // итог: подставить ответы
+  var sum = document.getElementById('qzSum');
+  function fillSum(){
+    if (!sum) return;
+    var L = I18N[langNow];
+    sum.innerHTML =
+      '<div><span>'+L.qz_sum1+'</span><b>'+(ans.o||'—')+'</b></div>'+
+      '<div><span>'+L.qz_sum2+'</span><b>'+(ans.area? ans.area+' м²' : '—')+'</b></div>'+
+      '<div><span>'+L.qz_sum3+'</span><b>'+(ans.scope||'—')+'</b></div>'+
+      '<div><span>'+L.qz_sum4+'</span><b>'+(ans.when||'—')+'</b></div>';
+  }
+  // заполняем при входе на последний шаг
+  var sendBtn = document.getElementById('qzSend');
+  if (sendBtn){
+    var last = steps[steps.length-1];
+    var prevBtn = steps[steps.length-2].querySelector('.qz-next');
+    if (prevBtn) prevBtn.addEventListener('click', function(){ setTimeout(fillSum, 30); });
+  }
+
+  if (sendBtn){
+    sendBtn.addEventListener('click', function(){
+      var L = I18N[langNow];
+      var name = (document.getElementById('qzName')||{}).value || '';
+      var tel  = (document.getElementById('qzPhone')||{}).value || '';
+      if (!name || !tel) { alert(L.qz_name + ' / ' + L.qz_phone); return; }
+      var txt = (L.wa_text2 || L.wa_text) +
+        L.qz_sum1 + ': ' + (ans.o||'') + '\n' +
+        L.qz_sum2 + ': ' + (ans.area||'') + ' m2\n' +
+        L.qz_sum3 + ': ' + (ans.scope||'') + '\n' +
+        L.qz_sum4 + ': ' + (ans.when||'') + '\n' +
+        L.f_name + ': ' + name + '\n' + L.qz_phone + ': ' + tel;
+      window.open('https://wa.me/996779874777?text='+encodeURIComponent(txt),'_blank');
+    });
+  }
+
+  paint();
+})();
+
 (function(){
   var layer=document.querySelector('.hero-img'), hero=document.querySelector('.hero');
   if(!layer||!hero) return;
