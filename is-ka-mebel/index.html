@@ -398,80 +398,75 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <section class="quiz" id="quiz">
   <div class="wrap qz-wrap">
     <div class="sec-head" style="margin-bottom:38px">
-      <div class="eyebrow" data-i18n="qz_eyebrow">Ылдамды смета</div>
-      <h2 data-i18n="qz_h2">4 сууоп — сметаны даярдап беребиз</h2>
+      <div class="eyebrow" data-i18n="qz_eyebrow">Быстрый расчёт</div>
+      <h2 data-i18n="qz_h2">4 вопроса — и расчёт готов</h2>
     </div>
 
     <div class="qz-bar" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
 
-    <!-- шаг 1 -->
     <div class="qz-step on" data-qz="0">
-      <div class="qz-q" data-i18n="q1">Эмне ремонт керек?</div>
-      <div class="qz-hint" data-i18n="q1h">Эң жакын варианты тандаңыз</div>
+      <div class="qz-q" data-i18n="q1">Что нужно изготовить?</div>
+      <div class="qz-hint" data-i18n="q1h">Выберите ближайший вариант</div>
       <div class="qz-opts">
-        <button type="button" class="qz-opt" data-v="Квартира"><span class="qz-mark">✓</span><span data-i18n="q1a">Квартира</span></button>
-        <button type="button" class="qz-opt" data-v="Үй"><span class="qz-mark">✓</span><span data-i18n="q1b">Үй</span></button>
-        <button type="button" class="qz-opt" data-v="Офис"><span class="qz-mark">✓</span><span data-i18n="q1c">Офис</span></button>
-        <button type="button" class="qz-opt" data-v="Коммерциялык помещение"><span class="qz-mark">✓</span><span data-i18n="q1d">Коммерциялык помещение</span></button>
+        <button type="button" class="qz-opt" data-v="kitchen" data-i18n="q1a"><span class="qz-mark">✓</span><span>Кухня</span></button>
+        <button type="button" class="qz-opt" data-v="wardrobe" data-i18n="q1b"><span class="qz-mark">✓</span><span>Шкаф-купе или гардеробная</span></button>
+        <button type="button" class="qz-opt" data-v="bed" data-i18n="q1c"><span class="qz-mark">✓</span><span>Кровать</span></button>
+        <button type="button" class="qz-opt" data-v="other" data-i18n="q1d"><span class="qz-mark">✓</span><span>Другое</span></button>
       </div>
-      <div class="qz-nav"><button type="button" class="qz-next" disabled data-i18n="qz_next">Кийинки →</button></div>
+      <div class="qz-nav"><button type="button" class="qz-next" disabled data-i18n="qz_next">Далее →</button></div>
     </div>
 
-    <!-- шаг 2 -->
     <div class="qz-step" data-qz="1">
-      <div class="qz-q" data-i18n="q2">Кайсы кабат, көтөргөч керекпи?</div>
-      <div class="qz-hint" data-i18n="q2h">Монтаж убактысына таасир этет</div>
-      <input class="qz-input" id="qzFloor" type="text" data-i18n-ph="q2ph" placeholder="4 кабат, көтөргөч керек">
+      <div class="qz-q" data-i18n="q2">Какой это этаж и нужен ли подъёмник?</div>
+      <div class="qz-hint" data-i18n="q2h">Влияет на сроки монтажа</div>
+      <input class="qz-input" id="qzFloor" type="text" data-i18n-ph="q2ph" placeholder="Например, 4 этаж, нужен подъёмник">
       <div class="qz-nav">
-        <button type="button" class="qz-back" data-i18n="qz_back">← Артка</button>
-        <button type="button" class="qz-next" disabled data-i18n="qz_next">Кийинки →</button>
+        <button type="button" class="qz-back" data-i18n="qz_back">← Назад</button>
+        <button type="button" class="qz-next" disabled data-i18n="qz_next">Далее →</button>
       </div>
     </div>
 
-    <!-- шаг 3 -->
     <div class="qz-step" data-qz="2">
-      <div class="qz-q" data-i18n="q3">Кайсы этаптан башталышы керек?</div>
-      <div class="qz-hint" data-i18n="q3h">Биз толук циклди кыла алабыз</div>
+      <div class="qz-q" data-i18n="q3">Когда планируете заказывать?</div>
+      <div class="qz-hint" data-i18n="q3h">От этого зависит производственный график</div>
       <div class="qz-opts">
-        <button type="button" class="qz-opt" data-v="Бүт толук ремонт"><span class="qz-mark">✓</span><span data-i18n="q3a">Бүт толук ремонт</span></button>
-        <button type="button" class="qz-opt" data-v="Бүгүнүлтүү гана"><span class="qz-mark">✓</span><span data-i18n="q3b">Бүгүнүлтүү гана</span></button>
-        <button type="button" class="qz-opt" data-v="Бир этап гана (электрика, сантехника)"><span class="qz-mark">✓</span><span data-i18n="q3c">Бир этап гана</span></button>
-        <button type="button" class="qz-opt" data-v="Кеңеш керек"><span class="qz-mark">✓</span><span data-i18n="q3d">Кеңеш керек</span></button>
+        <button type="button" class="qz-opt" data-v="soon" data-i18n="q3a"><span class="qz-mark">✓</span><span>В течение 2 недель</span></button>
+        <button type="button" class="qz-opt" data-v="month12" data-i18n="q3b"><span class="qz-mark">✓</span><span>1–2 месяца</span></button>
+        <button type="button" class="qz-opt" data-v="month23" data-i18n="q3c"><span class="qz-mark">✓</span><span>2–3 месяца</span></button>
+        <button type="button" class="qz-opt" data-v="unsure" data-i18n="q3d"><span class="qz-mark">✓</span><span>Пока выбираю</span></button>
       </div>
       <div class="qz-nav">
-        <button type="button" class="qz-back" data-i18n="qz_back">← Артка</button>
-        <button type="button" class="qz-next" disabled data-i18n="qz_next">Кийинки →</button>
+        <button type="button" class="qz-back" data-i18n="qz_back">← Назад</button>
+        <button type="button" class="qz-next" disabled data-i18n="qz_next">Далее →</button>
       </div>
     </div>
 
-    <!-- шаг 4 -->
     <div class="qz-step" data-qz="3">
-      <div class="qz-q" data-i18n="q4">Качан баштоо керек?</div>
-      <div class="qz-hint" data-i18n="q4h">Биз календарьыбызга киребиз</div>
+      <div class="qz-q" data-i18n="q4">Есть ли эскиз или замеры?</div>
+      <div class="qz-hint" data-i18n="q4h">Своё проектирование, если нет</div>
       <div class="qz-opts">
-        <button type="button" class="qz-opt" data-v="Аптасы менен"><span class="qz-mark">✓</span><span data-i18n="q4a">Аптасы менен</span></button>
-        <button type="button" class="qz-opt" data-v="1–2 ай"><span class="qz-mark">✓</span><span data-i18n="q4b">1–2 ай</span></button>
-        <button type="button" class="qz-opt" data-v="2–3 ай"><span class="qz-mark">✓</span><span data-i18n="q4c">2–3 ай</span></button>
-        <button type="button" class="qz-opt" data-v="Кене эмес, чегитсиз"><span class="qz-mark">✓</span><span data-i18n="q4d">Кене эмес, чегитсиз</span></button>
+        <button type="button" class="qz-opt" data-v="sketch" data-i18n="q4a"><span class="qz-mark">✓</span><span>Есть эскиз</span></button>
+        <button type="button" class="qz-opt" data-v="measure" data-i18n="q4b"><span class="qz-mark">✓</span><span>Есть замеры</span></button>
+        <button type="button" class="qz-opt" data-v="help" data-i18n="q4c"><span class="qz-mark">✓</span><span>Нужна помощь в проекте</span></button>
+        <button type="button" class="qz-opt" data-v="scratch" data-i18n="q4d"><span class="qz-mark">✓</span><span>Нужно всё с нуля</span></button>
       </div>
       <div class="qz-nav">
-        <button type="button" class="qz-back" data-i18n="qz_back">← Артка</button>
-        <button type="button" class="qz-next" disabled data-i18n="qz_submit">Смета алуу</button>
+        <button type="button" class="qz-back" data-i18n="qz_back">← Назад</button>
+        <button type="button" class="qz-next" disabled data-i18n="qz_submit">Получить расчёт</button>
       </div>
     </div>
 
-    <!-- итог -->
     <div class="qz-step" data-qz="4">
       <div class="qz-done">
-        <div class="qz-q" data-i18n="q5">Бир гана калды</div>
-        <div class="qz-hint" data-i18n="q5h">Телефонуңуз — ченөө үчүн чакырабыз</div>
-        <input class="qz-input" id="qzName" type="text" data-i18n-ph="qz_name" placeholder="Аты" required>
+        <div class="qz-q" data-i18n="q5">Осталось одно</div>
+        <div class="qz-hint" data-i18n="q5h">Телефон — приедем на замер и посчитаем</div>
+        <input class="qz-input" id="qzName" type="text" data-i18n-ph="qz_name" placeholder="Имя" required>
         <input class="qz-input" id="qzPhone" type="tel" data-i18n-ph="qz_phone" placeholder="Телефон" required>
         <div class="qz-sum" id="qzSum"></div>
         <div class="qz-nav" style="justify-content:center">
-          <button type="button" class="qz-next" id="qzSend" data-i18n="qz_send">Жөнөтүү</button>
+          <button type="button" class="qz-next" id="qzSend" data-i18n="qz_send">Отправить</button>
         </div>
-        <div class="qz-hint-sm" style="text-align:center;margin-top:18px" data-i18n="qz_via">Тапшыруу WhatsApp аркылуу</div>
+        <div class="qz-hint-sm" style="text-align:center;margin-top:18px" data-i18n="qz_via">Отправка через WhatsApp</div>
       </div>
     </div>
   </div>
@@ -542,6 +537,12 @@ ru:{
 'r2':'2-й отзыв — что оказалось сложно и как решили','r3':'3-й отзыв — повторный заказ или рекомендация',
 'cta_h2':'Рассчитаем стоимость вашей кухни','cta_p':'Замер бесплатный, покажем проект и посчитаем точную стоимость.',
 'f_contacts':'Контакты','f_sections':'Разделы',
+'qz_val_kitchen':'Кухня','qz_val_wardrobe':'Шкаф-купе или гардеробная',
+'qz_val_bed':'Кровать','qz_val_other':'Другое',
+'qz_val_soon':'В течение 2 недель','qz_val_month12':'1–2 месяца',
+'qz_val_month23':'2–3 месяца','qz_val_unsure':'Пока выбираю',
+'qz_val_sketch':'Есть эскиз','qz_val_measure':'Есть замеры',
+'qz_val_help':'Нужна помощь в проекте','qz_val_scratch':'Нужно всё с нуля',
 'qz_eyebrow':'Быстрый расчёт','qz_h2':'4 вопроса — и расчёт готов',
 'q1':'Что нужно изготовить?','q1h':'Выберите ближайший вариант',
 'q1a':'Кухня','q1b':'Шкаф-купе или гардеробная','q1c':'Кровать','q1d':'Другое',
@@ -592,6 +593,12 @@ ky:{
 'r3':'3-ойгүм — кайта заказ же сунуш',
 'cta_h2':'Кухняңыздын нархын эсептейли','cta_p':'Ченөө акысыз, долбоорду көрсөтүп, так нархын эсептейбиз.',
 'f_contacts':'Байланыш','f_sections':'Бөлүмдөр',
+'qz_val_kitchen':'Кухня','qz_val_wardrobe':'Шкаф-купе же текче',
+'qz_val_bed':'Кровать','qz_val_other':'Башка',
+'qz_val_soon':'2 жума ичинде','qz_val_month12':'1–2 ай',
+'qz_val_month23':'2–3 ай','qz_val_unsure':'Азыр тандап жүргөн',
+'qz_val_sketch':'Эскиз бар','qz_val_measure':'Ченеме бар',
+'qz_val_help':'Долбоорго жардам керек','qz_val_scratch':'Башынан керек',
 'qz_eyebrow':'Ылдамды эсептөө','qz_h2':'4 сууоп — эсептөө даяр',
 'q1':'Эмне жасош керек?','q1h':'Эң жакын варианты тандаңыз',
 'q1a':'Кухня','q1b':'Шкаф-купе же текче','q1c':'Кровать','q1d':'Башка',
@@ -645,7 +652,7 @@ setLang(s==='ky'?'ky':'ru');
   var steps = document.querySelectorAll('.qz-step');
   if (!steps.length) return;
   var bar   = document.querySelectorAll('.qz-bar i');
-  var ans   = {o:null, area:null, scope:null, when:null};
+  var ans   = {o:null, area:null, when:null, project:null, pick:''};
   var cur   = 0;
 
   function paint(){
@@ -662,9 +669,11 @@ setLang(s==='ky'?'ky':'ru');
         });
         btn.classList.add('sel'); btn.setAttribute('aria-pressed','true');
         var idx = +step.getAttribute('data-qz');
-        if (idx===0) ans.o = btn.getAttribute('data-v');
-        if (idx===2) ans.scope = btn.getAttribute('data-v');
-        if (idx===3) ans.when = btn.getAttribute('data-v');
+        var vk = 'qz_val_' + btn.getAttribute('data-v');
+        ans.pick = (I18N[langNow] && I18N[langNow][vk]) || btn.getAttribute('data-v');
+        if (idx===0) ans.o = ans.pick;
+        if (idx===2) ans.when = ans.pick;
+        if (idx===3) ans.project = ans.pick;
         var next = step.querySelector('.qz-next');
         if (next) next.disabled = false;
       });
@@ -698,7 +707,7 @@ setLang(s==='ky'?'ky':'ru');
     sum.innerHTML =
       '<div><span>'+L.qz_sum1+'</span><b>'+(ans.o||'—')+'</b></div>'+
       '<div><span>'+L.qz_sum2+'</span><b>'+(ans.area||'—')+'</b></div>'+
-      '<div><span>'+L.qz_sum3+'</span><b>'+(ans.scope||'—')+'</b></div>'+
+      '<div><span>'+L.qz_sum3+'</span><b>'+(ans.when||'—')+'</b></div>'+
       '<div><span>'+L.qz_sum4+'</span><b>'+(ans.when||'—')+'</b></div>';
   }
   // заполняем при входе на последний шаг
@@ -718,8 +727,8 @@ setLang(s==='ky'?'ky':'ru');
       var txt = (L.wa_text2 || L.wa_text) +
         L.qz_sum1 + ': ' + (ans.o||'') + '\n' +
         L.qz_sum2 + ': ' + (ans.area||'') + '\n' +
-        L.qz_sum3 + ': ' + (ans.scope||'') + '\n' +
-        L.qz_sum4 + ': ' + (ans.when||'') + '\n' +
+        L.qz_sum3 + ': ' + (ans.when||'') + '\n' +
+        L.qz_sum4 + ': ' + (ans.project||'') + '\n' +
         L.qz_name + ': ' + name + '\n' + L.qz_phone + ': ' + tel;
       window.open('https://wa.me/996502241615?text='+encodeURIComponent(txt),'_blank');
     });
