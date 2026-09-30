@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DR. MARGARITA — косметолог в Бишкеке, Азия Молл</title>
+<meta name="description" content="Врач-косметолог, 15 лет практики. Ботокс, мезотерапия, пилинги, чистка лица. Цены указаны. Салон Камила, Жамманбаева 37/2.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF8F6;        /* тёплый белый */
+  --bg-2:#F3EEE9;      /* мягкий беж */
+  --surface:#FFFFFF;
+  --ink:#2A2521;       /* тёплый тёмный */
+  --ink-2:#6B625A;
+  --muted:#9C9289;
+  --line:#E5DDD5;
+  --ac:#B08968;        /* приглушённая бронза */
+  --ac-dim:rgba(176,137,104,.12);
+  --ac-deep:#8C6A4F;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Jost',system-ui,sans-serif;background:var(--bg);color:var(--ink);
+  line-height:1.65;-webkit-font-smoothing:antialiased;font-weight:300;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;line-height:1.08;letter-spacing:-.01em}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+.eyebrow{font-family:'Jost',sans-serif;font-size:.68rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--ac);margin-bottom:22px}
+.num{font-variant-numeric:tabular-nums}
+
+header{position:sticky;top:0;z-index:30;background:rgba(250,248,246,.92);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;justify-content:space-between;height:74px;gap:20px}
+.mark{font-family:'Cormorant Garamond',serif;font-size:1.45rem;letter-spacing:.01em;white-space:nowrap;flex:0 0 auto}
+.mark i{font-style:italic;color:var(--ac)}
+nav{display:flex;gap:32px;font-size:.84rem;color:var(--ink-2);font-weight:400}
+nav a{position:relative;padding-bottom:2px;transition:color .2s}
+nav a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--ac);transition:width .3s cubic-bezier(.2,.7,.3,1)}
+nav a:hover{color:var(--ink)}
+nav a:hover::after{width:100%}
+.hd-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.lang{display:flex;align-items:center;border:1px solid var(--line);height:38px;background:var(--surface)}
+.lang button{font:inherit;font-size:.75rem;font-weight:400;letter-spacing:.08em;padding:0 13px;height:100%;background:transparent;border:0;color:var(--muted);cursor:pointer;transition:.22s}
+.lang button+button{border-left:1px solid var(--line)}
+.lang button:hover{color:var(--ink)}
+.lang button.active{background:var(--ac);color:#fff;font-weight:500}
+.hd-cta{background:var(--ink);color:var(--bg);padding:11px 22px;font-size:.82rem;font-weight:400;letter-spacing:.02em;white-space:nowrap;transition:background .22s,color .22s,transform .22s cubic-bezier(.2,.7,.3,1)}
+.hd-cta:hover{background:var(--ac);color:#fff;transform:translateY(-2px)}
+
+/* HERO */
+.hero{position:relative;min-height:86vh;display:flex;align-items:flex-end;overflow:hidden;background:var(--bg-2)}
+.hero-img{position:absolute;left:0;right:0;top:-19%;bottom:-19%;z-index:0;will-change:transform}
+.hero-img img{width:100%;height:100%;object-fit:cover;filter:brightness(1.02) saturate(.82)}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(250,248,246,.35) 0%,rgba(250,248,246,.12) 35%,rgba(250,248,246,.97) 100%);z-index:1}
+.hero-in{position:relative;z-index:2;width:100%;padding-bottom:76px}
+.hero-in h1{font-size:clamp(2.9rem,6vw,5.4rem);font-weight:300;max-width:15ch;margin-bottom:30px;line-height:1.02}
+.hero-in h1 em{font-style:italic;color:var(--ac-deep)}
+.hero-in p{font-size:1.06rem;color:var(--ink-2);max-width:52ch;margin-bottom:38px}
+.hero-row{display:flex;gap:56px;align-items:flex-end;flex-wrap:wrap}
+.hero-tel{font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:400;letter-spacing:0;transition:color .2s}
+.hero-tel:hover{color:var(--ac-deep)}
+.hero-tel small{display:block;font-family:'Jost',sans-serif;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:6px}
+.btn{background:var(--ink);color:var(--bg);padding:15px 32px;font-weight:400;font-size:.92rem;letter-spacing:.02em;transition:background .22s,color .22s,transform .22s cubic-bezier(.2,.7,.3,1)}
+.btn:hover{background:var(--ac);color:#fff;transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+
+/* метрики */
+.metrics{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface)}
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.m{padding:32px 28px;border-right:1px solid var(--line);transition:background .22s}
+.m:last-child{border-right:0}
+.m:hover{background:var(--bg-2)}
+.m b{display:block;font-family:'Cormorant Garamond',serif;font-size:2.1rem;font-weight:400;color:var(--ac-deep);margin-bottom:4px;line-height:1;transition:color .2s}
+.m:hover b{color:var(--ink)}
+.m span{font-size:.82rem;color:var(--ink-2)}
+
+section{padding:108px 0}
+.sec-head{max-width:62ch;margin-bottom:66px}
+.sec-head h2{font-size:clamp(2rem,3.6vw,3.1rem);margin-bottom:20px}
+.sec-head p{color:var(--ink-2);font-size:1.02rem}
+
+/* УСЛУГИ С ЦЕНАМИ — таблица, не карточки */
+.prv{border-top:1px solid var(--line)}
+.prv-row{
+  display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1.3fr) auto;gap:32px;
+  padding:24px 0;border-bottom:1px solid var(--line);align-items:baseline;
+  position:relative;transition:background .22s,transform .22s cubic-bezier(.2,.7,.3,1);
+}
+.prv-row::before{content:'';position:absolute;left:-20px;top:0;bottom:0;width:2px;background:var(--ac);transform:scaleY(0);transform-origin:top;transition:transform .3s cubic-bezier(.2,.7,.3,1)}
+.prv-row:hover{background:var(--surface);transform:translateX(20px)}
+.prv-row:hover::before{transform:scaleY(1)}
+.prv-row h3{font-size:1.32rem;font-weight:400;transition:color .2s;line-height:1.25}
+.prv-row:hover h3{color:var(--ac-deep)}
+.prv-row p{font-size:.88rem;color:var(--muted);font-weight:300}
+.prv-price{font-family:'Cormorant Garamond',serif;font-size:1.42rem;color:var(--ac-deep);white-space:nowrap;transition:color .2s}
+.prv-row:hover .prv-price{color:var(--ink)}
+.prv-row .prv-badge{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);display:block;margin-bottom:3px;font-family:'Jost',sans-serif}
+
+/* ПРОЦЕСС */
+.tl{display:flex;flex-direction:column;border-left:1px solid var(--line);margin-left:38px}
+.tl-item{position:relative;padding:0 0 52px 46px;transition:transform .25s cubic-bezier(.2,.7,.3,1)}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:'';position:absolute;left:-4px;top:9px;width:8px;height:8px;border-radius:50%;background:var(--ac);transition:transform .25s cubic-bezier(.2,.7,.3,1),box-shadow .25s}
+.tl-item:hover{transform:translateX(8px)}
+.tl-item:hover::before{transform:scale(1.5);box-shadow:0 0 0 5px var(--ac-dim)}
+.tl-item h3{font-size:1.45rem;margin-bottom:10px;font-weight:400;transition:color .2s}
+.tl-item:hover h3{color:var(--ac-deep)}
+.tl-item p{color:var(--ink-2);font-size:.95rem;max-width:58ch}
+.tl-n{display:block;font-family:'Jost',sans-serif;font-size:.68rem;letter-spacing:.22em;color:var(--muted);margin-bottom:9px}
+
+/* РАБОТЫ */
+.works-sec{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.gal{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.w1{grid-column:span 8}
+.w2{grid-column:span 4}
+.w3{grid-column:span 4}
+.w4{grid-column:span 4}
+.w5{grid-column:span 4}
+.gal figure{overflow:hidden;background:var(--bg);border-radius:4px;position:relative;transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s}
+.gal figure:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(42,37,33,.1)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:.5s;filter:saturate(.92)}
+.gal figure:hover img{transform:scale(1.03);filter:saturate(1.05)}
+.gal figcaption{
+  position:absolute;left:0;bottom:0;padding:10px 16px;font-size:.68rem;letter-spacing:.2em;
+  color:var(--ac-deep);background:rgba(250,248,246,.92);border-top:1px solid var(--ac);
+  transform:translateY(100%);opacity:0;transition:.3s cubic-bezier(.2,.7,.3,1);pointer-events:none;
+}
+.gal figure:hover figcaption{transform:translateY(0);opacity:1}
+.w1 img{aspect-ratio:16/10}
+.w2 img,.w3 img{aspect-ratio:4/5}
+.w4 img,.w5 img{aspect-ratio:4/3}
+
+/* ОТЗЫВЫ */
+.rev-note{border:1px dashed var(--line);padding:18px 24px;margin-bottom:42px;font-size:.86rem;color:var(--muted);display:flex;gap:14px;align-items:flex-start;background:var(--surface)}
+.rev-note b{color:var(--ac-deep);font-weight:500;display:block;margin-bottom:5px;letter-spacing:.02em}
+.rev{columns:3;column-gap:26px}
+@media(max-width:960px){.rev{columns:1}}
+.rev-item{break-inside:avoid;margin-bottom:26px;padding:30px 28px;background:var(--surface);border:1px dashed var(--line);text-align:center;min-height:190px;display:grid;place-items:center;transition:.25s cubic-bezier(.2,.7,.3,1)}
+.rev-item:hover{border-color:var(--ac);transform:translateY(-3px);box-shadow:0 10px 26px rgba(42,37,33,.06)}
+.rev-av{width:42px;height:42px;border-radius:50%;border:1px dashed var(--muted);display:grid;place-items:center;font-size:.82rem;color:var(--muted);margin:0 auto 14px}
+.rev-q{font-size:.9rem;color:var(--muted);max-width:30ch;margin:0 auto}
+
+/* КВИЗ */
+.quiz{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.qz-wrap{max-width:760px;margin:0 auto}
+.qz-bar{display:flex;gap:5px;margin-bottom:40px}
+.qz-bar i{flex:1;height:2px;background:var(--line);transition:background .3s}
+.qz-bar i.on{background:var(--ac)}
+.qz-step{display:none;animation:qzIn .35s cubic-bezier(.2,.7,.3,1)}
+.qz-step.on{display:block}
+@keyframes qzIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.qz-q{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.1rem);margin-bottom:8px;font-weight:400;line-height:1.2}
+.qz-hint{font-size:.88rem;color:var(--muted);margin-bottom:28px}
+.qz-opts{display:grid;gap:10px;margin-bottom:32px}
+.qz-opt{display:flex;align-items:center;gap:15px;padding:18px 22px;border:1px solid var(--line);cursor:pointer;background:var(--bg);font:inherit;font-size:.96rem;color:var(--ink);text-align:left;width:100%;transition:border-color .2s,background .2s,transform .2s cubic-bezier(.2,.7,.3,1)}
+.qz-opt:hover{border-color:var(--ac);background:var(--surface);transform:translateX(6px)}
+.qz-opt.sel{border-color:var(--ac);background:var(--ac-dim)}
+.qz-mark{flex:0 0 22px;height:22px;border:1.5px solid var(--line);border-radius:50%;display:grid;place-items:center;font-size:.7rem;color:transparent;transition:.2s}
+.qz-opt.sel .qz-mark{border-color:var(--ac);background:var(--ac);color:#fff}
+.qz-input{font:inherit;font-size:1.02rem;padding:17px 20px;width:100%;background:var(--bg);border:1px solid var(--line);color:var(--ink);margin-bottom:32px;transition:border-color .2s,background .2s}
+.qz-input:focus{outline:none;border-color:var(--ac);background:var(--surface)}
+.qz-input::placeholder{color:var(--muted)}
+.qz-nav{display:flex;gap:12px;align-items:center}
+.qz-back{background:transparent;border:1px solid var(--line);color:var(--ink-2);padding:14px 22px;font:inherit;font-size:.88rem;cursor:pointer;transition:.2s}
+.qz-back:hover{border-color:var(--ink);color:var(--ink)}
+.qz-next{background:var(--ink);color:var(--bg);border:0;padding:15px 32px;font:inherit;font-weight:400;font-size:.92rem;cursor:pointer;transition:background .22s,color .22s,transform .22s cubic-bezier(.2,.7,.3,1)}
+.qz-next:hover:not(:disabled){background:var(--ac);color:#fff;transform:translateY(-2px)}
+.qz-next:disabled{background:var(--bg-2);color:var(--muted);cursor:not-allowed}
+.qz-done{text-align:center;padding:16px 0}
+.qz-sum{border:1px solid var(--ac);padding:30px;margin:24px 0 30px;display:grid;gap:10px;text-align:left;background:var(--bg)}
+.qz-sum div{display:flex;justify-content:space-between;gap:20px;font-size:.93rem;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.qz-sum div:last-child{border-bottom:0;padding-bottom:0}
+.qz-sum span:first-child{color:var(--muted)}
+.qz-sum b{font-weight:400;color:var(--ac-deep)}
+
+/* CTA */
+.cta{background:var(--ink);color:var(--bg)}
+.cta-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:70px;align-items:start}
+.cta h2{font-size:clamp(2.1rem,3.8vw,3.2rem);margin-bottom:22px;color:var(--bg);font-weight:300}
+.cta p{font-size:1.02rem;margin-bottom:30px;max-width:44ch;color:rgba(250,248,246,.74)}
+.cta .tel{font-family:'Cormorant Garamond',serif;font-size:2.1rem;display:block;margin-bottom:8px;color:var(--bg);transition:color .2s}
+.cta .tel:hover{color:var(--ac)}
+.cta .addr{font-size:.9rem;color:rgba(250,248,246,.6);margin-bottom:18px;line-height:1.8}
+.cta .ig{font-size:.92rem;color:var(--ac);transition:opacity .2s}
+.cta .ig:hover{opacity:.75}
+form{display:flex;flex-direction:column;gap:11px}
+form input,form textarea{font:inherit;font-size:.95rem;padding:16px 19px;border:1px solid rgba(250,248,246,.26);background:rgba(250,248,246,.05);color:var(--bg);transition:border-color .2s,background .2s}
+form input::placeholder,form textarea::placeholder{color:rgba(250,248,246,.48)}
+form input:focus,form textarea:focus{outline:none;border-color:var(--ac);background:rgba(250,248,246,.1)}
+form textarea{resize:vertical;min-height:94px}
+form button{font:inherit;font-weight:400;font-size:.96rem;padding:17px;background:var(--bg);color:var(--ink);border:0;cursor:pointer;transition:background .22s,color .22s}
+form button:hover{background:var(--ac);color:#fff}
+.wa{display:block;text-align:center;padding:15px;border:1px solid rgba(250,248,246,.34);font-size:.92rem;transition:.2s}
+.wa:hover{background:rgba(250,248,246,.1)}
+
+footer{padding:58px 0;font-size:.85rem;color:var(--muted)}
+.fg{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+footer b{color:var(--ink);display:block;margin-bottom:14px;font-weight:500;letter-spacing:.06em;font-size:.78rem;text-transform:uppercase}
+footer a{transition:color .2s}
+footer a:hover{color:var(--ac-deep)}
+.fb{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);font-size:.78rem}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .prv-row:hover,.tl-item:hover,.btn:hover,.hd-cta:hover,.gal figure:hover{transform:none!important}
+  .gal figcaption{display:none}
+}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+
+@media(max-width:960px){
+  .wrap{padding:0 20px}
+  nav{display:none}
+  .hd{height:auto;padding:14px 0;gap:10px}
+  .mark{font-size:1.15rem}
+  .hd-right{gap:7px}
+  .hd-cta{padding:9px 13px;font-size:.76rem}
+  .lang button{padding:0 10px;font-size:.7rem}
+  .hero{min-height:76vh}
+  .metrics-grid{grid-template-columns:repeat(2,1fr)}
+  .m{border-bottom:1px solid var(--line)}
+  section{padding:72px 0}
+  .prv-row{grid-template-columns:1fr auto;gap:8px 16px;padding:20px 0}
+  .prv-row p{grid-column:1/-1}
+  .tl{margin-left:20px}
+  .tl-item{padding-left:32px}
+  .gal{grid-template-columns:repeat(2,1fr)}
+  .w1,.w2,.w3,.w4,.w5{grid-column:span 1}
+  .w1{grid-column:span 2}
+  .cta-grid,.fg{grid-template-columns:1fr;gap:34px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hd wrap">
+    <div class="mark">dr. <i>Margarita</i></div>
+    <nav>
+      <a href="#services" data-i18n="nav_s">Услуги и цены</a>
+      <a href="#how" data-i18n="nav_h">Как проходит</a>
+      <a href="#works" data-i18n="nav_w">Работы</a>
+      <a href="#cta" data-i18n="nav_c">Запись</a>
+    </nav>
+    <div class="hd-right">
+      <div class="lang" role="group" aria-label="Тил / Язык">
+        <button type="button" data-lang="ru" class="active">РУС</button>
+        <button type="button" data-lang="ky">КЫРГ</button>
+      </div>
+      <a href="#cta" class="hd-cta" data-i18n="cta_h">Записаться</a>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-img"><img src="img/hero.jpg" alt="Косметолог dr. Margarita, салон Камила, Бишкек"></div>
+  <div class="wrap hero-in">
+    <div class="eyebrow" data-i18n="hero_e">Врач-косметолог · Бишкек · Азия Молл</div>
+    <h1><span data-i18n="hero_a">Красота,</span> <em data-i18n="hero_b">которую видно</em></h1>
+    <p data-i18n="hero_p">Врач с высшим медицинским образованием, 15 лет практики. Все процедуры — с гипоаллергенными материалами и с сертификацией. Цены указаны на сайте.</p>
+    <div class="hero-row">
+      <a href="#cta" class="btn" data-i18n="hero_btn">Записаться на приём</a>
+      <a href="tel:+996****3599" class="hero-tel"><small data-i18n="hero_tel">Звоните или WhatsApp</small>+996 707 993 599</a>
+    </div>
+  </div>
+</div>
+
+<div class="metrics">
+  <div class="metrics-grid wrap" style="padding:0">
+    <div class="m"><b class="num" data-i18n="m1">15</b><span data-i18n="m1l">лет практики</span></div>
+    <div class="m"><b class="num" data-i18n="m2">435k</b><span data-i18n="m2l">просмотров на Lalafo</span></div>
+    <div class="m"><b data-i18n="m3">7 дней</b><span data-i18n="m3l">работаем без выходных</span></div>
+    <div class="m"><b data-i18n="m4">цены</b><span data-i18n="m4l">указаны на сайте</span></div>
+  </div>
+</div>
+
+<!-- УСЛУГИ С ЦЕНАМИ -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="svc_e">Услуги и цены</div>
+      <h2 data-i18n="svc_h">Что делаю и сколько это стоит</h2>
+      <p data-i18n="svc_p">Все цены указаны в сомах. Стоимость может меняться в акции — актуальную уточню на консультации.</p>
+    </div>
+    <div class="prv">
+      <div class="prv-row"><div><span class="prv-badge" data-i18n="b1">Акция</span><h3 data-i18n="s1">Увеличение губ, 0.5 мг</h3></div><p data-i18n="s1d">Безболезненно и безопасно, объём держится 1 год</p><div class="prv-price num">2 500 сом</div></div>
+      <div class="prv-row"><div><h3 data-i18n="s2">Увеличение губ, 1 мг</h3></div><p data-i18n="s2d">Гипоаллергенные материалы, сертифицированный препарат</p><div class="prv-price num">5 000 сом</div></div>
+      <div class="prv-row"><div><h3 data-i18n="s3">Чистка лица</h3></div><p data-i18n="s3d">10-этапная процедура</p><div class="prv-price num">1 200 сом</div></div>
+      <div class="prv-row"><div><h3 data-i18n="s4">Мезотерапия лица</h3></div><p data-i18n="s4d">Восстановление и увлажнение кожи</p><div class="prv-price num">2 000 сом</div></div>
+      <div class="prv-row"><div><h3 data-i18n="s5">Биоревитализация лица</h3></div><p data-i18n="s5d">Комплексное омоложение кожи</p><div class="prv-price num">3 000 сом</div></div>
+      <div class="prv-row"><div><h3 data-i18n="s6">Плазмолифтинг лица</h3></div><p data-i18n="s6d">Стимуляция регенерации собственной плазмой</p><div class="prv-price num">2 000 сом</div></div>
+      <div class="prv-row"><div><h3 data-i18n="s7">Заполнение носогубной складки</h3></div><p data-i18n="s7d">Коррекция мимических складок</p><div class="prv-price num">6 000 сом</div></div>
+      <div class="prv-row"><div><h3 data-i18n="s8">Пудровое наполнение</h3></div><p data-i18n="s8d">Объёмное моделирование без лишнего объёма</p><div class="prv-price num">3 000 сом</div></div>
+      <div class="prv-row"><div><h3 data-i18n="s9">Сангапури</h3></div><p data-i18n="s9d">Нитевая безоперационная блефаропластика</p><div class="prv-price num">5 000 сом</div></div>
+      <div class="prv-row"><div><h3 data-i18n="s10">Татуаж глаз</h3></div><p data-i18n="s10d">Ламинирование или татуаж век</p><div class="prv-price num">3 000 сом</div></div>
+      <div class="prv-row"><div><h3 data-i18n="s11">Всесезонный пилинг</h3></div><p data-i18n="s11d">Обновление кожи, подходит для всех типов</p><div class="prv-price num">1 500 сом</div></div>
+      <div class="prv-row"><div><h3 data-i18n="s12">Пилинг Джеснера</h3></div><p data-i18n="s12d">Мягкий пилинг с восстановлением</p><div class="prv-price num">2 000 сом</div></div>
+      <div class="prv-row"><div><h3 data-i18n="s13">Акварельные губки</h3></div><p data-i18n="s13d">Тонкий эффект, естественный вид</p><div class="prv-price num">3 000 сом</div></div>
+      <div class="prv-row"><div><h3 data-i18n="s14">Прокол ушей</h3></div><p data-i18n="s14d">Онлайн-пирсинг с использованием одноразовых игл</p><div class="prv-price num">500 сом</div></div>
+    </div>
+    <p style="margin-top:26px;font-size:.86rem;color:var(--muted)" data-i18n="botox_note">Ботулинотерапия — стоимость уточняется на консультации, зависит от зоны и объёма.</p>
+  </div>
+</section>
+
+<!-- ПРОЦЕСС -->
+<section id="how" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="how_e">Как проходит</div>
+      <h2 data-i18n="how_h">Четыре шага до результата</h2>
+    </div>
+    <div class="tl">
+      <div class="tl-item"><span class="tl-n" data-i18n="t1">ШАГ 01</span><h3 data-i18n="h1">Запись</h3><p data-i18n="h1d">Звоните или пишите в WhatsApp — подберём удобное время. Работаем без выходных.</p></div>
+      <div class="tl-item"><span class="tl-n" data-i18n="t2">ШАГ 02</span><h3 data-i18n="h2">Консультация</h3><p data-i18n="h2d">Смотрю кожу, обсуждаем задачу и подбираю процедуру под ваш случай и бюджет.</p></div>
+      <div class="tl-item"><span class="tl-n" data-i18n="t3">ШАГ 03</span><h3 data-i18n="h3">Процедура</h3><p data-i18n="h3d">Работаю сертифицированными гипоаллергенными материалами, с соблюдением протокола.</p></div>
+      <div class="tl-item"><span class="tl-n" data-i18n="t4">ШАГ 04</span><h3 data-i18n="h4">Контроль</h3><p data-i18n="h4d">Наблюдаю за результатом, при необходимости корректирую.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- РАБОТЫ -->
+<section id="works" class="works-sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="wrk_e">Работы</div>
+      <h2 data-i18n="wrk_h">До и после</h2>
+      <p data-i18n="wrk_p">Результаты моих клиентов. Фото — с разрешения.</p>
+    </div>
+    <div class="gal">
+      <figure class="w1"><img src="img/work-1.jpg" alt="Результат работы косметолога"><figcaption data-i18n="obj">ПАЦИЕНТ 01</figcaption></figure>
+      <figure class="w2"><img src="img/work-2.jpg" alt="Результат работы косметолога"><figcaption data-i18n="obj">ПАЦИЕНТ 02</figcaption></figure>
+      <figure class="w3"><img src="img/work-3.jpg" alt="Результат работы косметолога"><figcaption data-i18n="obj">ПАЦИЕНТ 03</figcaption></figure>
+      <figure class="w4"><img src="img/work-4.jpg" alt="Результат работы косметолога"><figcaption data-i18n="obj">ПАЦИЕНТ 04</figcaption></figure>
+      <figure class="w5"><img src="img/work-5.jpg" alt="Результат работы косметолога"><figcaption data-i18n="obj">ПАЦИЕНТ 05</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ОТЗЫВЫ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:32px">
+      <div class="eyebrow" data-i18n="rev_e">Отзывы</div>
+      <h2 data-i18n="rev_h">Что говорят пациенты</h2>
+    </div>
+    <div class="rev-note">
+      <span style="flex:0 0 auto;font-size:1.1rem;color:var(--ac)">!</span>
+      <div><b data-i18n="rev_t">Важно: нужны настоящие отзывы</b><span data-i18n="rev_d">Имя и результат — по вашим реальным пациентам. Спросите после процедуры: «Вам понравился результат? Напишете пару слов?»</span></div>
+    </div>
+    <div class="rev">
+      <div class="rev-item"><div><div class="rev-av">?</div><div class="rev-q" data-i18n="r1">Сюда 1-й отзыв: что делали, понравился ли результат</div></div></div>
+      <div class="rev-item"><div><div class="rev-av">?</div><div class="rev-q" data-i18n="r2">2-й отзыв — что привело пациентку и впечатления</div></div></div>
+      <div class="rev-item"><div><div class="rev-av">?</div><div class="rev-q" data-i18n="r3">3-й отзыв — повторное посещение или рекомендация подругам</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- КВИЗ -->
+<section class="quiz" id="quiz">
+  <div class="wrap qz-wrap">
+    <div class="sec-head" style="margin-bottom:38px">
+      <div class="eyebrow" data-i18n="qz_e">Быстрая запись</div>
+      <h2 data-i18n="qz_h">4 вопроса — и я перезвоню</h2>
+    </div>
+    <div class="qz-bar" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+
+    <div class="qz-step on" data-qz="0">
+      <div class="qz-q" data-i18n="q1">Что хотите сделать?</div>
+      <div class="qz-hint" data-i18n="q1h">Выберите ближайшее</div>
+      <div class="qz-opts">
+        <button type="button" class="qz-opt" data-v="lips" data-i18n="q1a"><span class="qz-mark">✓</span><span>Увеличить губы</span></button>
+        <button type="button" class="qz-opt" data-v="face" data-i18n="q1b"><span class="qz-mark">✓</span><span>Омолодить лицо</span></button>
+        <button type="button" class="qz-opt" data-v="clean" data-i18n="q1c"><span class="qz-mark">✓</span><span>Почистить лицо</span></button>
+        <button type="button" class="qz-opt" data-v="other" data-i18n="q1d"><span class="qz-mark">✓</span><span>Другое / консультация</span></button>
+      </div>
+      <div class="qz-nav"><button type="button" class="qz-next" disabled data-i18n="qz_next">Далее →</button></div>
+    </div>
+
+    <div class="qz-step" data-qz="1">
+      <div class="qz-q" data-i18n="q2">Что уже пробовали раньше?</div>
+      <div class="qz-hint" data-i18n="q2h">Это важно для тактики процедуры</div>
+      <div class="qz-opts">
+        <button type="button" class="qz-opt" data-v="first" data-i18n="q2a"><span class="qz-mark">✓</span><span>Впервые</span></button>
+        <button type="button" class="qz-opt" data-v="some" data-i18n="q2b"><span class="qz-mark">✓</span><span>Пробовала, но не то</span></button>
+        <button type="button" class="qz-opt" data-v="yes" data-i18n="q2c"><span class="qz-mark">✓</span><span>Делала раньше у другого мастера</span></button>
+      </div>
+      <div class="qz-nav">
+        <button type="button" class="qz-back" data-i18n="qz_back">← Назад</button>
+        <button type="button" class="qz-next" disabled data-i18n="qz_next">Далее →</button>
+      </div>
+    </div>
+
+    <div class="qz-step" data-qz="2">
+      <div class="qz-q" data-i18n="q3">Когда удобно прийти?</div>
+      <div class="qz-hint" data-i18n="q3h">Работаю 7 дней в неделю</div>
+      <div class="qz-opts">
+        <button type="button" class="qz-opt" data-v="today" data-i18n="q3a"><span class="qz-mark">✓</span><span>Сегодня-завтра</span></button>
+        <button type="button" class="qz-opt" data-v="week" data-i18n="q3b"><span class="qz-mark">✓</span><span>На этой неделе</span></button>
+        <button type="button" class="qz-opt" data-v="month" data-i18n="q3c"><span class="qz-mark">✓</span><span>В течение месяца</span></button>
+        <button type="button" class="qz-opt" data-v="just" data-i18n="q3d"><span class="qz-mark">✓</span><span>Пока узнаю стоимость</span></button>
+      </div>
+      <div class="qz-nav">
+        <button type="button" class="qz-back" data-i18n="qz_back">← Назад</button>
+        <button type="button" class="qz-next" disabled data-i18n="qz_submit">Записаться</button>
+      </div>
+    </div>
+
+    <div class="qz-step" data-qz="3">
+      <div class="qz-done">
+        <div class="qz-q" data-i18n="q4">Осталось одно</div>
+        <div class="qz-hint" data-i18n="q4h">Телефон — перезвоню и подберу время</div>
+        <input class="qz-input" id="qzName" type="text" data-i18n-ph="qz_name" placeholder="Имя" required>
+        <input class="qz-input" id="qzPhone" type="tel" data-i18n-ph="qz_phone" placeholder="Телефон" required>
+        <div class="qz-sum" id="qzSum"></div>
+        <div class="qz-nav" style="justify-content:center">
+          <button type="button" class="qz-next" id="qzSend" data-i18n="qz_send">Отправить</button>
+        </div>
+        <p style="font-size:.8rem;color:var(--muted);margin-top:18px;text-align:center" data-i18n="qz_via">Заявка уходит в WhatsApp</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" class="cta">
+  <div class="cta-grid wrap">
+    <div>
+      <h2 data-i18n="cta_h2">Запишитесь на консультацию</h2>
+      <p data-i18n="cta_p">Посмотрю вашу кожу, расскажу подходящие процедуры и покажу точные цены до начала работы.</p>
+      <a href="tel:+996****3599" class="tel">+996 707 993 599</a>
+      <p class="addr" data-i18n="cta_addr">Салон красоты «Камила»<br>ул. Жамманбаева 37/2, Айтматова<br>Район Азия Молл</p>
+      <a href="https://instagram.com/dr.margarita.kg" class="ig" target="_blank">@dr.margarita.kg — Instagram</a>
+    </div>
+    <form onsubmit="event.preventDefault();window.open('https://wa.me/996707993599?text='+encodeURIComponent(msg()),'_blank')">
+      <input id="fname" type="text" data-i18n-ph="f_name" placeholder="Имя" required>
+      <input type="tel" data-i18n-ph="f_phone" placeholder="Телефон" required>
+      <input type="text" data-i18n-ph="f_about" placeholder="Что хотите сделать">
+      <textarea data-i18n-ph="f_msg" placeholder="Комментарий"></textarea>
+      <button type="submit" data-i18n="cta_submit">Записаться на приём</button>
+      <a href="https://wa.me/996707993599" class="wa" target="_blank" data-i18n="cta_wa">Написать в WhatsApp</a>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fg">
+      <div><b>dr. Margarita</b><p data-i18n="f_about">Врач-косметолог, высшее медицинское образование, 15 лет практики. Салон красоты «Камила», Бишкек, Азия Молл.</p></div>
+      <div><b data-i18n="f_c">Контакты</b><p><a href="tel:+996707993599">+996 707 993 599</a></p><p><a href="https://instagram.com/dr.margarita.kg" target="_blank">@dr.margarita.kg</a></p></div>
+      <div><b data-i18n="f_s">Разделы</b><p><a href="#services" data-i18n="nav_s">Услуги и цены</a></p><p><a href="#how" data-i18n="nav_h">Как проходит</a></p><p><a href="#works" data-i18n="nav_w">Работы</a></p></div>
+    </div>
+    <div class="fb" data-i18n="f_note">© dr. Margarita. Демонстрационный концепт, не действующий сайт.</div>
+  </div>
+</footer>
+
+<script>
+var I18N={
+ru:{
+'nav_s':'Услуги и цены','nav_h':'Как проходит','nav_w':'Работы','nav_c':'Запись','cta_h':'Записаться',
+'hero_e':'Врач-косметолог · Бишкек · Азия Молл',
+'hero_a':'Красота,','hero_b':'которую видно',
+'hero_p':'Врач с высшим медицинским образованием, 15 лет практики. Все процедуры — с гипоаллергенными материалами и с сертификацией. Цены указаны на сайте.',
+'hero_btn':'Записаться на приём','hero_tel':'Звоните или WhatsApp',
+'m1':'15','m1l':'лет практики','m2':'435k','m2l':'просмотров на Lalafo',
+'m3':'7 дней','m3l':'работаем без выходных','m4':'цены','m4l':'указаны на сайте',
+'svc_e':'Услуги и цены','svc_h':'Что делаю и сколько это стоит',
+'svc_p':'Все цены указаны в сомах. Стоимость может меняться в акции — актуальную уточню на консультации.',
+'b1':'Акция',
+'s1':'Увеличение губ, 0.5 мг','s1d':'Безболезненно и безопасно, объём держится 1 год',
+'s2':'Увеличение губ, 1 мг','s2d':'Гипоаллергенные материалы, сертифицированный препарат',
+'s3':'Чистка лица','s3d':'10-этапная процедура',
+'s4':'Мезотерапия лица','s4d':'Восстановление и увлажнение кожи',
+'s5':'Биоревитализация лица','s5d':'Комплексное омоложение кожи',
+'s6':'Плазмолифтинг лица','s6d':'Стимуляция регенерации собственной плазмой',
+'s7':'Заполнение носогубной складки','s7d':'Коррекция мимических складок',
+'s8':'Пудровое наполнение','s8d':'Объёмное моделирование без лишнего объёма',
+'s9':'Сангапури','s9d':'Нитевая безоперационная блефаропластика',
+'s10':'Татуаж глаз','s10d':'Ламинирование или татуаж век',
+'s11':'Всесезонный пилинг','s11d':'Обновление кожи, подходит для всех типов',
+'s12':'Пилинг Джеснера','s12d':'Мягкий пилинг с восстановлением',
+'s13':'Акварельные губки','s13d':'Тонкий эффект, естественный вид',
+'s14':'Прокол ушей','s14d':'Онлайн-пирсинг с использованием одноразовых игл',
+'botox_note':'Ботулинотерапия — стоимость уточняется на консультации, зависит от зоны и объёма.',
+'how_e':'Как проходит','how_h':'Четыре шага до результата',
+'t1':'ШАГ 01','h1':'Запись','h1d':'Звоните или пишите в WhatsApp — подберём удобное время. Работаем без выходных.',
+'t2':'ШАГ 02','h2':'Консультация','h2d':'Смотрю кожу, обсуждаем задачу и подбираю процедуру под ваш случай и бюджет.',
+'t3':'ШАГ 03','h3':'Процедура','h3d':'Работаю сертифицированными гипоаллергенными материалами, с соблюдением протокола.',
+'t4':'ШАГ 04','h4':'Контроль','h4d':'Наблюдаю за результатом, при необходимости корректирую.',
+'wrk_e':'Работы','wrk_h':'До и после','wrk_p':'Результаты моих клиентов. Фото — с разрешения.','obj':'ПАЦИЕНТ',
+'rev_e':'Отзывы','rev_h':'Что говорят пациенты',
+'rev_t':'Важно: нужны настоящие отзывы','rev_d':'Имя и результат — по вашим реальным пациентам. Спросите после процедуры: «Вам понравился результат? Напишете пару слов?»',
+'r1':'Сюда 1-й отзыв: что делали, понравился ли результат',
+'r2':'2-й отзыв — что привело пациентку и впечатления',
+'r3':'3-й отзыв — повторное посещение или рекомендация подругам',
+'qz_e':'Быстрая запись','qz_h':'4 вопроса — и я перезвоню',
+'q1':'Что хотите сделать?','q1h':'Выберите ближайшее',
+'q1a':'Увеличить губы','q1b':'Омолодить лицо','q1c':'Почистить лицо','q1d':'Другое / консультация',
+'q2':'Что уже пробовали раньше?','q2h':'Это важно для тактики процедуры',
+'q2a':'Впервые','q2b':'Пробовала, но не то','q2c':'Делала раньше у другого мастера',
+'q3':'Когда удобно прийти?','q3h':'Работаю 7 дней в неделю',
+'q3a':'Сегодня-завтра','q3b':'На этой неделе','q3c':'В течение месяца','q3d':'Пока узнаю стоимость',
+'q4':'Осталось одно','q4h':'Телефон — перезвоню и подберу время',
+'qz_name':'Имя','qz_phone':'Телефон',
+'qz_next':'Далее →','qz_back':'← Назад','qz_submit':'Записаться','qz_send':'Отправить',
+'qz_via':'Заявка уходит в WhatsApp',
+'qz_val_lips':'Увеличить губы','qz_val_face':'Омолодить лицо','qz_val_clean':'Почистить лицо','qz_val_other':'Другое / консультация',
+'qz_val_first':'Впервые','qz_val_some':'Пробовала, но не то','qz_val_yes':'Делала раньше у другого мастера',
+'qz_val_today':'Сегодня-завтра','qz_val_week':'На этой неделе','qz_val_month':'В течение месяца','qz_val_just':'Пока узнаю стоимость',
+'qz_sum1':'Процедура','qz_sum2':'Опыт','qz_sum3':'Когда',
+'cta_h2':'Запишитесь на консультацию',
+'cta_p':'Посмотрю вашу кожу, расскажу подходящие процедуры и покажу точные цены до начала работы.',
+'cta_addr':'Салон красоты «Камила»<br>ул. Жамманбаева 37/2, Айтматова<br>Район Азия Молл',
+'cta_submit':'Записаться на приём','cta_wa':'Написать в WhatsApp',
+'f_name':'Имя','f_phone':'Телефон','f_about':'Что хотите сделать','f_msg':'Комментарий',
+'f_c':'Контакты','f_s':'Разделы',
+'f_about':'Врач-косметолог, высшее медицинское образование, 15 лет практики. Салон красоты «Камила», Бишкек, Азия Молл.',
+'f_note':'© dr. Margarita. Демонстрационный концепт, не действующий сайт.',
+'wa_text':'Здравствуйте! Хочу записаться на консультацию. '
+},
+ky:{
+'nav_s':'Кызматтар жана баалар','nav_h':'Кантип өтөт','nav_w':'Иштер','nav_c':'Жазуу','cta_h':'Жазуу',
+'hero_e':'Врач-косметолог · Бишкек · Азия Молл',
+'hero_a':'Красота,','hero_b':'көрүнгөн',
+'hero_p':'Жогорку медициналык билимдүү врач, 15 жыл тажрыйба. Бардык процедуралар — гипоаллерген материалдар менен, сертификатталган. Баалар сайтта көрсөтүлгөн.',
+'hero_btn':'Кабылга жазылуу','hero_tel':'Тел кылыңыз же WhatsApp',
+'m1':'15','m1l':'жыл тажрыйба','m2':'435к','m2l':'Lalafo да каралыш',
+'m3':'7 күн','m3l':'эс күнсүз иштейм','m4':'баа','m4l':'сайтта көрсөтүлгөн',
+'svc_e':'Кызматтар жана баалар','svc_h':'Эмне кылам жана канча турат',
+'svc_p':'Бардык баалар сом менен. Акция учурунда өзгөрүшү мүмкүн — такташтыра тургам.',
+'b1':'Акция',
+'s1':'Ээңди чоңойтуу, 0.5 мг','s1d':'Оосус, коопсуз, көлөм 1 жыл сакталат',
+'s2':'Ээңди чоңойтуу, 1 мг','s2d':'Гипоаллерген материалдар, сертификатталган препарат',
+'s3':'Бетти тазалоо','s3d':'10 этаптуу процедура',
+'s4':'Мезотерапия','s4d':'Бетти калышына келтирүү жана нымдуу кылуу',
+'s5':'Биоревитализация','s5d':'Беттин комплекстүү жарым картуусу',
+'s6':'Плазмолифтинг','s6d':'Өз плазмасы менен калышына көтөрүү',
+'s7':'Бурту астындагы бүрткө толтуруу','s7d':'Мимика бүрттөрүн коррекциялоо',
+'s8':'Пудра толтуруу','s8d':'Көлөмдүү моделдөө, ашыкча көлөмсүз',
+'s9':'Сангапури','s9d':'Ылдык менен блефаропластика',
+'s10':'Көз татуу','s10d':'Кабагын ламинациялоо же татуу',
+'s11':'Бардык түрлүү пилинг','s11d':'Бетти жаңыртуу, бардык типке ыңгайлуу',
+'s12':'Джеснер пилинги','s12d':'Жумшак пилинг, калышы менен',
+'s13':'Акварелдуу ээңдер','s13d':'Илбирffect, табигый көрүнүш',
+'s14':'Кулак тешүү','s14d':'Онлайн пирсинг, бир жолу колдонулган ийнек менен',
+'botox_note':'Ботулинотерапия — нарк консультацияда такталат, аймактын жана көлөмдөн көзөмөл болот.',
+'how_e':'Кантип өтөт','how_h':'Натыйжага 4 кадам',
+'t1':'БАСКЫЧ 01','h1':'Жазуу','h1d':'Тел кылыңыз же WhatsApp жазыңыз — ыңгайлуу убакыт табабыз. Эс күнсүз иштейм.',
+'t2':'БАСКЫЧ 02','h2':'Консультация','h2d':'Бетиңизди карап, маселе боюнча сүйлөшөбүз, бюджетке ыңгайдуу процедура тандайбыз.',
+'t3':'БАСКЫЧ 03','h3':'Процедура','h3d':'Сертификатталган гипоаллерген материалдар менен, протоколду сактап иштейм.',
+'t4':'БАСКЫЧ 04','h4':'Көзөмөл','h4d':'Натыйжаны байкап, зарул болсо коррекция жасайм.',
+'wrk_e':'Иштер','wrk_h':'Гиреден кийин','wrk_p':'Кардарымдын натыйжалары. Сүрөттөр — уруккат менен.','obj':'ПАЦИЕНТ',
+'rev_e':'Ойгүмдөр','rev_h':'Пациенттер эмне айтат',
+'rev_t':'Маанилүү: чыныгы ойгүмдөр керек','rev_d':'Аты жана натыйжа — чыныгы пациенттериңиз боюнча. Процедурадан кийин сураңыз: «Натыйжа жактыбы, бир-эки сөз жазып бересизби?»',
+'r1':'Буду 1-ойгүм: эмне кылды, натыйжа жактыбы',
+'r2':'2-ойгүм — эмне аны алып келди жана ой-пикири',
+'r3':'3-ойгүм — кайта келиш же досторуна сунуш',
+'qz_e':'Тез жазуу','qz_h':'4 сууоп — жана мен сизге чалам',
+'q1':'Эмне кылгыңыз келет?','q1h':'Эң жакын варианты тандаңыз',
+'q1a':'Ээңди чоңойтуу','q1b':'Бетти жарым картуу','q1c':'Бетти тазалоо','q1d':'Башка / кеңеш',
+'q2':'Мурда эмне сынап көргөн элеңизби?','q2h':'Буду процедуранын тактикасына маанилүү',
+'q2a':'Биринчи жолу','q2b':'Сынап көрсөм, жакпады','q2c':'Башка мастерде кылган элем',
+'q3':'Качан келүү ыңгайлуу?','q3h':'7 күн иштейм',
+'q3a':'Бүгүн-эртең','q3b':'Ушул жумада','q3c':'Бир айдын ичинде','q3d':'Азыр наркты билгим келет',
+'q4':'Бир гана калды','q4h':'Телефон — чалам жана ыңгайлуу убакыт табам',
+'qz_name':'Аты','qz_phone':'Телефон',
+'qz_next':'Кийинки →','qz_back':'← Артка','qz_submit':'Жазылуу','qz_send':'Жөнөтүү',
+'qz_via':'Арыз WhatsApp аркылуу жөнөтүлөт',
+'qz_val_lips':'Ээңди чоңойтуу','qz_val_face':'Бетти жарым картуу','qz_val_clean':'Бетти тазалоо','qz_val_other':'Башка / кеңеш',
+'qz_val_first':'Биринчи жолу','qz_val_some':'Сынап көрсөм, жакпады','qz_val_yes':'Башка мастерде кылган элем',
+'qz_val_today':'Бүгүн-эртең','qz_val_week':'Ушул жумада','qz_val_month':'Бир айдын ичинде','qz_val_just':'Азыр наркты билгим келет',
+'qz_sum1':'Процедура','qz_sum2':'Тажрыйба','qz_sum3':'Качан',
+'cta_h2':'Консультацияга жазылыңыз',
+'cta_p':'Бетиңизди карап, ыңгайдуу процедураларды айтып, иштөөгө чейин так бааларды көрсөтөм.',
+'cta_addr':'«Камила» косметика салоны<br>Жамманбаева 37/2, Айтматова<br>Азия Молл район',
+'cta_submit':'Кабылга жазылуу','cta_wa':'WhatsApp жазуу',
+'f_name':'Аты','f_phone':'Телефон','f_about':'Эмне кылгыңыз келет','f_msg':'Пикир',
+'f_c':'Байланыш','f_s':'Бөлүмдөр',
+'f_about':'Врач-косметолог, жогорку медициналык билим, 15 жыл тажрыйба. «Камила» салону, Бишкек, Азия Молл.',
+'f_note':'© dr. Margarita. Демонстрациялык концепт — иш жүгүртүүчү эмес сайт.',
+'wa_text':'Салам! Консультацияга жазылууга көшкөнүм. '
+}};
+
+var langNow='ru';
+var ans={o:null,exp:null,when:null,pick:''};
+
+function msg(){
+  var L=I18N[langNow];
+  var n=(document.getElementById('fname')||{}).value||'';
+  return (L.wa_text||'')+n;
+}
+function setLang(l){
+  langNow=l;
+  var d=I18N[l];
+  document.documentElement.lang=l;
+  document.title = l==='ru' ? 'DR. MARGARITA — косметолог в Бишкеке, Азия Молл'
+                              : 'DR. MARGARITA — Бишкектеги косметолог';
+  document.querySelectorAll('[data-i18n]').forEach(function(e){
+    var k=e.getAttribute('data-i18n'); if(d[k]!==undefined) e.innerHTML=d[k];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(function(e){
+    var k=e.getAttribute('data-i18n-ph'); if(d[k]!==undefined) e.placeholder=d[k];
+  });
+  document.querySelectorAll('.lang button').forEach(function(b){
+    var on=b.getAttribute('data-lang')===l;
+    b.classList.toggle('active',on); b.setAttribute('aria-pressed',on?'true':'false');
+  });
+  try{localStorage.setItem('dm-lang',l);}catch(e){}
+}
+document.querySelectorAll('.lang button').forEach(function(b){
+  b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));});
+});
+
+/* параллакс фона hero */
+(function(){
+  var layer=document.querySelector('.hero-img'), hero=document.querySelector('.hero');
+  if(!layer||!hero) return;
+  if(!window.matchMedia('(pointer:fine)').matches) return;
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  var t=false;
+  function u(){var h=hero.offsetHeight;var p=Math.min(1,Math.max(0,scrollY/h));
+    layer.style.transform='translate3d(0,'+((p-0.5)*h*0.18).toFixed(2)+'px,0)';t=false;}
+  function s(){if(!t){t=true;requestAnimationFrame(u);}}
+  addEventListener('scroll',s,{passive:true}); addEventListener('resize',s); u();
+})();
+
+/* квиз */
+(function(){
+  var steps=document.querySelectorAll('.qz-step'); if(!steps.length) return;
+  var bar=document.querySelectorAll('.qz-bar i'); var cur=0;
+
+  function paint(){ steps.forEach(function(s,i){s.classList.toggle('on',i===cur);});
+                    bar.forEach(function(b,i){b.classList.toggle('on',i<=cur);}); }
+
+  document.querySelectorAll('.qz-step').forEach(function(step){
+    step.querySelectorAll('.qz-opt').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        step.querySelectorAll('.qz-opt').forEach(function(b){b.classList.remove('sel');b.setAttribute('aria-pressed','false');});
+        btn.classList.add('sel'); btn.setAttribute('aria-pressed','true');
+        var idx=+step.getAttribute('data-qz');
+        var vk='qz_val_'+btn.getAttribute('data-v');
+        ans.pick=(I18N[langNow]&&I18N[langNow][vk])||btn.getAttribute('data-v');
+        if(idx===0) ans.o=ans.pick;
+        if(idx===1) ans.exp=ans.pick;
+        if(idx===2) ans.when=ans.pick;
+        var nx=step.querySelector('.qz-next'); if(nx) nx.disabled=false;
+      });
+    });
+  });
+  document.querySelectorAll('.qz-next').forEach(function(btn){
+    btn.addEventListener('click',function(){ if(btn.disabled) return; if(cur<steps.length-1){cur++;paint();} });
+  });
+  document.querySelectorAll('.qz-back').forEach(function(btn){
+    btn.addEventListener('click',function(){ if(cur>0){cur--;paint();} });
+  });
+
+  var sum=document.getElementById('qzSum');
+  function fillSum(){
+    if(!sum) return;
+    var L=I18N[langNow];
+    sum.innerHTML='<div><span>'+L.qz_sum1+'</span><b>'+(ans.o||'—')+'</b></div>'+
+                 '<div><span>'+L.qz_sum2+'</span><b>'+(ans.exp||'—')+'</b></div>'+
+                 '<div><span>'+L.qz_sum3+'</span><b>'+(ans.when||'—')+'</b></div>';
+  }
+  var prev=steps[steps.length-2]&&steps[steps.length-2].querySelector('.qz-next');
+  if(prev) prev.addEventListener('click',function(){setTimeout(fillSum,30);});
+
+  var send=document.getElementById('qzSend');
+  if(send) send.addEventListener('click',function(){
+    var L=I18N[langNow];
+    var name=(document.getElementById('qzName')||{}).value||'';
+    var tel=(document.getElementById('qzPhone')||{}).value||'';
+    if(!name||!tel){ alert(L.qz_name+' / '+L.qz_phone); return; }
+    var txt=(L.wa_text||'')+name+'\n'+L.qz_phone+': '+tel+'\n'+
+            L.qz_sum1+': '+(ans.o||'')+'\n'+L.qz_sum2+': '+(ans.exp||'')+'\n'+L.qz_sum3+': '+(ans.when||'');
+    window.open('https://wa.me/996707993599?text='+encodeURIComponent(txt),'_blank');
+  });
+
+  paint();
+})();
+
+var saved=null; try{saved=localStorage.getItem('dm-lang');}catch(e){}
+setLang(saved==='ky'?'ky':'ru');
+</script>
+</body>
+</html>
