@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IS-KA MEBEL — корпусная мебель на заказ в Бишкеке</title>
+<meta name="description" content="Кухни, кровати, шкафы-купе, гардеробные, детские и офисная мебель на заказ. Бишкек. Постоянным клиентам −10%.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#0C0D0E; --s1:#141618; --s2:#1C1F22; --line:#2A2E32;
+  --ink:#F2F0EC; --ink-2:#A8A49D; --muted:#6E6B66;
+  --ac:#C8A96A; --ac-dim:rgba(200,169,106,.14);
+  --wood:#8B6B4A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--void);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-weight:500;line-height:1.06;letter-spacing:-.03em}
+.wrap{max-width:1320px;margin:0 auto;padding:0 40px}
+.eyebrow{font-size:.68rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--ac);margin-bottom:22px}
+.num{font-variant-numeric:tabular-nums}
+
+header{position:sticky;top:0;z-index:30;background:rgba(12,13,14,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;justify-content:space-between;height:70px;gap:20px}
+.mark{font-weight:700;font-size:1.15rem;white-space:nowrap;letter-spacing:.02em}
+.mark i{font-style:normal;color:var(--ac)}
+nav{display:flex;gap:32px;font-size:.82rem;color:var(--ink-2)}
+nav a{transition:color .2s}
+nav a:hover{color:var(--ac)}
+.hd-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.lang{display:flex;align-items:center;border:1px solid var(--line);height:38px}
+.lang button{font:inherit;font-size:.76rem;font-weight:500;letter-spacing:.06em;padding:0 13px;height:100%;background:transparent;border:0;color:var(--muted);cursor:pointer;transition:.2s}
+.lang button+button{border-left:1px solid var(--line)}
+.lang button:hover{color:var(--ink)}
+.lang button.active{background:var(--ac);color:var(--void);font-weight:700}
+.hd-cta{background:var(--ac);color:var(--void);padding:11px 20px;font-size:.82rem;font-weight:700;white-space:nowrap;transition:background .2s,color .2s,transform .2s cubic-bezier(.2,.7,.3,1)}
+.hd-cta:hover{background:var(--ink);color:var(--ac);transform:translateY(-2px)}
+
+/* HERO */
+.hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden}
+.hero-img{position:absolute;left:0;right:0;top:-19%;bottom:-19%;z-index:0;will-change:transform}
+.hero-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.42) saturate(.85)}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,13,14,.5) 0%,rgba(12,13,14,.2) 40%,rgba(12,13,14,.94) 100%);z-index:1}
+.hero-in{position:relative;z-index:2;width:100%;padding-bottom:72px}
+.hero-in h1{font-size:clamp(2.7rem,6.4vw,5.8rem);font-weight:500;max-width:16ch;margin-bottom:30px}
+.hero-in h1 span{color:var(--ac)}
+.hero-in p{font-size:1.05rem;color:var(--ink-2);max-width:52ch;margin-bottom:38px;font-weight:300}
+.hero-row{display:flex;gap:56px;align-items:flex-end;flex-wrap:wrap}
+.hero-tel{font-size:1.6rem;font-weight:500;letter-spacing:-.02em;transition:color .2s}
+.hero-tel:hover{color:var(--ac)}
+.hero-tel small{display:block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:5px}
+.btn{background:var(--ac);color:var(--void);padding:15px 30px;font-weight:700;font-size:.9rem;transition:background .22s,color .22s,transform .22s cubic-bezier(.2,.7,.3,1)}
+.btn:hover{background:var(--ink);color:var(--ac);transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+
+/* метрики */
+.metrics{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--s1)}
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.m{padding:32px 28px;border-right:1px solid var(--line);transition:background .22s ease}
+.m:last-child{border-right:0}
+.m:hover{background:var(--s2)}
+.m b{display:block;font-size:1.9rem;font-weight:500;letter-spacing:-.03em;color:var(--ac);margin-bottom:5px;line-height:1;transition:color .2s}
+.m:hover b{color:var(--ink)}
+.m span{font-size:.8rem;color:var(--ink-2);font-weight:300}
+
+section{padding:112px 0}
+.sec-head{max-width:64ch;margin-bottom:64px}
+.sec-head h2{font-size:clamp(1.9rem,3.6vw,3rem);margin-bottom:20px}
+.sec-head p{color:var(--ink-2);font-weight:300;font-size:1rem}
+
+/* КАТАЛОГ — главный блок */
+.cat{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.c{grid-column:span 4;background:var(--s1);border:1px solid var(--line);position:relative;overflow:hidden;transition:border-color .25s,transform .25s cubic-bezier(.2,.7,.3,1)}
+.c:hover{border-color:var(--ac);transform:translateY(-4px)}
+.c.c-wide{grid-column:span 6}
+.c-ph{position:relative;background:#17191B;border:1px dashed var(--line);display:grid;place-items:center;overflow:hidden}
+.c-wide .c-ph{aspect-ratio:16/10}
+.c:not(.c-wide) .c-ph{aspect-ratio:4/3}
+.c-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.c-ph-t{position:relative;z-index:1;text-align:center;padding:20px;max-width:78%}
+.c-ph-t b{display:block;font-size:.9rem;font-weight:500;margin-bottom:5px}
+.c-ph-t span{font-size:.78rem;color:var(--muted)}
+.c-ph::after{content:'ФОТО';position:absolute;bottom:10px;right:12px;font-size:.6rem;letter-spacing:.2em;color:var(--muted);z-index:2}
+.c-ph.has-img::after{content:none}
+.c-b{padding:22px 24px 26px}
+.c-b h3{font-size:1.15rem;margin-bottom:8px;transition:color .2s}
+.c:hover .c-b h3{color:var(--ac)}
+.c-b p{font-size:.87rem;color:var(--ink-2);font-weight:300}
+.c-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.c-tags i{font-style:normal;font-size:.7rem;letter-spacing:.06em;padding:4px 9px;border:1px solid var(--line);color:var(--muted);transition:.2s}
+.c:hover .c-tags i{border-color:var(--ac);color:var(--ac)}
+
+/* как работаем */
+.tl{display:flex;flex-direction:column;border-left:1px solid var(--line);margin-left:38px}
+.tl-item{position:relative;padding:0 0 52px 46px;transition:transform .25s cubic-bezier(.2,.7,.3,1)}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:'';position:absolute;left:-5px;top:7px;width:9px;height:9px;background:var(--ac);transition:transform .25s cubic-bezier(.2,.7,.3,1),box-shadow .25s}
+.tl-item:hover{transform:translateX(8px)}
+.tl-item:hover::before{transform:scale(1.45);box-shadow:0 0 0 5px var(--ac-dim)}
+.tl-item h3{font-size:1.3rem;margin-bottom:10px;transition:color .2s}
+.tl-item:hover h3{color:var(--ac)}
+.tl-item p{color:var(--ink-2);font-weight:300;font-size:.95rem;max-width:60ch}
+.tl-n{display:block;font-size:.68rem;letter-spacing:.2em;color:var(--muted);margin-bottom:8px}
+
+/* работы */
+.works-sec{background:var(--s1);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.gal{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+.w1{grid-column:span 8}
+.w2{grid-column:span 4}
+.w3{grid-column:span 4}
+.w4{grid-column:span 4}
+.w5{grid-column:span 4}
+.gal figure{overflow:hidden;background:#17191B;border:1px dashed var(--line);position:relative;transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s}
+.gal figure:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.42)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:.5s;filter:saturate(.9)}
+.gal figure:hover img{transform:scale(1.035)}
+.gal figcaption{
+  position:absolute;left:0;bottom:0;padding:10px 16px;font-size:.7rem;letter-spacing:.18em;
+  color:var(--ac);background:rgba(12,13,14,.82);border-top:1px solid var(--ac);border-right:1px solid var(--ac);
+  transform:translateY(100%);opacity:0;transition:.3s cubic-bezier(.2,.7,.3,1);pointer-events:none;
+}
+.gal figure:hover figcaption{transform:translateY(0);opacity:1}
+.w1 img{aspect-ratio:16/10}
+.w2 img,.w3 img{aspect-ratio:4/5}
+.w4 img,.w5 img{aspect-ratio:4/3}
+.ph-note{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px}
+.ph-note b{display:block;font-size:.85rem;margin-bottom:4px}
+.ph-note span{font-size:.75rem;color:var(--muted)}
+
+/* отзывы */
+.rev-note{border:1px dashed var(--line);padding:18px 22px;margin-bottom:40px;font-size:.85rem;color:var(--muted);display:flex;gap:12px}
+.rev-note b{color:var(--ac);font-weight:600;display:block;margin-bottom:5px}
+.rev{columns:3;column-gap:24px}
+@media(max-width:960px){.rev{columns:1}}
+.rev-item{break-inside:avoid;margin-bottom:24px;padding:28px 26px;background:var(--s1);border:1px dashed var(--line);text-align:center;min-height:170px;display:grid;place-items:center;transition:.25s cubic-bezier(.2,.7,.3,1)}
+.rev-item:hover{border-color:var(--ac);transform:translateY(-3px)}
+.rev-av{width:38px;height:38px;border-radius:50%;border:1px dashed var(--muted);display:grid;place-items:center;font-size:.8rem;color:var(--muted);margin:0 auto 12px}
+.rev-q{font-size:.88rem;color:var(--muted);max-width:32ch;margin:0 auto}
+
+/* CTA */
+.cta{background:var(--ac);color:var(--void)}
+.cta-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:70px;align-items:start}
+.cta h2{font-size:clamp(2rem,3.7vw,3.1rem);margin-bottom:20px;font-weight:500}
+.cta p{font-size:1rem;margin-bottom:30px;max-width:44ch;opacity:.82}
+.cta .tel{font-size:2rem;font-weight:500;display:block;margin-bottom:6px;letter-spacing:-.02em}
+.cta .ig{font-size:.92rem;opacity:.78}
+.cta .ig:hover{opacity:1}
+form{display:flex;flex-direction:column;gap:11px}
+form input,form textarea{font:inherit;font-size:.92rem;padding:15px 17px;border:1px solid rgba(12,13,14,.3);background:rgba(12,13,14,.07);color:var(--void);transition:border-color .2s,background .2s}
+form input::placeholder,form textarea::placeholder{color:rgba(12,13,14,.55)}
+form input:focus,form textarea:focus{outline:none;border-color:var(--void);background:rgba(12,13,14,.12)}
+form textarea{resize:vertical;min-height:92px}
+form button{font:inherit;font-weight:700;font-size:.95rem;padding:16px;background:var(--void);color:var(--ac);border:0;cursor:pointer;transition:background .22s,color .22s}
+form button:hover{background:var(--ink);color:var(--void)}
+.wa{display:block;text-align:center;padding:14px;border:1px solid rgba(12,13,14,.4);font-size:.9rem;font-weight:500;transition:.2s}
+.wa:hover{background:rgba(12,13,14,.1)}
+
+footer{padding:56px 0;font-size:.85rem;color:var(--muted)}
+.fg{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+footer b{color:var(--ink);display:block;margin-bottom:13px}
+footer a:hover{color:var(--ac)}
+.fb{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);font-size:.78rem}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .tl-item:hover,.btn:hover,.hd-cta:hover,.c:hover,.gal figure:hover{transform:none!important}
+  .gal figcaption{display:none}
+}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+
+@media(max-width:960px){
+  .wrap{padding:0 20px}
+  nav{display:none}
+  .hd{height:auto;padding:14px 0}
+  .hd-right{gap:8px}
+  .hd-cta{padding:10px 14px;font-size:.78rem}
+  .lang button{padding:0 10px;font-size:.72rem}
+  .hero{min-height:78vh}
+  .metrics-grid{grid-template-columns:repeat(2,1fr)}
+  .m{border-bottom:1px solid var(--line)}
+  section{padding:76px 0}
+  .cat{grid-template-columns:1fr}
+  .c,.c.c-wide{grid-column:span 1}
+  .c:not(.c-wide) .c-ph,.c-wide .c-ph{aspect-ratio:4/3}
+  .tl{margin-left:20px}
+  .tl-item{padding-left:32px}
+  .gal{grid-template-columns:repeat(2,1fr)}
+  .w1,.w2,.w3,.w4,.w5{grid-column:span 1}
+  .w1{grid-column:span 2}
+  .cta-grid,.fg{grid-template-columns:1fr;gap:34px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hd wrap">
+    <div class="mark">IS-KA <i>MEBEL</i></div>
+    <nav>
+      <a href="#catalog" data-i18n="nav_cat">Каталог</a>
+      <a href="#how" data-i18n="nav_how">Как работаем</a>
+      <a href="#works" data-i18n="nav_works">Работы</a>
+      <a href="#cta" data-i18n="nav_contacts">Контакты</a>
+    </nav>
+    <div class="hd-right">
+      <div class="lang" role="group" aria-label="Тил / Язык">
+        <button type="button" data-lang="ky">КЫРГ</button>
+        <button type="button" data-lang="ru" class="active">РУС</button>
+      </div>
+      <a href="#cta" class="hd-cta" data-i18n="cta_header">Замер бесплатно</a>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-img"><img src="img/hero.jpg" alt="Кухонный гарнитур на заказ"><div class="ph-note"><div><b>Фото сюда</b><span>img/hero.jpg</span></div></div></div>
+  <div class="wrap hero-in">
+    <div class="eyebrow" data-i18n="hero_eyebrow">Корпусная мебель на заказ · Бишкек</div>
+    <h1><span data-i18n="hero_h1a">Мебель, которую</span> <span data-i18n="hero_h1b">собирают под вас</span></h1>
+    <p data-i18n="hero_p">Кухни, кровати, шкафы-купе, гардеробные, детские и офисная мебель. Замер, проект, сборка и установка — у одного подрядчика.</p>
+    <div class="hero-row">
+      <a href="#cta" class="btn" data-i18n="hero_btn">Рассчитать стоимость</a>
+      <a href="tel:+996****1615" class="hero-tel"><small data-i18n="hero_tel">Звоните или WhatsApp</small>+996 502 241 615</a>
+    </div>
+  </div>
+</div>
+
+<div class="metrics">
+  <div class="metrics-grid wrap" style="padding:0">
+    <div class="m"><b class="num" data-i18n="m1">0 сом</b><span data-i18n="m1l">замер и консультация</span></div>
+    <div class="m"><b class="num" data-i18n="m2">−10%</b><span data-i18n="m2l">постоянным клиентам</span></div>
+    <div class="m"><b class="num" data-i18n="m3">9+</b><span data-i18n="m3l">категорий мебели</span></div>
+    <div class="m"><b class="num" data-i18n="m4">1</b><span data-i18n="m4l">подрядчик на весь заказ</span></div>
+  </div>
+</div>
+
+<!-- КАТАЛОГ -->
+<section id="catalog">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="cat_eyebrow">Каталог</div>
+      <h2 data-i18n="cat_h2">Что делаем</h2>
+      <p data-i18n="cat_p">Сейчас каждый вид мебели — отдельное объявление. На сайте они собраны в один каталог: выбрали тип, увидели варианты, материалы и цены.</p>
+    </div>
+    <div class="cat">
+      <div class="c c-wide">
+        <div class="c-ph"><div class="c-ph-t"><b data-i18n="p_kitchen">Фото кухни</b><span data-i18n="p_hint">img/cat-kitchen.jpg</span></div></div>
+        <div class="c-b"><h3 data-i18n="cat1">Кухни</h3><p data-i18n="cat1d">Прямые, Г-образные и с островом. Прямые и Г-образные гарнитуры, кухня-остров в современном минимализме.</p>
+          <div class="c-tags"><i>Фасады</i><i>Столешница</i><i>Техника</i><i>Остров</i></div>
+        </div>
+      </div>
+      <div class="c">
+        <div class="c-ph"><div class="c-ph-t"><b data-i18n="p_wardrobe">Фото шкафа</b><span data-i18n="p_hint2">img/cat-wardrobe.jpg</span></div></div>
+        <div class="c-b"><h3 data-i18n="cat2">Шкафы-купе</h3><p data-i18n="cat2d">Скользящие двери, раздвижные системы, наполнение под задачи.</p>
+          <div class="c-tags"><i>Купе</i><i>Раздвижные</i></div>
+        </div>
+      </div>
+      <div class="c">
+        <div class="c-ph"><div class="c-ph-t"><b data-i18n="p_bed">Фото кровати</b><span data-i18n="p_hint3">img/cat-bed.jpg</span></div></div>
+        <div class="c-b"><h3 data-i18n="cat3">Кровати</h3><p data-i18n="cat3d">С подъёмным механизмом, с матрацем и без — по вашим размерам.</p>
+          <div class="c-tags"><i>С подъёмом</i><i>Матрас</i></div>
+        </div>
+      </div>
+      <div class="c">
+        <div class="c-ph"><div class="c-ph-t"><b data-i18n="p_dress">Фото гардеробной</b><span data-i18n="p_hint4">img/cat-dress.jpg</span></div></div>
+        <div class="c-b"><h3 data-i18n="cat4">Гардеробные</h3><p data-i18n="cat4d">Открытые системы и закрытые фасадами, под всю одежду и обувь.</p>
+          <div class="c-tags"><i>Открытые</i><i>Закрытые</i></div>
+        </div>
+      </div>
+      <div class="c">
+        <div class="c-ph"><div class="c-ph-t"><b data-i18n="p_child">Фото детской</b><span data-i18n="p_hint5">img/cat-child.jpg</span></div></div>
+        <div class="c-b"><h3 data-i18n="cat5">Детские и школьные</h3><p data-i18n="cat5d">Рабочие места, полки, системы хранения — растут вместе с ребёнком.</p>
+          <div class="c-tags"><i>Стол</i><i>Полки</i></div>
+        </div>
+      </div>
+      <div class="c c-wide">
+        <div class="c-ph"><div class="c-ph-t"><b data-i18n="p_office">Фото офисной мебели</b><span data-i18n="p_hint6">img/cat-office.jpg</span></div></div>
+        <div class="c-b"><h3 data-i18n="cat6">Офисная и гостиная</h3><p data-i18n="cat6d">Столы, тумбы, стеллажи, стойки и полки — для дома, офиса и коммерческих помещений.</p>
+          <div class="c-tags"><i>Столы</i><i>Стеллажи</i><i>Тумбы</i><i>Полки</i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- как работаем -->
+<section id="how" style="background:var(--s1);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="how_eyebrow">Процесс</div>
+      <h2 data-i18n="how_h2">От замера до установки — 4 шага</h2>
+    </div>
+    <div class="tl">
+      <div class="tl-item"><span class="tl-n" data-i18n="t1">ШАГ 01</span><h3 data-i18n="h1">Заявка</h3><p data-i18n="h1d">Обсуждаем, что нужно, где стоит и какой бюджет.</p></div>
+      <div class="tl-item"><span class="tl-n" data-i18n="t2">ШАГ 02</span><h3 data-i18n="h2">Замер</h3><p data-i18n="h2d">Приезжаем, снимаем размеры, обсуждаем материалы и наполнение.</p></div>
+      <div class="tl-item"><span class="tl-n" data-i18n="t3">ШАГ 03</span><h3 data-i18n="h3">Проект и смета</h3><p data-i18n="h3d">Показываем проект и считаем точную стоимость.</p></div>
+      <div class="tl-item"><span class="tl-n" data-i18n="t4">ШАГ 04</span><h3 data-i18n="h4">Сборка и монтаж</h3><p data-i18n="h4d">Собираем и устанавливаем в срок. Качество и срок — как в вашем профиле.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- работы -->
+<section id="works" class="works-sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="wrk_eyebrow">Портфолио</div>
+      <h2 data-i18n="wrk_h2">Наши работы</h2>
+      <p data-i18n="wrk_p">Фотографии готовых заказов.</p>
+    </div>
+    <div class="gal">
+      <figure class="w1"><div class="ph-note"><div><b data-i18n="w1">Фото работы</b><span>img/work-1.jpg</span></div></div><figcaption data-i18n="obj">ОБЪЕКТ 01</figcaption></figure>
+      <figure class="w2"><div class="ph-note"><div><b data-i18n="w1">Фото работы</b><span>img/work-2.jpg</span></div></div><figcaption data-i18n="obj">ОБЪЕКТ 02</figcaption></figure>
+      <figure class="w3"><div class="ph-note"><div><b data-i18n="w1">Фото работы</b><span>img/work-3.jpg</span></div></div><figcaption data-i18n="obj">ОБЪЕКТ 03</figcaption></figure>
+      <figure class="w4"><div class="ph-note"><div><b data-i18n="w1">Фото работы</b><span>img/work-4.jpg</span></div></div><figcaption data-i18n="obj">ОБЪЕКТ 04</figcaption></figure>
+      <figure class="w5"><div class="ph-note"><div><b data-i18n="w1">Фото работы</b><span>img/work-5.jpg</span></div></div><figcaption data-i18n="obj">ОБЪЕКТ 05</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- отзывы -->
+<section>
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:32px">
+      <div class="eyebrow" data-i18n="rev_eyebrow">Отзывы</div>
+      <h2 data-i18n="rev_h2">Что говорят клиенты</h2>
+    </div>
+    <div class="rev-note">
+      <span style="flex:0 0 auto;font-size:1.1rem">!</span>
+      <div><b data-i18n="rev_t">Важно: нужны настоящие отзывы</b><span data-i18n="rev_d">Имя, телефон и объект — по вашим реальным заказам. Спросите у клиентов, которым делали кухню или шкаф.</span></div>
+    </div>
+    <div class="rev">
+      <div class="rev-item"><div><div class="rev-av">?</div><div class="rev-q" data-i18n="r1">Сюда 1-й отзыв: что сделали, сколько заняло, понравился ли результат</div></div></div>
+      <div class="rev-item"><div><div class="rev-av">?</div><div class="rev-q" data-i18n="r2">2-й отзыв — что оказалось сложно и как решили</div></div></div>
+      <div class="rev-item"><div><div class="rev-av">?</div><div class="rev-q" data-i18n="r3">3-й отзыв — повторный заказ или рекомендация</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" class="cta">
+  <div class="cta-grid wrap">
+    <div>
+      <h2 data-i18n="cta_h2">Рассчитаем стоимость вашей кухни</h2>
+      <p data-i18n="cta_p">Замер бесплатный, покажем проект и посчитаем точную стоимость.</p>
+      <a href="tel:+996502241615" class="tel">+996 502 241 615</a>
+      <a href="https://instagram.com/is_ka_mebel" class="ig" target="_blank">@is_ka_mebel — Instagram</a>
+    </div>
+    <form onsubmit="event.preventDefault();window.open('https://wa.me/996502241615?text='+encodeURIComponent('Здравствуйте! Интересует мебель на заказ. '+(document.getElementById('fname')||{}).value),'_blank')">
+      <input id="fname" type="text" placeholder="Имя" required>
+      <input type="tel" placeholder="Телефон" required>
+      <input type="text" placeholder="Что нужно: кухня, шкаф, кровать, другое">
+      <textarea placeholder="Комментарий"></textarea>
+      <button type="submit">Получить расчёт</button>
+      <a href="https://wa.me/996502241615" class="wa" target="_blank">Написать в WhatsApp</a>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fg">
+      <div><b>IS-KA MEBEL</b><p data-i18n="f_about">Сборка и установка корпусной мебели: кухни, кровати, шкафы-купе, столы, тумбы, гардеробные, детские, школьные, офисные. Постоянным клиентам −10%. Бишкек.</p></div>
+      <div><b data-i18n="f_contacts">Контакты</b><p><a href="tel:+996502241615">+996 502 241 615</a></p><p><a href="https://instagram.com/is_ka_mebel" target="_blank">@is_ka_mebel</a></p></div>
+      <div><b data-i18n="f_sections">Разделы</b><p><a href="#catalog" data-i18n="nav_cat">Каталог</a></p><p><a href="#how" data-i18n="nav_how">Как работаем</a></p><p><a href="#works" data-i18n="nav_works">Работы</a></p></div>
+    </div>
+    <div class="fb" data-i18n="f_note">© Is-Ka Mebel. Демонстрационный концепт, не действующий сайт.</div>
+  </div>
+</footer>
+
+<script>
+var I18N={
+ru:{
+'nav_cat':'Каталог','nav_how':'Как работаем','nav_works':'Работы','nav_contacts':'Контакты',
+'cta_header':'Замер бесплатно','hero_eyebrow':'Корпусная мебель на заказ · Бишкек',
+'hero_h1a':'Мебель, которую','hero_h1b':'собирают под вас',
+'hero_p':'Кухни, кровати, шкафы-купе, гардеробные, детские и офисная мебель. Замер, проект, сборка и установка — у одного подрядчика.',
+'hero_btn':'Рассчитать стоимость','hero_tel':'Звоните или WhatsApp',
+'m1':'0 сом','m1l':'замер и консультация','m2':'−10%','m2l':'постоянным клиентам',
+'m3':'9+','m3l':'категорий мебели','m4':'1','m4l':'подрядчик на весь заказ',
+'cat_eyebrow':'Каталог','cat_h2':'Что делаем',
+'cat_p':'Сейчас каждый вид мебели — отдельное объявление. На сайте они собраны в один каталог: выбрали тип, увидели варианты, материалы и цены.',
+'p_kitchen':'Фото кухни','p_wardrobe':'Фото шкафа','p_bed':'Фото кровати','p_dress':'Фото гардеробной',
+'p_child':'Фото детской','p_office':'Фото офисной мебели','p_hint':'img/cat-kitchen.jpg',
+'p_hint2':'img/cat-wardrobe.jpg','p_hint3':'img/cat-bed.jpg','p_hint4':'img/cat-dress.jpg',
+'p_hint5':'img/cat-child.jpg','p_hint6':'img/cat-office.jpg',
+'cat1':'Кухни','cat1d':'Прямые, Г-образные и с островом. Прямые и Г-образные гарнитуры, кухня-остров в современном минимализме.',
+'cat2':'Шкафы-купе','cat2d':'Скользящие двери, раздвижные системы, наполнение под задачи.',
+'cat3':'Кровати','cat3d':'С подъёмным механизмом, с матрацем и без — по вашим размерам.',
+'cat4':'Гардеробные','cat4d':'Открытые системы и закрытые фасадами, под всю одежду и обувь.',
+'cat5':'Детские и школьные','cat5d':'Рабочие места, полки, системы хранения — растут вместе с ребёнком.',
+'cat6':'Офисная и гостиная','cat6d':'Столы, тумбы, стеллажи, стойки и полки — для дома, офиса и коммерческих помещений.',
+'how_eyebrow':'Процесс','how_h2':'От замера до установки — 4 шага',
+'t1':'ШАГ 01','h1':'Заявка','h1d':'Обсуждаем, что нужно, где стоит и какой бюджет.',
+'t2':'ШАГ 02','h2':'Замер','h2d':'Приезжаем, снимаем размеры, обсуждаем материалы и наполнение.',
+'t3':'ШАГ 03','h3':'Проект и смета','h3d':'Показываем проект и считаем точную стоимость.',
+'t4':'ШАГ 04','h4':'Сборка и монтаж','h4d':'Собираем и устанавливаем в срок. Качество и срок — как в вашем профиле.',
+'wrk_eyebrow':'Портфолио','wrk_h2':'Наши работы','wrk_p':'Фотографии готовых заказов.','w1':'Фото работы','obj':'ОБЪЕКТ',
+'rev_eyebrow':'Отзывы','rev_h2':'Что говорят клиенты',
+'rev_t':'Важно: нужны настоящие отзывы','rev_d':'Имя, телефон и объект — по вашим реальным заказам. Спросите у клиентов, которым делали кухню или шкаф.',
+'r1':'Сюда 1-й отзыв: что сделали, сколько заняло, понравился ли результат',
+'r2':'2-й отзыв — что оказалось сложно и как решили','r3':'3-й отзыв — повторный заказ или рекомендация',
+'cta_h2':'Рассчитаем стоимость вашей кухни','cta_p':'Замер бесплатный, покажем проект и посчитаем точную стоимость.',
+'f_contacts':'Контакты','f_sections':'Разделы',
+'f_about':'Сборка и установка корпусной мебели: кухни, кровати, шкафы-купе, столы, тумбы, гардеробные, детские, школьные, офисные. Постоянным клиентам −10%. Бишкек.',
+'f_note':'© Is-Ka Mebel. Демонстрационный концепт, не действующий сайт.'
+},
+ky:{
+'nav_cat':'Каталог','nav_how':'Процесс','nav_works':'Иштер','nav_contacts':'Байланыш',
+'cta_header':'Акысыз ченөө','hero_eyebrow':'Корпустук мебель буюнча · Бишкек',
+'hero_h1a':'Мебель, сиз','hero_h1b':'жөнүндө чоңтойгон',
+'hero_p':'Кухня, кровать, шкаф-купе, кийим текчелери, балдар жана офис мебели. Ченөө, долбоор, чогсотуу жана орнотуу — бир иштепчиде.',
+'hero_btn':'Нархын эсептөө','hero_tel':'Тел кылыңыз же WhatsApp',
+'m1':'0 сом','m1l':'ченөө жана кеңеш','m2':'−10%','m2l':'туруктуу кардадарга',
+'m3':'9+','m3l':'мебель түрү','m4':'1','m4l':'бүт заказга иштепчи',
+'cat_eyebrow':'Каталог','cat_h2':'Эмне жасабыз',
+'cat_p':'Азыр ар бир түр башка объявление. Сайтта алар бир каталогдо: түрүн тандап, вариант, материал жана бааны көрөлү.',
+'p_kitchen':'Кухня фотосу','p_wardrobe':'Шкаф фотосу','p_bed':'Кровать фотосу','p_dress':'Текче фотосу',
+'p_child':'Балдар бөлмөсү','p_office':'Офис мебели','p_hint':'img/cat-kitchen.jpg',
+'p_hint2':'img/cat-wardrobe.jpg','p_hint3':'img/cat-bed.jpg','p_hint4':'img/cat-dress.jpg',
+'p_hint5':'img/cat-child.jpg','p_hint6':'img/cat-office.jpg',
+'cat1':'Кухня','cat1d':'Түз, Г-тип жана арал. Кухня-остров заманбап минимализмде.',
+'cat2':'Шкаф-купе','cat2d':'Сыргычты жана жылжыма doors, толук наполнение.',
+'cat3':'Кровать','cat3d':'Көтөрүлүүчү механизмдүү, матрас менен жанасыз — өлчөмүңүзгө.',
+'cat4':'Кийим текчеси','cat4d':'Ачык жана жабык системалар, кийим жана бут кийимге.',
+'cat5':'Балдар жана мектеп','cat5d':'Иш столу, полка, сактагыч — бала менен чоңойгон.',
+'cat6':'Офис жана гостина','cat6d':'Стол, тумба, стеллаж, полка — үй, офис жана коммерция помещениеге.',
+'how_eyebrow':'Процесс','how_h2':'Ченөөдөн орнотууга — 4 баскыч',
+'t1':'БАСКЫЧ 01','h1':'Байламка','h1d':'Эмне керек, кайда турат, бюджет канча экенин сүйлөшөбүз.',
+'t2':'БАСКЫЧ 02','h2':'Ченөө','h2d':'Келет, ченеме алабыз, материал жана наполненин талкуу кылабыз.',
+'t3':'БАСКЫЧ 03','h3':'Долбоор жана смета','h3d':'Долбоорду көрсөтүп, так нархын эсептейбиз.',
+'t4':'БАСКЫЧ 04','h4':'Чогсотуу жана монтаж','h4d':'Мөөртүмө чогсотуп орнотобуз. Сапат жана убакыт — профилиңиздегидей.',
+'wrk_eyebrow':'Портфолио','wrk_h2':'Иштерибиз','wrk_p':'Даяр заказдардын сүрөттөрү.','w1':'Иш фотосу','obj':'ОБЪЕКТ',
+'rev_eyebrow':'Ойгүмдөр','rev_h2':'Кардадар эмне айтат',
+'rev_t':'Маанилүү: чыныгы ойгүмдөр керек','rev_d':'Аты, телефон жана объект — чыныгы заказдарыңыз боюнча. Кухня же шкаф жасаган кардарарыңыздан сураңыз.',
+'r1':'Буду 1-ойгүм: эмне жасалды, канча убакыт, натыйжа жактуубу',
+'r2':'2-ойгүм — эмне кыйын болду жана кантип чечти',
+'r3':'3-ойгүм — кайта заказ же сунуш',
+'cta_h2':'Кухняңыздын нархын эсептейли','cta_p':'Ченөө акысыз, долбоорду көрсөтүп, так нархын эсептейбиз.',
+'f_contacts':'Байланыш','f_sections':'Бөлүмдөр',
+'f_about':'Корпустук мебель чогсотуу жана орнотуу: кухня, кровать, шкаф-купе, стол, тумба, текче, балдар, мектеп, офис. Туруктуу кардадарга −10%. Бишкек.',
+'f_note':'© Is-Ka Mebel. Демонстрациялык концепт — иш жүгүртүүчү эмес сайт.'
+}};
+var langNow='ru';
+function setLang(l){
+  langNow=l;
+  var d=I18N[l];
+  document.documentElement.lang=l;
+  document.querySelectorAll('[data-i18n]').forEach(function(e){
+    var k=e.getAttribute('data-i18n'); if(d[k]!==undefined) e.textContent=d[k];
+  });
+  document.querySelectorAll('.lang button').forEach(function(b){
+    var on=b.getAttribute('data-lang')===l;
+    b.classList.toggle('active',on); b.setAttribute('aria-pressed',on?'true':'false');
+  });
+  try{localStorage.setItem('ika-lang',l);}catch(e){}
+}
+document.querySelectorAll('.lang button').forEach(function(b){
+  b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));});
+});
+(function(){
+  var layer=document.querySelector('.hero-img'), hero=document.querySelector('.hero');
+  if(!layer||!hero) return;
+  if(!window.matchMedia('(pointer:fine)').matches) return;
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  var t=false;
+  function u(){var h=hero.offsetHeight;var p=Math.min(1,Math.max(0,scrollY/h));
+    layer.style.transform='translate3d(0,'+((p-0.5)*h*0.18).toFixed(2)+'px,0)';t=false;}
+  function s(){if(!t){t=true;requestAnimationFrame(u);}}
+  addEventListener('scroll',s,{passive:true}); addEventListener('resize',s); u();
+})();
+var s=null; try{s=localStorage.getItem('ika-lang');}catch(e){}
+setLang(s==='ky'?'ky':'ru');
+</script>
+</body>
+</html>
