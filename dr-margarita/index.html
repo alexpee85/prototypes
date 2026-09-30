@@ -53,14 +53,9 @@ nav a:hover::after{width:100%}
 
 /* HERO */
 .hero{position:relative;min-height:86vh;display:flex;align-items:flex-end;overflow:hidden;background:var(--bg-2)}
-.hero-img{position:absolute;left:0;right:0;top:-10%;bottom:-10%;z-index:0;will-change:transform}
-.hero-bg{position:absolute;inset:-10% 0;z-index:0;will-change:transform}
-.hero-bg::before{
-  content:'';position:absolute;inset:0;
-  background:url('img/hero.jpg') center/cover no-repeat;
-  filter:blur(26px) brightness(1.04) saturate(.9);transform:scale(1.12);
-}
-.hero-img img{position:relative;width:100%;height:100%;object-fit:cover;filter:brightness(1.02) saturate(.82)}
+/* запас хода: translateY до ±(0.10*h). Нужен запас > хода с каждой стороны. */
+.hero-img{position:absolute;left:0;right:0;top:-12%;bottom:-12%;z-index:0;will-change:transform}
+.hero-img img{width:100%;height:100%;object-fit:cover;filter:brightness(1.02) saturate(.82)}
 .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(250,248,246,.35) 0%,rgba(250,248,246,.12) 35%,rgba(250,248,246,.97) 100%);z-index:1}
 .hero-in{position:relative;z-index:2;width:100%;padding-bottom:76px}
 .hero-in h1{font-size:clamp(2.9rem,6vw,5.4rem);font-weight:300;max-width:15ch;margin-bottom:30px;line-height:1.02}
@@ -262,7 +257,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </header>
 
 <div class="hero">
-  <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-img"><img src="img/hero.jpg" alt="Косметолог dr. Margarita, салон Камила, Бишкек"></div>
   <div class="wrap hero-in">
     <div class="eyebrow" data-i18n="hero_e">Врач-косметолог · Бишкек · Азия Молл</div>
