@@ -420,9 +420,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 
     <!-- шаг 2 -->
     <div class="qz-step" data-qz="1">
-      <div class="qz-q" data-i18n="q2">Аянтма канча м²?</div>
-      <div class="qz-hint" data-i18n="q2h">Так коюунун кереги жок — жакындап жетсе тура</div>
-      <input class="qz-input" id="qzArea" type="number" inputmode="numeric" min="10" max="1000" data-i18n-ph="q2ph" placeholder="Мисалы, 65">
+      <div class="qz-q" data-i18n="q2">Кайсы кабат, көтөргөч керекпи?</div>
+      <div class="qz-hint" data-i18n="q2h">Монтаж убактысына таасир этет</div>
+      <input class="qz-input" id="qzFloor" type="text" data-i18n-ph="q2ph" placeholder="4 кабат, көтөргөч керек">
       <div class="qz-nav">
         <button type="button" class="qz-back" data-i18n="qz_back">← Артка</button>
         <button type="button" class="qz-next" disabled data-i18n="qz_next">Кийинки →</button>
@@ -658,12 +658,12 @@ document.querySelectorAll('.lang button').forEach(function(b){
   });
 
   // площадь
-  var area = document.getElementById('qzArea');
+  var area = document.getElementById('qzFloor');
   if (area) area.addEventListener('input', function(){
     ans.area = area.value;
     var st = area.closest('.qz-step');
     var next = st.querySelector('.qz-next');
-    if (next) next.disabled = !(parseInt(area.value,10) > 0);
+    if (next) next.disabled = !area.value.trim();
   });
 
   document.querySelectorAll('.qz-next').forEach(function(btn){
@@ -683,7 +683,7 @@ document.querySelectorAll('.lang button').forEach(function(b){
     var L = I18N[langNow];
     sum.innerHTML =
       '<div><span>'+L.qz_sum1+'</span><b>'+(ans.o||'—')+'</b></div>'+
-      '<div><span>'+L.qz_sum2+'</span><b>'+(ans.area? ans.area+' м²' : '—')+'</b></div>'+
+      '<div><span>'+L.qz_sum2+'</span><b>'+(ans.area||'—')+'</b></div>'+
       '<div><span>'+L.qz_sum3+'</span><b>'+(ans.scope||'—')+'</b></div>'+
       '<div><span>'+L.qz_sum4+'</span><b>'+(ans.when||'—')+'</b></div>';
   }
@@ -703,7 +703,7 @@ document.querySelectorAll('.lang button').forEach(function(b){
       if (!name || !tel) { alert(L.qz_name + ' / ' + L.qz_phone); return; }
       var txt = (L.wa_text2 || L.wa_text) +
         L.qz_sum1 + ': ' + (ans.o||'') + '\n' +
-        L.qz_sum2 + ': ' + (ans.area||'') + ' m2\n' +
+        L.qz_sum2 + ': ' + (ans.area||'') + '\n' +
         L.qz_sum3 + ': ' + (ans.scope||'') + '\n' +
         L.qz_sum4 + ': ' + (ans.when||'') + '\n' +
         L.f_name + ': ' + name + '\n' + L.qz_phone + ': ' + tel;
