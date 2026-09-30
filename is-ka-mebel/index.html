@@ -26,7 +26,7 @@ h1,h2,h3{font-weight:500;line-height:1.06;letter-spacing:-.03em}
 
 header{position:sticky;top:0;z-index:30;background:rgba(12,13,14,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .hd{display:flex;align-items:center;justify-content:space-between;height:70px;gap:20px}
-.mark{font-weight:700;font-size:1.15rem;white-space:nowrap;letter-spacing:.02em}
+.mark{font-weight:700;font-size:1.15rem;white-space:nowrap;letter-spacing:.02em;flex:0 0 auto;min-width:0}
 .mark i{font-style:normal;color:var(--ac)}
 nav{display:flex;gap:32px;font-size:.82rem;color:var(--ink-2)}
 nav a{transition:color .2s}
@@ -175,9 +175,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 @media(max-width:960px){
   .wrap{padding:0 20px}
   nav{display:none}
-  .hd{height:auto;padding:14px 0}
-  .hd-right{gap:8px}
-  .hd-cta{padding:10px 14px;font-size:.78rem}
+  .hd{height:auto;padding:14px 0;gap:10px}
+  .mark{font-size:.95rem}
+  .hd-right{gap:6px;min-width:0}
+  .hd-cta{padding:9px 11px;font-size:.74rem;letter-spacing:-.01em}
   .lang button{padding:0 10px;font-size:.72rem}
   .hero{min-height:78vh}
   .metrics-grid{grid-template-columns:repeat(2,1fr)}
