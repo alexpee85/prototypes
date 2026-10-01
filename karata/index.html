@@ -139,10 +139,12 @@ section{padding:112px 0}
 
 /* ---------- РАБОТЫ: фото на всю ширину + сетка ---------- */
 .fullphoto{position:relative;min-height:70vh;background:var(--brown-2);display:grid;place-items:center;overflow:hidden}
-.fullphoto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.82}
-.fullphoto-in{position:relative;z-index:1;text-align:center;padding:60px 40px;max-width:640px}
+.fullphoto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fullphoto::after{content:'';position:absolute;inset:0;z-index:1;
+  background:radial-gradient(ellipse 74% 66% at 50% 50%,rgba(18,15,12,.58) 0%,rgba(18,15,12,.44) 48%,rgba(18,15,12,.16) 100%)}
+.fullphoto-in{position:relative;z-index:2;text-align:center;padding:60px 40px;max-width:640px}
 .fullphoto-in h2{font-size:clamp(1.9rem,3.4vw,2.9rem);color:var(--cream);margin-bottom:18px;font-weight:300}
-.fullphoto-in p{color:rgba(254,245,228,.78);font-size:1rem}
+.fullphoto-in p{color:rgba(254,245,228,.92);font-size:1rem}
 .works{background:var(--cream-2)}
 .gal{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
 .w1{grid-column:span 7}
@@ -379,7 +381,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 
 <!-- ФОТО НА ВСЮ ШИРИНУ — ритм es-clinic -->
 <div class="fullphoto">
-  <img src="img/interior.svg" alt="Интерьер клиники 32 Карата" width="1920" height="900">
+  <img src="img/interior.jpg" alt="Светлый кабинет клиники 32 Карата: кресло, лампа, натуральный свет из окна" width="1920" height="1074" loading="lazy">
   <div class="fullphoto-in">
     <h2 data-i18n="fp_h">Вам не нужно бояться стоматолога</h2>
     <p data-i18n="fp_p">Отдельный кабинет, спокойная атмосфера и врач, которого вы не будете бояться приходить повторно.</p>
