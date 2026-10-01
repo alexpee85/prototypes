@@ -146,14 +146,12 @@ section{padding:112px 0}
 .fullphoto-in h2{font-size:clamp(1.9rem,3.4vw,2.9rem);color:var(--cream);margin-bottom:18px;font-weight:300}
 .fullphoto-in p{color:rgba(254,245,228,.92);font-size:1rem}
 .works{background:var(--cream-2)}
-.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 24px}
-.case{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:var(--cream);border:1px solid var(--line);padding:10px;transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,border-color .3s}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+.case{overflow:hidden;background:var(--cream);border:1px solid var(--line);transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,border-color .3s}
 .case:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(75,64,52,.13);border-color:var(--gold)}
-.case figure{position:relative;overflow:hidden;background:var(--sand)}
-.case img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:1/1;transition:transform .5s}
-.case figure:hover img{transform:scale(1.03)}
-.case figcaption{position:absolute;left:0;top:0;padding:7px 12px;font-size:.64rem;letter-spacing:.2em;background:rgba(36,31,26,.72);color:var(--cream)}
-.case figure.af figcaption{left:auto;right:0;background:rgba(125,106,87,.82)}
+/* natural aspect ratio preserved, no cropping, no upscaling */
+.case img{width:100%;height:auto;display:block;transition:transform .5s}
+.case:hover img{transform:scale(1.02)}
 
 /* ---------- ОТЗЫВЫ ---------- */
 .rev-note{border:1px dashed var(--gold);padding:14px 18px;margin-bottom:44px;font-size:.84rem;color:var(--ink-2);display:flex;gap:12px;align-items:flex-start;background:var(--cream-2);transition:opacity .25s,margin .25s,padding .25s}
@@ -261,8 +259,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .val,.val:nth-child(2),.val:nth-child(3){padding:28px 0;border-right:0;border-bottom:1px solid var(--line)}
   .tl{margin-left:18px}
   .tl-item{padding-left:30px}
-  .gal{grid-template-columns:1fr;gap:20px}
-  .case{padding:8px;gap:6px}
+  .gal{grid-template-columns:repeat(2,1fr);gap:12px}
   .cta-g,.fg{grid-template-columns:1fr;gap:34px}
   .to-top{left:16px;bottom:16px;width:46px;height:46px}
 }
@@ -389,26 +386,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <p data-i18n="wrk_p">Фотографии до и после лечения — с согласия пациентов.</p>
     </div>
     <div class="gal">
-      <figure class="case" aria-label="Отбеливание и реставрация">
-        <figure><img src="img/case-1-1.jpg" width="1200" height="900" alt="Отбеливание зубов — до лечения" loading="lazy"><figcaption data-i18n="c_before">ДО</figcaption></figure>
-        <figure class="af"><img src="img/case-1-2.jpg" width="1200" height="900" alt="Отбеливание зубов — после лечения" loading="lazy"><figcaption data-i18n="c_after">ПОСЛЕ</figcaption></figure>
-      </figure>
-      <figure class="case" aria-label="Виниры и коронки">
-        <figure><img src="img/case-2-1.jpg" width="1200" height="900" alt="Установка виниров — до лечения" loading="lazy"><figcaption data-i18n="c_before">ДО</figcaption></figure>
-        <figure class="af"><img src="img/case-2-2.jpg" width="1200" height="900" alt="Установка виниров — после лечения" loading="lazy"><figcaption data-i18n="c_after">ПОСЛЕ</figcaption></figure>
-      </figure>
-      <figure class="case" aria-label="Композитная реставрация">
-        <figure><img src="img/case-3-1.jpg" width="1200" height="900" alt="Художественная реставрация — до лечения" loading="lazy"><figcaption data-i18n="c_before">ДО</figcaption></figure>
-        <figure class="af"><img src="img/case-3-2.jpg" width="1200" height="900" alt="Художественная реставрация — после лечения" loading="lazy"><figcaption data-i18n="c_after">ПОСЛЕ</figcaption></figure>
-      </figure>
-      <figure class="case" aria-label="Профессиональная гигиена">
-        <figure><img src="img/case-4-1.jpg" width="1200" height="900" alt="Профгигиена и полировка — до лечения" loading="lazy"><figcaption data-i18n="c_before">ДО</figcaption></figure>
-        <figure class="af"><img src="img/case-4-2.jpg" width="1200" height="900" alt="Профгигиена и полировка — после лечения" loading="lazy"><figcaption data-i18n="c_after">ПОСЛЕ</figcaption></figure>
-      </figure>
-      <figure class="case" aria-label="Отбеливание">
-        <figure><img src="img/case-5-1.jpg" width="1200" height="900" alt="Отбеливание эмали — до лечения" loading="lazy"><figcaption data-i18n="c_before">ДО</figcaption></figure>
-        <figure class="af"><img src="img/case-5-2.jpg" width="1200" height="900" alt="Отбеливание эмали — после лечения" loading="lazy"><figcaption data-i18n="c_after">ПОСЛЕ</figcaption></figure>
-      </figure>
+      <figure class="case"><img src="img/case-1.png" width="647" height="649" alt="Отбеливание зубов — до и после" loading="lazy"></figure>
+      <figure class="case"><img src="img/case-2.jpg" width="1080" height="1080" alt="Профессиональная гигиена — результат" loading="lazy"></figure>
+      <figure class="case"><img src="img/case-3.jpg" width="1080" height="1080" alt="Реставрация — результат" loading="lazy"></figure>
+      <figure class="case"><img src="img/case-4.jpg" width="1024" height="817" alt="Отбеливание и реставрация — до и после" loading="lazy"></figure>
+      <figure class="case"><img src="img/case-5.jpg" width="1080" height="1080" alt="Художественная реставрация — до" loading="lazy"></figure>
+      <figure class="case"><img src="img/case-6.jpg" width="1080" height="1080" alt="Реставрация — результат" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -551,7 +534,6 @@ ru:{
 'fp_h':'Вам не нужно бояться стоматолога',
 'fp_p':'Отдельный кабинет, спокойная атмосфера и врач, которого вы не будете бояться приходить повторно.',
 'wrk_e':'Работы','wrk_h':'Результаты наших пациентов','wrk_p':'Фотографии до и после лечения — с согласия пациентов.','obj':'ДО / ПОСЛЕ',
-'c_before':'ДО','c_after':'ПОСЛЕ',
 'rev_e':'Отзывы','rev_h':'Что говорят пациенты',
 'rev_t':'Отзывы — черновик',
 'rev_d':'Рейтинг 5,0 — это 36 отзывов. Впишите сюда 2-3 реальных: имя, что делали, впечатление.',
@@ -606,7 +588,6 @@ ky:{
 'fp_h':'Стоматологдон коркпоңуз',
 'fp_p':'Атайын кабинет, тыныштуу атмосфера жана дарыгер — кайра келиүгө коркпоочудай кылынган.',
 'wrk_e':'Иштер','wrk_h':'Пациенттерибиздин натыйжалары','wrk_p':'Дарылоодон кийин жана кийинки сүрөттөр — уруккат менен.','obj':'КИЙИН / КИЙИН',
-'c_before':'ГЕЙИН','c_after':'КИЙИН',
 'rev_e':'Ойгүмдөр','rev_h':'Пациенттер эмне айтат',
 'rev_t':'Ойгүмдөр — жобанын версиясы',
 'rev_d':'Яндекс.Карталарда 5,0 — бул 36 пикир. Ушул жерге 2-3 чыныгы пикир жазыңыз: аты, эмне кылды, ой-пикири.',
