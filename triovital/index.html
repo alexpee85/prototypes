@@ -279,8 +279,22 @@ footer a:hover{color:var(--gold)}
 .to-top:hover{background:var(--gold-deep);color:var(--cream)}
 .to-top svg{width:15px;height:15px;stroke:currentColor;stroke-width:1.4;fill:none}
 
+/* ---------- ПОЯВЛЕНИЕ ПРИ СКРОЛЛЕ ---------- */
+.rv{opacity:0;transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1);
+  will-change:opacity,transform}
+.rv-up{transform:translateY(22px)}
+.rv-left{transform:translateX(-18px)}
+.rv-right{transform:translateX(18px)}
+.rv-scale{transform:scale(.975)}
+.rv.in{opacity:1;transform:none}
+
+/* stagger inside a group */
+.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}
+.rv-d3{transition-delay:.24s}.rv-d4{transition-delay:.32s}.rv-d5{transition-delay:.4s}
+
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
+  .rv{opacity:1!important;transform:none!important}
   .prv-row:hover,.tl-item:hover,.btn:hover,.hd-btn:hover,.gal figure:hover,.to-top:hover{transform:none!important}
   .gal figcaption{display:none}
 }
@@ -312,6 +326,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .to-top{left:16px;bottom:16px;width:46px;height:46px}
 }
 </style>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body id="top">
 
@@ -342,7 +357,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <!-- HERO -->
 <div class="hero">
   <div class="hero-img"><img src="img/hero.jpg" alt="Врач стоматолог Triovital принимает пациента в кресле" width="1920" height="1074" fetchpriority="high"></div>
-  <div class="wrap hero-in">
+  <div class="rv rv-scale wrap hero-in">
     <div class="hero-meta">
       <span data-i18n="hm1">пр. Чынгыза Айтматова, 41</span>
       <span data-i18n="hm2">Бишкек</span>
@@ -358,29 +373,29 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 
 <!-- ЦИФРЫ -->
 <div class="stats">
-  <div class="stats-g wrap" style="padding:0">
-    <div class="st"><b class="num">4,9</b><span data-i18n="s1">рейтинг на Яндекс.Картах</span></div>
-    <div class="st"><b class="num">23</b><span data-i18n="s2">отзыва пациентов</span></div>
-    <div class="st"><b class="num">11 000</b><span data-i18n="s3">сом — отбеливание зубов</span></div>
-    <div class="st"><b class="num" data-i18n="s4v">41</b><span data-i18n="s4">Ч. Айтматова</span></div>
+  <div class="rv rv-up rv-d1 stats-g wrap" style="padding:0">
+    <div class="rv rv-up rv-d1 st"><b class="num">4,9</b><span data-i18n="s1">рейтинг на Яндекс.Картах</span></div>
+    <div class="rv rv-up rv-d2 st"><b class="num">23</b><span data-i18n="s2">отзыва пациентов</span></div>
+    <div class="rv rv-up rv-d3 st"><b class="num">11 000</b><span data-i18n="s3">сом — отбеливание зубов</span></div>
+    <div class="rv rv-up rv-d4 st"><b class="num" data-i18n="s4v">41</b><span data-i18n="s4">Ч. Айтматова</span></div>
   </div>
 </div>
 
 <!-- УСЛУГИ И ЦЕНЫ -->
 <section id="services" class="dark">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="rv rv-up sec-head">
       <div class="eyebrow" data-i18n="svc_e">Услуги и цены</div>
       <h2 data-i18n="svc_h">Что делаем и сколько это стоит</h2>
       <p data-i18n="svc_p">Цены — рыночный ориентир по Бишкеку. Точную стоимость на вашем случае скажет врач на консультации — она бесплатна.</p>
     </div>
     <div class="prv">
-      <div class="prv-row"><div class="prv-n">01</div><h3 data-i18n="p1">Отбеливание зубов</h3><p data-i18n="p1d">Осветление эмали на несколько тонов в кабинете. Форма зубов не меняется.</p><div class="prv-price num" data-i18n="p1v">11 000 сом</div></div>
-      <div class="prv-row"><div class="prv-n">02</div><h3 data-i18n="p2">Керамический винир</h3><p data-i18n="p2d">Накладка на один зуб из керамики. Сохраняет эмаль, служит долго.</p><div class="prv-price num" data-i18n="p2v">33 000 сом</div></div>
-      <div class="prv-row"><div class="prv-n">03</div><h3 data-i18n="p3">Дизайн улыбки</h3><p data-i18n="p3d">Фотопротокол, сканирование и примерка мокапа во рту — без обточки и анестезии.</p><div class="prv-price num" data-i18n="p3v">10 000 сом</div></div>
-      <div class="prv-row"><div class="prv-n">04</div><h3 data-i18n="p4">Художественная реставрация</h3><p data-i18n="p4d">Восстановление формы и цвета зуба композитным материалом.</p><div class="prv-price num" data-i18n="p4v">8 800 сом</div></div>
-      <div class="prv-row"><div class="prv-n">05</div><h3 data-i18n="p5">Профессиональная гигиена</h3><p data-i18n="p5d">Air Flow и ультразвук, полировка. Основа для любой эстетической работы.</p><div class="prv-price num" data-i18n="p5v">5 500 сом</div></div>
-      <div class="prv-row"><div class="prv-n">06</div><h3 data-i18n="p6">Временные виниры</h3><p data-i18n="p6d">Пока делают постоянные — вы ходите с красивыми зубами, а не с обточенными.</p><div class="prv-price num" data-i18n="p6v">15 000 сом</div></div>
+      <div class="rv rv-left rv-d1 prv-row"><div class="prv-n">01</div><h3 data-i18n="p1">Отбеливание зубов</h3><p data-i18n="p1d">Осветление эмали на несколько тонов в кабинете. Форма зубов не меняется.</p><div class="prv-price num" data-i18n="p1v">11 000 сом</div></div>
+      <div class="rv rv-left rv-d2 prv-row"><div class="prv-n">02</div><h3 data-i18n="p2">Керамический винир</h3><p data-i18n="p2d">Накладка на один зуб из керамики. Сохраняет эмаль, служит долго.</p><div class="prv-price num" data-i18n="p2v">33 000 сом</div></div>
+      <div class="rv rv-left rv-d3 prv-row"><div class="prv-n">03</div><h3 data-i18n="p3">Дизайн улыбки</h3><p data-i18n="p3d">Фотопротокол, сканирование и примерка мокапа во рту — без обточки и анестезии.</p><div class="prv-price num" data-i18n="p3v">10 000 сом</div></div>
+      <div class="rv rv-left rv-d4 prv-row"><div class="prv-n">04</div><h3 data-i18n="p4">Художественная реставрация</h3><p data-i18n="p4d">Восстановление формы и цвета зуба композитным материалом.</p><div class="prv-price num" data-i18n="p4v">8 800 сом</div></div>
+      <div class="rv rv-left rv-d5 prv-row"><div class="prv-n">05</div><h3 data-i18n="p5">Профессиональная гигиена</h3><p data-i18n="p5d">Air Flow и ультразвук, полировка. Основа для любой эстетической работы.</p><div class="prv-price num" data-i18n="p5v">5 500 сом</div></div>
+      <div class="rv rv-left rv-d5 prv-row"><div class="prv-n">06</div><h3 data-i18n="p6">Временные виниры</h3><p data-i18n="p6d">Пока делают постоянные — вы ходите с красивыми зубами, а не с обточенными.</p><div class="prv-price num" data-i18n="p6v">15 000 сом</div></div>
     </div>
     <p class="prv-note" data-i18n="note">* Цены указаны в сомах и взяты как рыночный ориентир по Бишкеку. В расчёт виниров на 6–8 зубов подготовка не входит: 198 000 сом за 6 зубов, 264 000 сом за 8.</p>
   </div>
@@ -393,7 +408,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <div class="eyebrow" data-i18n="val_e">Почему к нам возвращаются</div>
       <h2 data-i18n="val_h">Три причины, по которым у нас рейтинг 4,9</h2>
     </div>
-    <div class="values-g">
+    <div class="rv rv-up values-g">
       <div class="val"><h3 data-i18n="v1">Сначала план</h3><p data-i18n="v1d">Показываем мокап и фотопротокол до того, как что-то сделаем. Вы видите результат заранее.</p></div>
       <div class="val"><h3 data-i18n="v2">Бережная подготовка</h3><p data-i18n="v2d">Сохраняем эмаль. Винир — это тонкая накладка, а не обточка зуба под коронку.</p></div>
       <div class="val"><h3 data-i18n="v3">Прозрачная цена</h3><p data-i18n="v3d">Смета фиксируется на консультации и не меняется по ходу работы.</p></div>
@@ -409,10 +424,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <h2 data-i18n="how_h">От консультации до новой улыбки</h2>
     </div>
     <div class="tl">
-      <div class="tl-item"><span class="tl-n" data-i18n="t1">ШАГ 01</span><h3 data-i18n="h1">Консультация</h3><p data-i18n="h1d">Смотрим зубы, фотопротокол, обсуждаем задачу. Консультация бесплатна.</p></div>
-      <div class="tl-item"><span class="tl-n" data-i18n="t2">ШАГ 02</span><h3 data-i18n="h2">План и мокап</h3><p data-i18n="h2d">Показываем, как будет выглядеть результат. Мокап примеряется во рту без обточки.</p></div>
-      <div class="tl-item"><span class="tl-n" data-i18n="t3">ШАГ 03</span><h3 data-i18n="h3">Подготовка</h3><p data-i18n="h3d">Минимально снимаем эмаль, снимаем слепок или сканируем.</p></div>
-      <div class="tl-item"><span class="tl-n" data-i18n="t4">ШАГ 04</span><h3 data-i18n="h4">Установка</h3><p data-i18n="h4d">Фиксируем реставрации и показываем, как ухаживать.</p></div>
+      <div class="rv rv-left rv-d1 tl-item"><span class="tl-n" data-i18n="t1">ШАГ 01</span><h3 data-i18n="h1">Консультация</h3><p data-i18n="h1d">Смотрим зубы, фотопротокол, обсуждаем задачу. Консультация бесплатна.</p></div>
+      <div class="rv rv-left rv-d2 tl-item"><span class="tl-n" data-i18n="t2">ШАГ 02</span><h3 data-i18n="h2">План и мокап</h3><p data-i18n="h2d">Показываем, как будет выглядеть результат. Мокап примеряется во рту без обточки.</p></div>
+      <div class="rv rv-left rv-d3 tl-item"><span class="tl-n" data-i18n="t3">ШАГ 03</span><h3 data-i18n="h3">Подготовка</h3><p data-i18n="h3d">Минимально снимаем эмаль, снимаем слепок или сканируем.</p></div>
+      <div class="rv rv-left rv-d4 tl-item"><span class="tl-n" data-i18n="t4">ШАГ 04</span><h3 data-i18n="h4">Установка</h3><p data-i18n="h4d">Фиксируем реставрации и показываем, как ухаживать.</p></div>
     </div>
   </div>
 </section>
@@ -420,7 +435,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <!-- ФОТО НА ВСЮ ШИРИНУ — ритм es-clinic -->
 <div class="fullphoto">
   <img src="img/interior.jpg" alt="Врач подбирает оттенок зубов пациентке по шкале соответствия цвета" width="1920" height="1076" loading="lazy">
-  <div class="fullphoto-in">
+  <div class="rv rv-scale fullphoto-in">
     <h2 data-i18n="fp_h">Вам не нужно бояться стоматолога</h2>
     <p data-i18n="fp_p">Эстетика без вреда: сохраняем эмаль, работаем под микроскопом, подбираем оттенок при вас.</p>
   </div>
@@ -434,7 +449,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <h2 data-i18n="wrk_h">Результаты наших пациентов</h2>
       <p data-i18n="wrk_p">Фотографии до и после лечения — с согласия пациентов.</p>
     </div>
-    <div class="gal">
+    <div class="rv rv-up gal">
       <figure class="case"><img src="img/case-1.jpg" width="726" height="726" alt="Виниры — выравнивание и оттенок зубов, до и после" loading="lazy"></figure>
       <figure class="case"><img src="img/case-2.jpg" width="726" height="726" alt="Художественная реставрация — результат работы" loading="lazy"></figure>
       <figure class="case"><img src="img/case-3.jpg" width="726" height="726" alt="Композитная реставрация — цвет и форма до и после" loading="lazy"></figure>
@@ -457,7 +472,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <div><b data-i18n="rev_t">Отзывы — черновик</b><span data-i18n="rev_d">Рейтинг 4,9 — это 23 отзыва. Впишите сюда 2-3 реальных: имя, что делали, впечатление.</span></div>
       <button type="button" class="rev-x" id="revX" aria-label="Скрыть">✕</button>
     </div>
-    <div class="rev">
+    <div class="rv rv-up rev">
       <div class="rev-item"><div><div class="rev-av">?</div><div class="rev-q" data-i18n="r1">Сюда 1-й отзыв: что делали, понравился ли результат</div></div></div>
       <div class="rev-item"><div><div class="rev-av">?</div><div class="rev-q" data-i18n="r2">2-й отзыв — впечатления от клиники и врача</div></div></div>
       <div class="rev-item"><div><div class="rev-av">?</div><div class="rev-q" data-i18n="r3">3-й отзыв — пришли повторно или порекомендовали</div></div></div>
@@ -467,7 +482,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 
 <!-- КВИЗ -->
 <section class="quiz" id="quiz">
-  <div class="wrap qz-wrap">
+  <div class="rv rv-up wrap qz-wrap">
     <div class="sec-head" style="margin-bottom:38px">
       <div class="eyebrow" data-i18n="qz_e">Быстрая запись</div>
       <h2 data-i18n="qz_h">3 вопроса — и запишем на консультацию</h2>
@@ -519,7 +534,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 
 <!-- CTA -->
 <section id="cta" class="cta">
-  <div class="cta-g wrap">
+  <div class="rv rv-up cta-g wrap">
     <div>
       <h2 data-i18n="cta_h2">Запишитесь на бесплатную консультацию</h2>
       <p data-i18n="cta_p">Врач посмотрит зубы, покажет мокап и назовёт точную цену — до того, как вы примете решение.</p>
@@ -784,6 +799,27 @@ function setLang(l){
   if(hid) n.classList.add('gone');
   x.addEventListener('click',function(){ n.classList.add('gone');
     try{localStorage.setItem('k32-revnote','1');}catch(e){} });
+})();
+
+/* плавное появление блоков при скролле */
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(!els.length) return;
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(reduce || !('IntersectionObserver' in window)){
+    els.forEach(function(e){ e.classList.add('in'); });
+    return;
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  },{ rootMargin:'0px 0px 8% 0px', threshold:0 });
+  els.forEach(function(e){ io.observe(e); });
+  // safety net: anything still hidden after 2.5s gets shown regardless
+  setTimeout(function(){
+    els.forEach(function(e){ if(!e.classList.contains('in') && e.getBoundingClientRect().top < innerHeight) e.classList.add('in'); });
+  },2500);
 })();
 
 /* бургер-меню */
