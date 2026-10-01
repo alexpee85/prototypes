@@ -60,6 +60,44 @@ nav a:hover::after{width:100%}
 .hd-btn{background:var(--brown);color:var(--cream);padding:13px 24px;font-size:.82rem;font-weight:400;letter-spacing:.02em;white-space:nowrap;transition:background .22s,color .22s,transform .22s cubic-bezier(.2,.7,.3,1)}
 .hd-btn:hover{background:var(--gold-deep);color:#fff;transform:translateY(-2px)}
 
+/* ---------- БУРГЕР (мобильное меню) ---------- */
+.burger{display:none;width:44px;height:44px;flex:0 0 44px;border:1px solid var(--line);background:var(--cream);
+  cursor:pointer;padding:0;place-items:center;transition:border-color .2s,background .2s}
+.burger:hover{border-color:var(--gold-deep)}
+.burger i{display:block;width:19px;height:1.5px;background:var(--ink);position:relative;transition:background .2s}
+.burger i::before,.burger i::after{content:'';position:absolute;left:0;width:19px;height:1.5px;background:var(--ink);transition:transform .28s cubic-bezier(.2,.7,.3,1),top .2s}
+.burger i::before{top:-6px}
+.burger i::after{top:6px}
+.burger[aria-expanded="true"] i{background:transparent}
+.burger[aria-expanded="true"] i::before{top:0;transform:rotate(45deg)}
+.burger[aria-expanded="true"] i::after{top:0;transform:rotate(-45deg)}
+.msk{position:fixed;inset:0;z-index:44;background:rgba(36,31,26,.44);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.msk.on{opacity:1;visibility:visible}
+.msk-panel{position:fixed;top:0;right:0;bottom:0;z-index:45;width:min(340px,86vw);background:var(--cream);
+  border-left:1px solid var(--line);box-shadow:-12px 0 40px rgba(75,64,52,.16);
+  transform:translateX(100%);transition:transform .34s cubic-bezier(.2,.7,.3,1);
+  display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain}
+.msk-panel.open{transform:translateX(0)}
+.msk-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--cream)}
+.msk-x{width:44px;height:44px;flex:0 0 44px;border:1px solid var(--line);background:transparent;cursor:pointer;
+  display:grid;place-items:center;color:var(--ink-2);font:inherit;font-size:1.1rem;line-height:1;transition:.2s}
+.msk-x:hover{border-color:var(--gold-deep);color:var(--gold-deep)}
+.msk-nav{padding:8px 20px 4px}
+.msk-nav a{display:block;padding:15px 0;border-bottom:1px solid var(--line);font-family:'Cormorant Garamond',serif;
+  font-size:1.32rem;color:var(--ink);transition:color .2s}
+.msk-nav a:hover{color:var(--gold-deep)}
+.msk-lang{display:flex;gap:8px;padding:18px 20px;border-bottom:1px solid var(--line)}
+.msk-lang button{flex:1;font:inherit;font-size:.86rem;padding:12px;background:transparent;border:1px solid var(--line);
+  color:var(--muted);cursor:pointer;transition:.2s}
+.msk-lang button.on{background:var(--brown);color:var(--cream);border-color:var(--brown)}
+.msk-cta{padding:20px;display:grid;gap:11px;margin-top:auto}
+.msk-cta .m-tel{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--ink);text-align:center;padding:12px;border:1px solid var(--line);transition:border-color .2s}
+.msk-cta .m-tel:hover{border-color:var(--gold-deep)}
+.msk-cta .m-btn{background:var(--brown);color:var(--cream);padding:16px;text-align:center;font-size:.92rem;transition:background .22s}
+.msk-cta .m-btn:hover{background:var(--gold-deep)}
+.msk-addr{padding:0 20px 22px;font-size:.84rem;color:var(--ink-2);line-height:1.8}
+body.lock{overflow:hidden}
+
 /* ---------- HERO: фото на всю ширину, как в es-clinic ---------- */
 .hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden;background:var(--brown)}
 .hero-img{position:absolute;left:0;right:0;top:-14%;bottom:-14%;z-index:0;will-change:transform}
@@ -248,11 +286,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 
 @media(max-width:960px){
   .wrap{padding:0 20px}
-  nav{display:none}
-  .hd{height:auto;padding:16px 0;gap:12px}
+  header nav{display:none}
+  .hd{height:auto;padding:16px 20px;gap:12px}
   .hd-r{gap:9px}
-  .hd-btn{padding:10px 14px;font-size:.76rem}
+  .hd-btn{display:none}
   .stars{display:none}
+  .burger{display:grid}
   .lang button{padding:8px 10px;font-size:.7rem}
   .hero{min-height:80vh}
   .hero-in{padding-bottom:56px}
@@ -292,6 +331,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       </div>
       <span class="stars">★ 5,0 — 36 отзывов</span>
       <a href="#cta" class="hd-btn" data-i18n="cta_h">Записаться</a>
+      <button type="button" class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="msk"><i></i></button>
     </div>
   </div>
 </header>
@@ -506,6 +546,31 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   </div>
 </footer>
 
+<div class="msk" id="msk" hidden>
+  <div class="msk-panel" role="dialog" aria-modal="true" aria-label="Меню">
+    <div class="msk-top">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:1.3rem">32 КАРАТА</span>
+      <button type="button" class="msk-x" id="mskX" aria-label="Закрыть">✕</button>
+    </div>
+    <nav class="msk-nav">
+      <a href="#services" data-i18n="nav_s">Услуги и цены</a>
+      <a href="#values" data-i18n="nav_v">О клинике</a>
+      <a href="#how" data-i18n="nav_h">Как проходит</a>
+      <a href="#works" data-i18n="nav_w">Работы</a>
+      <a href="#quiz" data-i18n="qz_e">Быстрая запись</a>
+    </nav>
+    <div class="msk-lang">
+      <button type="button" id="mLangRu" class="on">Русский</button>
+      <button type="button" id="mLangKy">Кыргызский</button>
+    </div>
+    <div class="msk-cta">
+      <a href="#cta" class="m-btn" data-i18n="cta_h">Записаться</a>
+      <a href="tel:+996553300900" class="m-tel">+996 553 300 900</a>
+    </div>
+    <p class="msk-addr" data-i18n="cta_addr">Стоматологическая клиника «32 Карата»<br>ул. Токтогула, 87, этаж 2<br>Бишкек</p>
+  </div>
+</div>
+
 <a href="#top" class="to-top" id="toTop" aria-label="Наверх">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </a>
@@ -708,6 +773,46 @@ function setLang(l){
   if(hid) n.classList.add('gone');
   x.addEventListener('click',function(){ n.classList.add('gone');
     try{localStorage.setItem('k32-revnote','1');}catch(e){} });
+})();
+
+/* бургер-меню */
+(function(){
+  var bg=document.getElementById('burger'), msk=document.getElementById('msk'),
+      panel=document.querySelector('.msk-panel'), x=document.getElementById('mskX');
+  if(!bg||!msk||!panel) return;
+  function open(v){
+    if(v){
+      msk.hidden=false;
+      // force layout so the transform transition actually runs on reopen
+      void msk.offsetWidth;
+      msk.classList.add('on'); panel.classList.add('open');
+    } else {
+      msk.classList.remove('on'); panel.classList.remove('open');
+      var done=function(){ if(!msk.classList.contains('on')) msk.hidden=true; };
+      if(matchMedia('(prefers-reduced-motion:reduce)').matches) done();
+      else setTimeout(done,340);
+    }
+    bg.setAttribute('aria-expanded',v?'true':'false');
+    document.body.classList.toggle('lock',v);
+    if(v){ var f=document.getElementById('mskX'); if(f) f.focus(); }
+  }
+  bg.addEventListener('click',function(){ open(bg.getAttribute('aria-expanded')!=='true'); });
+  x.addEventListener('click',function(){ open(false); bg.focus(); });
+  msk.addEventListener('click',function(e){ if(e.target===msk) open(false); });
+  panel.addEventListener('click',function(e){ if(e.target.closest('a')) open(false); });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape' && bg.getAttribute('aria-expanded')==='true'){ open(false); bg.focus(); }
+  });
+  // language buttons: header and panel must always agree
+  var r=document.getElementById('mLangRu'), k=document.getElementById('mLangKy'),
+      hr=document.getElementById('langRu'), hk=document.getElementById('langKy');
+  function mark(l){
+    [r,k].forEach(function(b){ if(b) b.classList.toggle('on', b.id==='mLang'+(l==='ky'?'Ky':'Ru')); });
+    [hr,hk].forEach(function(b){ if(b) b.classList.toggle('on', b.id==='lang'+(l==='ky'?'Ky':'Ru')); });
+  }
+  if(r) r.addEventListener('click',function(){ setLang('ru'); mark('ru'); });
+  if(k) k.addEventListener('click',function(){ setLang('ky'); mark('ky'); });
+  mark(langNow);
 })();
 
 /* кнопка вверх */
