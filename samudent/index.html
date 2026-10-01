@@ -265,6 +265,22 @@ form button:hover{background:var(--gold);color:var(--cream)}
 .wa{display:block;text-align:center;padding:15px;border:1px solid rgba(254,245,228,.34);font-size:.92rem;transition:.2s}
 .wa:hover{background:rgba(254,245,228,.1)}
 
+/* ---------- КАРТА ---------- */
+.gmap{background:var(--cream-2);border-top:1px solid var(--line)}
+.gmap-in{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:0}
+.gmap-side{padding:76px 60px 76px 0;display:flex;flex-direction:column;justify-content:center}
+.gmap-side .eyebrow{margin-bottom:18px}
+.gmap-side h2{font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:16px;font-weight:300}
+.gmap-side p{color:var(--ink-2);font-size:1rem;margin-bottom:24px;max-width:38ch}
+.gmap-addr{font-family:'Cormorant Garamond',serif;font-size:1.34rem;color:var(--ink);margin-bottom:6px;line-height:1.4}
+.gmap-note{font-size:.8rem;color:var(--muted);margin-bottom:26px;line-height:1.6}
+.gmap-btn{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;background:var(--brown);
+  color:var(--cream);padding:15px 26px;font-size:.9rem;transition:background .22s,transform .22s cubic-bezier(.2,.7,.3,1)}
+.gmap-btn:hover{background:var(--gold-deep);color:#fff;transform:translateY(-2px)}
+.gmap-btn svg{width:14px;height:14px;stroke:currentColor;stroke-width:1.5;fill:none;flex:0 0 14px}
+.gmap-frame{position:relative;min-height:440px;background:var(--sand)}
+.gmap-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.34) contrast(1.03)}
+
 /* ---------- FOOTER ---------- */
 footer{background:var(--brown-2);color:rgba(254,245,228,.6);padding:58px 0;font-size:.85rem}
 .fg{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
@@ -323,6 +339,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .tl-item{padding-left:30px}
   .gal{grid-template-columns:repeat(2,1fr);gap:12px}
   .cta-g,.fg{grid-template-columns:1fr;gap:34px}
+  .gmap-in{grid-template-columns:1fr}
+  .gmap-side{padding:56px 20px 40px;order:2}
+  .gmap-frame{order:1;min-height:300px}
   .to-top{left:16px;bottom:16px;width:46px;height:46px}
 }
 </style>
@@ -542,14 +561,33 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <p class="addr" data-i18n="cta_addr">Стоматология «Самудент»<br>ул. Байтик баатыра, 41А<br>Бишкек</p>
       <a href="https://ya.ru/samu_dent/46126703346/" class="tg" target="_blank" rel="noopener" data-i18n="cta_tg">Отзывы на Яндекс.Картах</a>
     </div>
-    <form onsubmit="event.preventDefault();window.open('https://wa.me/996312544439?text='+encodeURIComponent(msg()),'_blank')">
+    <form onsubmit="event.preventDefault();window.open('https://wa.me/996708070502?text='+encodeURIComponent(msg()),'_blank')">
       <input id="fname" type="text" data-i18n-ph="f_name" placeholder="Имя" required>
       <input type="tel" data-i18n-ph="f_phone" placeholder="Телефон" required>
       <input type="text" data-i18n-ph="f_about" placeholder="Что беспокоит">
       <textarea data-i18n-ph="f_msg" placeholder="Комментарий"></textarea>
       <button type="submit" data-i18n="cta_submit">Записаться на консультацию</button>
-      <a href="https://wa.me/996312544439" class="wa" target="_blank" data-i18n="cta_wa">Написать в WhatsApp</a>
+      <a href="https://wa.me/996708070502" class="wa" target="_blank" data-i18n="cta_wa">Написать в WhatsApp</a>
     </form>
+  </div>
+</section>
+
+<!-- КАРТА -->
+<section class="gmap">
+  <div class="wrap gmap-in">
+    <div class="gmap-side rv rv-up">
+      <div class="eyebrow" data-i18n="map_e">Как нас найти</div>
+      <h2 data-i18n="map_h">Мы на карте</h2>
+      <div class="gmap-addr" data-i18n="cta_addr">Стоматология «Самудент»<br>ул. Байтик баатыра, 41А<br>Бишкек</div>
+      <p class="gmap-note" data-i18n="map_n">Отдельный вход в клинику — на карте отмечено точное место.</p>
+      <a class="gmap-btn" href="https://yandex.kg/maps/?pt=74.6077618%2C42.8487765&amp;z=17&amp;l=map" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        <span data-i18n="map_btn">Открыть в Яндекс.Картах</span>
+      </a>
+    </div>
+    <div class="gmap-frame rv rv-scale">
+      <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=74.6055618,42.8474015000,74.60996180000001,42.8501515&amp;layer=mapnik&amp;marker=42.8487765%2C74.6077618" title="Карта: клиника Самудент на карте" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
   </div>
 </section>
 
@@ -557,7 +595,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   <div class="wrap">
     <div class="fg">
       <div><b>САМУДЕНТ</b><p data-i18n="f_desc">Стоматология в Бишкеке на ул. Байтик баатыра, 41А. Лечение, гигиена, имплантация, брекеты и эстетика зубов.</p></div>
-      <div><b data-i18n="f_c">Контакты</b><p><a href="tel:+996312544439">+996 31 25 44 439</a></p><p><a href="https://wa.me/996312544439" target="_blank">WhatsApp</a></p></div>
+      <div><b data-i18n="f_c">Контакты</b><p><a href="tel:+996312544439">+996 31 25 44 439</a></p><p><a href="https://wa.me/996708070502" target="_blank">WhatsApp</a></p></div>
       <div><b data-i18n="f_s">Разделы</b><p><a href="#services" data-i18n="nav_s">Услуги и цены</a></p><p><a href="#how" data-i18n="nav_h">Как проходит</a></p><p><a href="#works" data-i18n="nav_w">Работы</a></p></div>
     </div>
     <div class="fb" data-i18n="f_note">© Самудент. Демонстрационный концепт, не действующий сайт.</div>
@@ -648,7 +686,7 @@ var I18N={ru:{
     'f_s':'Разделы',
     'f_desc':'Стоматология в Бишкеке на ул. Байтик баатыра, 41А. Лечение, гигиена, имплантация, брекеты и эстетика зубов.',
     'f_note':'© Самудент. Демонстрационный концепт, не действующий сайт.',
-    'wa_text':'Здравствуйте! Хочу записаться на приём в клинику «Самудент». ',
+    'wa_text':'Здравствуйте! Хочу записаться на приём в клинику «Самудент». ','map_e':'Как нас найти','map_h':'Мы на карте','map_n':'Отдельный вход в клинику — на карте отмечено точное место.','map_btn':'Открыть в Яндекс.Картах'
 },
 ky:{
     'nav_s':'Кызматтар жана баалар','nav_v':'Клиника жөнүндө','nav_h':'Кантип өтөт','nav_w':'Иштер',
@@ -702,7 +740,7 @@ ky:{
     'f_s':'Бөлүмдөр',
     'f_desc':'Байтик баатыр көч., 41А даги стоматология. Дарылоо, гигиена, имплантация, брекет жана тиш эстетикасы.',
     'f_note':'© Самудент. Демонстрациялык концепт — иш жүгүртүүчү эмес сайт.',
-    'wa_text':'Салам! «Самудент» клиникасына кабылга жазылууга көшкөнүм. ',
+    'wa_text':'Салам! «Самудент» клиникасына кабылга жазылууга көшкөнүм. ','map_e':'Кайда табабыз','map_h':'Картада','map_n':'Клиникага айрыбосо кириш — картада так чегит коюлган.','map_btn':'Яндекс.Карталарда ачуу'
 }};
 var langNow='ru';
 function msg(){
@@ -780,7 +818,7 @@ function setLang(l){
     if(!name||!tel){ alert(L.qz_name+' / '+L.qz_phone); return; }
     var txt=(L.wa_text||'')+name+'\n'+L.qz_phone+': '+tel+'\n'+
             L.qz_sum1+': '+(ans.o||'')+'\n'+L.qz_sum2+': '+(ans.when||'');
-    window.open('https://wa.me/996312544439?text='+encodeURIComponent(txt),'_blank');
+    window.open('https://wa.me/996708070502?text='+encodeURIComponent(txt),'_blank');
   });
   paint();
 })();
