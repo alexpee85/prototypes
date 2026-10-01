@@ -265,6 +265,22 @@ form button:hover{background:var(--gold);color:var(--cream)}
 .wa{display:block;text-align:center;padding:15px;border:1px solid rgba(254,245,228,.34);font-size:.92rem;transition:.2s}
 .wa:hover{background:rgba(254,245,228,.1)}
 
+/* ---------- КАРТА ---------- */
+.gmap{background:var(--cream-2);border-top:1px solid var(--line)}
+.gmap-in{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:0}
+.gmap-side{padding:76px 60px 76px 0;display:flex;flex-direction:column;justify-content:center}
+.gmap-side .eyebrow{margin-bottom:18px}
+.gmap-side h2{font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:16px;font-weight:300}
+.gmap-side p{color:var(--ink-2);font-size:1rem;margin-bottom:24px;max-width:38ch}
+.gmap-addr{font-family:'Cormorant Garamond',serif;font-size:1.34rem;color:var(--ink);margin-bottom:6px;line-height:1.4}
+.gmap-note{font-size:.8rem;color:var(--muted);margin-bottom:26px;line-height:1.6}
+.gmap-btn{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;background:var(--brown);
+  color:var(--cream);padding:15px 26px;font-size:.9rem;transition:background .22s,transform .22s cubic-bezier(.2,.7,.3,1)}
+.gmap-btn:hover{background:var(--gold-deep);color:#fff;transform:translateY(-2px)}
+.gmap-btn svg{width:14px;height:14px;stroke:currentColor;stroke-width:1.5;fill:none;flex:0 0 14px}
+.gmap-frame{position:relative;min-height:440px;background:var(--sand)}
+.gmap-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.34) contrast(1.03)}
+
 /* ---------- FOOTER ---------- */
 footer{background:var(--brown-2);color:rgba(254,245,228,.6);padding:58px 0;font-size:.85rem}
 .fg{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
@@ -323,6 +339,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .tl-item{padding-left:30px}
   .gal{grid-template-columns:repeat(2,1fr);gap:12px}
   .cta-g,.fg{grid-template-columns:1fr;gap:34px}
+  .gmap-in{grid-template-columns:1fr}
+  .gmap-side{padding:56px 20px 40px;order:2}
+  .gmap-frame{order:1;min-height:300px}
   .to-top{left:16px;bottom:16px;width:46px;height:46px}
 }
 </style>
@@ -554,6 +573,26 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   </div>
 </section>
 
+
+<!-- КАРТА -->
+<section class="gmap">
+  <div class="wrap gmap-in">
+    <div class="gmap-side rv rv-up">
+      <div class="eyebrow" data-i18n="map_e">Как нас найти</div>
+      <h2 data-i18n="map_h">Мы на карте</h2>
+      <div class="gmap-addr" data-i18n="cta_addr">Стоматология «Advanced»<br>ул. Касыма Тыныстанова, 10<br>Бишкек</div>
+      <p class="gmap-note" data-i18n="map_n">Метка стоит по улице — уточните дом, если соберётесь к нам.</p>
+      <a class="gmap-btn" href="https://yandex.kg/maps/?pt=74.6094915%2C42.8969987&amp;z=17&amp;l=map" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        <span data-i18n="map_btn">Открыть в Яндекс.Картах</span>
+      </a>
+    </div>
+    <div class="gmap-frame rv rv-scale">
+      <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=74.6072915,42.895623699999994,74.6116915,42.8983737&amp;layer=mapnik&amp;marker=42.8969987%2C74.6094915" title="Карта: клиника Advanced на карте" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="fg">
@@ -649,7 +688,7 @@ var I18N={ru:{
     'f_s':'Разделы',
     'f_desc':'Стоматология в Бишкеке на ул. Касыма Тыныстанова, 10. Лечение, гигиена, имплантация, брекеты и эстетика зубов.',
     'f_note':'© Advanced. Демонстрационный концепт, не действующий сайт.',
-    'wa_text':'Здравствуйте! Хочу записаться на приём в клинику Advanced. ',
+    'wa_text':'Здравствуйте! Хочу записаться на приём в клинику Advanced. ','map_e':'Как нас найти','map_h':'Мы на карте','map_n':'Метка стоит по улице — уточните дом, если соберётесь к нам.','map_btn':'Открыть в Яндекс.Картах'
 },
 ky:{
     'nav_s':'Кызматтар жана баалар','nav_v':'Клиника жөнүндө','nav_h':'Кантип өтөт','nav_w':'Иштер',
@@ -703,7 +742,7 @@ ky:{
     'f_s':'Бөлүмдөр',
     'f_desc':'К. Тыныстанов көч., 10 даги стоматология. Дарылоо, гигиена, имплантация, брекет жана тиш эстетикасы.',
     'f_note':'© Advanced. Демонстрациялык концепт — иш жүгүртүүчү эмес сайт.',
-    'wa_text':'Салам! Advanced клиникасына кабылга жазылууга көшкөнүм. ',
+    'wa_text':'Салам! Advanced клиникасына кабылга жазылууга көшкөнүм. ','map_e':'Кайда табабыз','map_h':'Картада','map_n':'Белги көчөдө тура — келсеңер, үйдүн номурун тактап алыңыз.','map_btn':'Яндекс.Карталарда ачуу'
 }};
 var langNow='ru';
 function msg(){
