@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" role="img" aria-label="РАБОТА 02">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#FEF5E4"/>
+      <stop offset="1" stop-color="#F6E9D4"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1200" fill="url(#g)"/>
+  <circle cx="450.0" cy="552.0" r="270.0" fill="none" stroke="#7D6A57" stroke-opacity="0.14" stroke-width="1"/>
+  <circle cx="450.0" cy="552.0" r="360.0" fill="none" stroke="#7D6A57" stroke-opacity="0.084" stroke-width="1"/>
+  <g transform="translate(279.90 361.49) scale(3.4020)" opacity=".34">
+    <path d="M50 12 C38 12 30 20 30 32 C30 42 34 50 37 60 C39 68 41 76 45 76 C49 76 50 68 50 58 C50 68 51 76 55 76 C59 76 61 68 63 60 C66 50 70 42 70 32 C70 20 62 12 50 12 Z" fill="none" stroke="#7D6A57" stroke-width="2.4" stroke-linejoin="round"/>
+  </g>
+  <text x="450.0" y="1062.0" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="55.8" fill="#4B4034" fill-opacity=".72" letter-spacing="1.5">РАБОТА 02</text>
+  <text x="450.0" y="1134.0" text-anchor="middle" font-family="Helvetica, Arial, sans-serif"
+        font-size="27.0" fill="#7D6A57" fill-opacity=".8" letter-spacing="2.4">ДО / ПОСЛЕ · 3:4</text>
+</svg>
