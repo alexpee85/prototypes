@@ -147,8 +147,14 @@ section{padding:112px 0}
 .fullphoto-in p{color:rgba(254,245,228,.92);font-size:1rem}
 .works{background:var(--cream-2)}
 .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.case{overflow:hidden;background:var(--cream);border:1px solid var(--line);transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,border-color .3s}
-.case:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(75,64,52,.13);border-color:var(--gold)}
+.case{position:relative;overflow:hidden;background:var(--cream);
+  border:1px solid var(--line);border-radius:4px;
+  transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,border-color .3s}
+.case:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 14px 34px rgba(75,64,52,.13)}
+/* hairline inner frame in the bronze accent, sits just inside the border */
+.case::after{content:'';position:absolute;inset:5px;border:1px solid rgba(158,142,128,.45);
+  border-radius:2px;pointer-events:none;transition:border-color .3s}
+.case:hover::after{border-color:rgba(125,106,87,.75)}
 /* natural aspect ratio preserved, no cropping, no upscaling */
 .case img{width:100%;height:auto;display:block;transition:transform .5s}
 .case:hover img{transform:scale(1.02)}
