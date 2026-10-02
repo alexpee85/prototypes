@@ -265,6 +265,22 @@ form button:hover{background:var(--gold);color:var(--cream)}
 .wa{display:block;text-align:center;padding:15px;border:1px solid rgba(254,245,228,.34);font-size:.92rem;transition:.2s}
 .wa:hover{background:rgba(254,245,228,.1)}
 
+/* ---------- КАРТА ---------- */
+.gmap{background:var(--cream-2);border-top:1px solid var(--line)}
+.gmap-in{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:0}
+.gmap-side{padding:76px 60px 76px 0;display:flex;flex-direction:column;justify-content:center}
+.gmap-side .eyebrow{margin-bottom:18px}
+.gmap-side h2{font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:16px;font-weight:300}
+.gmap-side p{color:var(--ink-2);font-size:1rem;margin-bottom:24px;max-width:38ch}
+.gmap-addr{font-family:'Cormorant Garamond',serif;font-size:1.34rem;color:var(--ink);margin-bottom:6px;line-height:1.4}
+.gmap-note{font-size:.8rem;color:var(--muted);margin-bottom:26px;line-height:1.6}
+.gmap-btn{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;background:var(--brown);
+  color:var(--cream);padding:15px 26px;font-size:.9rem;transition:background .22s,transform .22s cubic-bezier(.2,.7,.3,1)}
+.gmap-btn:hover{background:var(--gold-deep);color:#fff;transform:translateY(-2px)}
+.gmap-btn svg{width:14px;height:14px;stroke:currentColor;stroke-width:1.5;fill:none;flex:0 0 14px}
+.gmap-frame{position:relative;min-height:440px;background:var(--sand)}
+.gmap-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.34) contrast(1.03)}
+
 /* ---------- FOOTER ---------- */
 footer{background:var(--brown-2);color:rgba(254,245,228,.6);padding:58px 0;font-size:.85rem}
 .fg{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
@@ -323,6 +339,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .tl-item{padding-left:30px}
   .gal{grid-template-columns:repeat(2,1fr);gap:12px}
   .cta-g,.fg{grid-template-columns:1fr;gap:34px}
+  .gmap-in{grid-template-columns:1fr}
+  .gmap-side{padding:56px 20px 40px;order:2}
+  .gmap-frame{order:1;min-height:300px}
   .to-top{left:16px;bottom:16px;width:46px;height:46px}
 }
 </style>
@@ -539,7 +558,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <h2 data-i18n="cta_h2">Запишитесь на приём</h2>
       <p data-i18n="cta_p">Врач посмотрит зубы, сделает снимок и назовёт точную цену — до того, как вы примете решение.</p>
       <a href="tel:+996312424974" class="tel">+996 31 24 24 974</a>
-      <p class="addr" data-i18n="cta_addr">Стоматология «Атлант»<br>микрорайон, 37<br>Бишкек<br>микрорайон, 37<br>Бишкек</p>
+      <p class="addr" data-i18n="cta_addr">Стоматология «Атлант»<br>7-й микрорайон, 37<br>Бишкек</p>
       <a href="https://ya.ru/atlant/115712680728/" class="tg" target="_blank" rel="noopener" data-i18n="cta_rev">Отзывы на Яндекс.Картах</a>
     </div>
     <form onsubmit="event.preventDefault();window.open('https://wa.me/996312424974?text='+encodeURIComponent(msg()),'_blank')">
@@ -550,6 +569,25 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <button type="submit" data-i18n="cta_submit">Записаться на консультацию</button>
       <a href="https://wa.me/996312424974" class="wa" target="_blank" data-i18n="cta_wa">Написать в WhatsApp</a>
     </form>
+  </div>
+</section>
+
+<!-- КАРТА -->
+<section class="gmap">
+  <div class="wrap gmap-in">
+    <div class="gmap-side rv rv-up">
+      <div class="eyebrow" data-i18n="map_e">Как нас найти</div>
+      <h2 data-i18n="map_h">Мы на карте</h2>
+      <div class="gmap-addr" data-i18n="cta_addr">Стоматология «Атлант»<br>7-й микрорайон, 37<br>Бишкек</div>
+      <p class="gmap-note" data-i18n="map_n">Отдельный вход в клинику — на карте отмечено точное место.</p>
+      <a class="gmap-btn" href="https://yandex.kg/maps/?pt=74.618747%2C42.834205&amp;z=17&amp;l=map" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        <span data-i18n="map_btn">Открыть в Яндекс.Картах</span>
+      </a>
+    </div>
+    <div class="gmap-frame rv rv-scale">
+      <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=74.616547,42.8328300000,74.620947,42.83558&amp;layer=mapnik&amp;marker=42.834205%2C74.618747" title="Карта: клиники на карте" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
   </div>
 </section>
 
@@ -587,7 +625,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <a href="#cta" class="m-btn" data-i18n="cta_h">Записаться</a>
       <a href="tel:+996312424974" class="m-tel">+996 31 24 24 974</a>
     </div>
-    <p class="msk-addr" data-i18n="cta_addr">Стоматология «Атлант»<br>микрорайон, 37<br>Бишкек<br>микрорайон, 37<br>Бишкек</p>
+    <p class="msk-addr" data-i18n="cta_addr">Стоматология «Атлант»<br>7-й микрорайон, 37<br>Бишкек</p>
   </div>
 </div>
 
@@ -598,10 +636,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <script>
 var I18N={ru:{
     'nav_s':'Услуги и цены','nav_v':'О клинике','nav_h':'Как проходит','nav_w':'Работы','cta_h':'Записаться',
-    'hm1':'микрорайон, 37','hm2':'Бишкек','h1a':'Лечим зубы','h1b':'без страха и очередей.',
+    'hm1':'7-й микрорайон, 37','hm2':'Бишкек','h1a':'Лечим зубы','h1b':'без страха и очередей.',
     'hero_p':'Стоматология в Бишкеке. Лечение, гигиена, имплантация и брекеты — с рейтингом 4,4 по отзывам пациентов.',
     'hero_btn':'Записаться на приём','hero_btn2':'Смотреть цены','s1':'рейтинг на Яндекс.Картах',
-    's2':'отзывов пациентов','s3':'сом — лечение кариеса','s4v':'6','s4':'микрорайон, 37','svc_e':'Услуги и цены',
+    's2':'отзывов пациентов','s3':'сом — лечение кариеса','s4v':'6','s4':'7-й микрорайон, 37','svc_e':'Услуги и цены',
     'svc_h':'Что делаем и сколько это стоит',
     'svc_p':'Цены — рыночный ориентир по Бишкеку. Точную стоимость на вашем случае скажет врач на приёме.',
     'p1':'Лечение кариеса','p1d':'Чистка полости, пломба из фотокомпозита. За один визит.','p1v':'от 2 500 сом',
@@ -642,21 +680,21 @@ var I18N={ru:{
     'qz_val_month':'В течение месяца','qz_val_just':'Пока узнаю цены','qz_sum1':'Запрос','qz_sum2':'Когда',
     'cta_h2':'Запишитесь на приём',
     'cta_p':'Врач посмотрит зубы, сделает снимок и назовёт точную цену — до того, как вы примете решение.',
-    'cta_addr':'Стоматология «Атлант»<br>микрорайон, 37<br>Бишкек',
+    'cta_addr':'Стоматология «Атлант»<br>7-й микрорайон, 37<br>Бишкек',
     'cta_tg':'Отзывы на Яндекс.Картах','cta_submit':'Записаться на приём','cta_wa':'Написать в WhatsApp',
     'f_name':'Имя','f_phone':'Телефон','f_about':'Что беспокоит','f_msg':'Комментарий','f_c':'Контакты',
     'f_s':'Разделы',
     'f_desc':'Стоматология в Бишкеке. Лечение, гигиена, имплантация, брекеты и эстетика зубов.',
     'f_note':'© Атлант. Демонстрационный концепт, не действующий сайт.',
-    'wa_text':'Здравствуйте! Хочу записаться на приём в клинику «Атлант». ','cta_rev':'Отзывы на Яндекс.Картах'
+    'wa_text':'Здравствуйте! Хочу записаться на приём в клинику «Атлант». ','cta_rev':'Отзывы на Яндекс.Картах','map_e':'Как нас найти','map_h':'Мы на карте','map_n':'Отдельный вход в клинику — на карте отмечено точное место.','map_btn':'Открыть в Яндекс.Картах'
 },
 ky:{
     'nav_s':'Кызматтар жана баалар','nav_v':'Клиника жөнүндө','nav_h':'Кантип өтөт','nav_w':'Иштер',
-    'cta_h':'Жазылуу','hm1':'микрорайон, 37','hm2':'Бишкек','h1a':'Тишти дарылабыз',
+    'cta_h':'Жазылуу','hm1':'7-микрорайон, 37','hm2':'Бишкек','h1a':'Тишти дарылабыз',
     'h1b':'коркуу жана кезексиз.',
     'hero_p':'Бишкектеги стоматология. Дарылоо, гигиена, имплантация жана брекет — пациенттердин пикири боюнча 4,4 рейтинг.',
     'hero_btn':'Кабылдауга жазылуу','hero_btn2':'Бааларды көрүү','s1':'Яндекс.Карталардагы рейтинг',
-    's2':'пациенттин пикири','s3':'сом — кариестен дарылоо','s4v':'6','s4':'микрорайон, 37',
+    's2':'пациенттин пикири','s3':'сом — кариестен дарылоо','s4v':'6','s4':'7-микрорайон, 37',
     'svc_e':'Кызматтар жана баалар','svc_h':'Эмне кылам жана канча турат',
     'svc_p':'Баалар — Бишкектеги рынок баасы. Сиздин учурда конкреттүү наркты дарыгер кабылдоодо айтат.',
     'p1':'Кариестен дарылоо','p1d':'Боштукту тазалоо, фотокомпозит пломба. Бир кабылда.','p1v':'2 500 сомдон',
@@ -696,13 +734,13 @@ ky:{
     'qz_val_month':'Бир айдын ичинде','qz_val_just':'Азыр наркты билгим келет','qz_sum1':'Суроо',
     'qz_sum2':'Качан','cta_h2':'Кабылдауга жазылыңыз',
     'cta_p':'Дарыгер тиштериңизди карайт, снимок чыгарат жана так наркын айтат — чечим кабыл алдыңыздан мурун.',
-    'cta_addr':'«Атлант» стоматологиясы<br>микрорайон, 37<br>Бишкек',
+    'cta_addr':'«Атлант» стоматологиясы<br>7-микрорайон, 37<br>Бишкек',
     'cta_tg':'Яндекс.Карталардагы пикирлер','cta_submit':'Кабылдауга жазылуу','cta_wa':'WhatsApp жазуу',
     'f_name':'Аты','f_phone':'Телефон','f_about':'Эмне тынчсыздантырт','f_msg':'Пикир','f_c':'Байланыш',
     'f_s':'Бөлүмдөр',
     'f_desc':'Бишкектеги стоматология. Дарылоо, гигиена, имплантация, брекет жана тиш эстетикасы.',
     'f_note':'© Атлант. Демонстрациялык концепт — иш жүгүртүүчү эмес сайт.',
-    'wa_text':'Салам! «Атлант» клиникасына кабылга жазылууга көшкөнүм. ','cta_rev':'Яндекс.Карталардагы пикирлер'
+    'wa_text':'Салам! «Атлант» клиникасына кабылга жазылууга көшкөнүм. ','cta_rev':'Яндекс.Карталардагы пикирлер','map_e':'Кайда табабыз','map_h':'Картада','map_n':'Клиникага айрыбосо кириш — картада так чегит коюлган.','map_btn':'Яндекс.Карталарда ачуу'
 }};
 var langNow='ru';
 function msg(){
