@@ -557,17 +557,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
     <div>
       <h2 data-i18n="cta_h2">Запишитесь на приём</h2>
       <p data-i18n="cta_p">Врач посмотрит зубы, сделает снимок и назовёт точную цену — до того, как вы примете решение.</p>
-      <a href="https://ya.ru/vita_dent_lux/161052964652/" class="tel" data-i18n="tel_ph">Телефон уточняется</a>
+      <a href="tel:+996775777773" class="tel" >+996 775 777 773</a>
       <p class="addr" data-i18n="cta_addr">Стоматология «Vita-Den Lux»<br>ул. Токтогула, 165<br>Бишкек</p>
       <a href="https://ya.ru/vita_dent_lux/161052964652/" class="tg" target="_blank" rel="noopener" data-i18n="cta_rev">Отзывы на Яндекс.Картах</a>
     </div>
-    <form onsubmit="event.preventDefault();window.open('https://ya.ru/vita_dent_lux/161052964652/','_blank')">
+    <form onsubmit="event.preventDefault();window.open('https://wa.me/996775777773?text='+encodeURIComponent(msg()),'_blank')">
       <input id="fname" type="text" data-i18n-ph="f_name" placeholder="Имя" required>
       <input type="tel" data-i18n-ph="f_phone" placeholder="Телефон" required>
       <input type="text" data-i18n-ph="f_about" placeholder="Что беспокоит">
       <textarea data-i18n-ph="f_msg" placeholder="Комментарий"></textarea>
       <button type="submit" data-i18n="cta_submit">Записаться на консультацию</button>
-      <a href="https://ya.ru/vita_dent_lux/161052964652/" class="wa" target="_blank" rel="noopener" data-i18n="cta_wa">Контакты и отзывы</a>
+      <a href="https://wa.me/996775777773" class="wa" target="_blank" rel="noopener" data-i18n="cta_wa">Написать в WhatsApp</a>
     </form>
   </div>
 </section>
@@ -595,7 +595,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   <div class="wrap">
     <div class="fg">
       <div><b>VITA-DEN LUX</b><p data-i18n="f_desc">Стоматология в Бишкеке. Лечение, гигиена, имплантация, брекеты и эстетика зубов.</p></div>
-      <div><b data-i18n="f_c">Контакты</b><p><a href="https://ya.ru/vita_dent_lux/161052964652/" data-i18n="tel_ph">Телефон уточняется</a></p><p><a href="https://ya.ru/vita_dent_lux/161052964652/" target="_blank">WhatsApp</a></p></div>
+      <div><b data-i18n="f_c">Контакты</b><p><a href="tel:+996775777773" >+996 775 777 773</a></p><p><a href="https://ya.ru/vita_dent_lux/161052964652/" target="_blank">WhatsApp</a></p></div>
       <div><b data-i18n="f_s">Разделы</b><p><a href="#services" data-i18n="nav_s">Услуги и цены</a></p><p><a href="#how" data-i18n="nav_h">Как проходит</a></p><p><a href="#works" data-i18n="nav_w">Работы</a></p></div>
     </div>
     <div class="fb" data-i18n="f_note">© Vita-Den Lux. Демонстрационный концепт, не действующий сайт.</div>
@@ -623,7 +623,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
     </div>
     <div class="msk-cta">
       <a href="#cta" class="m-btn" data-i18n="cta_h">Записаться</a>
-      <a href="https://ya.ru/vita_dent_lux/161052964652/" class="m-tel" data-i18n="tel_ph">Телефон уточняется</a>
+      <a href="tel:+996775777773" class="m-tel" >+996 775 777 773</a>
     </div>
     <p class="msk-addr" data-i18n="cta_addr">Стоматология «Vita-Den Lux»<br>ул. Токтогула, 165<br>Бишкек</p>
   </div>
@@ -674,20 +674,20 @@ var I18N={ru:{
     'q1d':'Просто осмотр','q2':'Когда удобно прийти?','q2h':'Подберём время под вас','q2a':'Сегодня-завтра',
     'q2b':'На этой неделе','q2c':'В течение месяца','q2d':'Пока узнаю цены','q3':'Осталось одно',
     'q3h':'Телефон — перезвоню и подберём время','qz_name':'Имя','qz_phone':'Телефон','qz_next':'Далее →',
-    'qz_back':'← Назад','qz_submit':'Записаться','qz_send':'Отправить','qz_via':'Контакты клиники — в карточке на Яндекс.Картах',
+    'qz_back':'← Назад','qz_submit':'Записаться','qz_send':'Отправить','qz_via':'Заявка уходит в WhatsApp',
     'qz_val_caries':'Болит зуб','qz_val_implant':'Хочу имплант','qz_val_beauty':'Хочу выровнять зубы',
     'qz_val_check':'Просто осмотр','qz_val_today':'Сегодня-завтра','qz_val_week':'На этой неделе',
     'qz_val_month':'В течение месяца','qz_val_just':'Пока узнаю цены','qz_sum1':'Запрос','qz_sum2':'Когда',
     'cta_h2':'Запишитесь на приём',
     'cta_p':'Врач посмотрит зубы, сделает снимок и назовёт точную цену — до того, как вы примете решение.',
     'cta_addr':'Стоматология «Vita-Den Lux»<br>ул. Токтогула, 165<br>Бишкек',
-    'cta_tg':'Отзывы на Яндекс.Картах','cta_submit':'Записаться на приём','cta_wa':'Контакты и отзывы',
+    'cta_tg':'Отзывы на Яндекс.Картах','cta_submit':'Записаться на приём','cta_wa':'Написать в WhatsApp',
     'f_name':'Имя','f_phone':'Телефон','f_about':'Что беспокоит','f_msg':'Комментарий','f_c':'Контакты',
     'f_s':'Разделы',
     'f_desc':'Стоматология в Бишкеке на ул. Токтогула, 165. Лечение, гигиена, имплантация, брекеты и эстетика зубов.',
     'f_note':'© Vita-Den Lux. Демонстрационный концепт, не действующий сайт.',
     'wa_text':'Здравствуйте! Хочу записаться на приём в клинику Vita-Den Lux. ','cta_rev':'Отзывы на Яндекс.Картах','map_e':'Как нас найти','map_h':'Мы на карте','map_n':'Отдельный вход в клинику — на карте отмечено точное место.','map_btn':'Открыть в Яндекс.Картах'
-,'tel_ph':'Телефон уточняется'},
+},
 ky:{
     'nav_s':'Кызматтар жана баалар','nav_v':'Клиника жөнүндө','nav_h':'Кантип өтөт','nav_w':'Иштер',
     'cta_h':'Жазылуу','hm1':'Токтогул көч., 165','hm2':'Бишкек','h1a':'Красивый күлүш',
@@ -728,20 +728,20 @@ ky:{
     'q2h':'Убакытты сизге ыңгайлаштырабыз','q2a':'Бүгүн-эртең','q2b':'Ушул жумада','q2c':'Бир айдын ичинде',
     'q2d':'Азыр наркты билгим келет','q3':'Бир гана калды','q3h':'Телефон — чалам жана убакыт табам',
     'qz_name':'Аты','qz_phone':'Телефон','qz_next':'Кийинки →','qz_back':'← Артка','qz_submit':'Жазылуу',
-    'qz_send':'Жөнөтүү','qz_via':'Клиниканын байланыштары — Яндекс.Карталардагы карточкада','qz_val_caries':'Тиш ооруйт',
+    'qz_send':'Жөнөтүү','qz_via':'Арыз WhatsApp аркылуу жөнөтүлөт','qz_val_caries':'Тиш ооруйт',
     'qz_val_implant':'Имплант керек','qz_val_beauty':'Тиштеримди жөнгө салгым келет',
     'qz_val_check':'Жөн гана карау','qz_val_today':'Бүгүн-эртең','qz_val_week':'Ушул жумада',
     'qz_val_month':'Бир айдын ичинде','qz_val_just':'Азыр наркты билгим келет','qz_sum1':'Суроо',
     'qz_sum2':'Качан','cta_h2':'Кабылдауга жазылыңыз',
     'cta_p':'Дарыгер тиштериңизди карайт, снимок чыгарат жана так наркын айтат — чечим кабыл алдыңыздан мурун.',
     'cta_addr':'«Vita-Den Lux» стоматологиясы<br>Токтогул көч., 165<br>Бишкек',
-    'cta_tg':'Яндекс.Карталардагы пикирлер','cta_submit':'Кабылдауга жазылуу','cta_wa':'Байланыш жана пикирлер',
+    'cta_tg':'Яндекс.Карталардагы пикирлер','cta_submit':'Кабылдауга жазылуу','cta_wa':'WhatsApp жазуу',
     'f_name':'Аты','f_phone':'Телефон','f_about':'Эмне тынчсыздантырт','f_msg':'Пикир','f_c':'Байланыш',
     'f_s':'Бөлүмдөр',
     'f_desc':'Токтогул көч., 165 даги стоматология. Дарылоо, гигиена, имплантация, брекет жана тиш эстетикасы.',
     'f_note':'© Vita-Den Lux. Демонстрациялык концепт — иш жүгүртүүчү эмес сайт.',
     'wa_text':'Салам! Vita-Den Lux клиникасына кабылга жазылууга көшкөнүм. ','cta_rev':'Яндекс.Карталардагы пикирлер','map_e':'Кайда табабыз','map_h':'Картада','map_n':'Клиникага айрыбосо кириш — картада так чегит коюлган.','map_btn':'Яндекс.Карталарда ачуу'
-,'tel_ph':'Телефон аныкталат'}};
+}};
 var langNow='ru';
 function msg(){
   var L=I18N[langNow];
@@ -818,7 +818,7 @@ function setLang(l){
     if(!name||!tel){ alert(L.qz_name+' / '+L.qz_phone); return; }
     var txt=(L.wa_text||'')+name+'\n'+L.qz_phone+': '+tel+'\n'+
             L.qz_sum1+': '+(ans.o||'')+'\n'+L.qz_sum2+': '+(ans.when||'');
-    window.open('https://ya.ru/vita_dent_lux/161052964652/','_blank');
+    window.open('https://wa.me/996775777773?text='+encodeURIComponent(txt),'_blank');
   });
   paint();
 })();
